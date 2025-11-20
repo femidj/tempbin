@@ -1,0 +1,120 @@
+{
+  "app": {
+    "title": "TempBin - 一時的なファイル共有",
+    "description": "自動期限切れリンクで一時的にファイルを共有"
+  },
+  "header": {
+    "logo": "tempbin",
+    "github": "GitHubでkazeochangを見る（新しいタブで開く）",
+    "settings": "設定",
+    "openSettings": "設定を開く",
+    "language": "言語",
+    "lightMode": "ライトモードに切り替え",
+    "darkMode": "ダークモードに切り替え"
+  },
+  "hero": {
+    "title": "一時的にファイルを共有",
+    "subtitle": "ファイルをアップロードして、{{minutes}}分後に自動的に期限切れになる共有リンクを取得",
+    "subtitle_plural": "ファイルをアップロードして、{{minutes}}分後に自動的に期限切れになる共有リンクを取得"
+  },
+  "expiration": {
+    "label": "ファイルの有効期限：",
+    "minutes": "{{count}} 分",
+    "minutes_plural": "{{count}} 分",
+    "min1": "1 分",
+    "min5": "5 分",
+    "min10": "10 分"
+  },
+  "hashFilename": {
+    "label": "ファイル名をハッシュ化",
+    "hint": "プライバシー向上のためファイル名を匿名化",
+    "enabled": "ファイル名がハッシュ化されます",
+    "disabled": "元のファイル名が使用されます"
+  },
+  "upload": {
+    "title": "ファイルをここにドロップ",
+    "subtitle": "またはクリックして参照",
+    "info": "ファイルは{{minutes}}分後に自動的に期限切れになります",
+    "info_plural": "ファイルは{{minutes}}分後に自動的に期限切れになります",
+    "uploading": "アップロード中...",
+    "ariaLabel": "ファイルアップロードエリア。クリックしてファイルを選択するか、ここにファイルをドラッグアンドドロップしてください"
+  },
+  "fileList": {
+    "title": "ファイル",
+    "deleteSelected": "削除 ({{count}})",
+    "deleteSelectedAria": "{{count}} 個の選択されたファイルを削除",
+    "copyAllLinks": "すべてのリンクをコピー",
+    "copyAllLinksAria": "すべてのファイルリンクをクリップボードにコピー",
+    "selectAllAria": "すべてのファイルを選択",
+    "selectFileAria": "{{name}} を選択",
+    "name": "名前",
+    "size": "サイズ",
+    "expires": "有効期限",
+    "actions": "操作",
+    "expired": "期限切れ",
+    "copied": "✓",
+    "copiedAll": "コピーしました！",
+    "deleteConfirm": "{{count}} 個の選択されたファイルを削除しますか？",
+    "copyLinkTitle": "リンクをコピー",
+    "copyLinkAria": "{{name}} のリンクをコピー",
+    "openFileTitle": "ファイルを開く",
+    "openFileAria": "{{name}} を開く",
+    "deleteFileTitle": "ファイルを削除",
+    "deleteFileAria": "{{name}} を削除"
+  },
+  "fileCard": {
+    "delete": "ファイルを削除",
+    "copyLink": "リンクをコピー",
+    "copied": "コピーしました！",
+    "open": "開く"
+  },
+  "empty": {
+    "title": "まだファイルがアップロードされていません",
+    "subtitle": "最初のファイルをアップロードして始めましょう"
+  },
+  "settings": {
+    "title": "設定",
+    "closeAria": "設定を閉じる",
+    "r2Title": "Cloudflare R2",
+    "infoTitle": "Cloudflare R2 バケットを設定",
+    "infoDescription": "Cloudflareダッシュボードから R2 認証情報が必要です。すべてのデータはブラウザにローカルに保存されます。",
+    "accountId": "アカウントID",
+    "accountIdPlaceholder": "CloudflareアカウントID",
+    "bucketName": "バケット名",
+    "bucketNamePlaceholder": "my-bucket",
+    "accessKeyId": "アクセスキーID",
+    "accessKeyIdPlaceholder": "R2アクセスキーID",
+    "secretAccessKey": "シークレットアクセスキー",
+    "secretAccessKeyPlaceholder": "R2シークレットアクセスキー",
+    "publicUrl": "パブリックURL（オプション）",
+    "publicUrlPlaceholder": "https://your-domain.com",
+    "publicUrlHint": "公開ファイルアクセス用のカスタムドメイン",
+    "appearance": "外観",
+    "themeMode": "テーマモード",
+    "themeModeHint": "ライトテーマとダークテーマから選択",
+    "light": "ライト",
+    "dark": "ダーク",
+    "lightMode": "ライトモード",
+    "darkMode": "ダークモード",
+    "highContrast": "ハイコントラスト",
+    "highContrastHint": "視認性を向上させるためにコントラストを上げる",
+    "cancel": "キャンセル",
+    "save": "設定を保存",
+    "saving": "保存中...",
+    "requiredFields": "すべての必須フィールドを入力してください",
+    "saveSuccess": "設定が正常に保存されました！",
+    "saveError": "設定の保存に失敗しました"
+  },
+  "notifications": {
+    "uploadSuccess": "ファイルが正常にアップロードされました！",
+    "uploadError": "ファイルのアップロードに失敗しました。R2設定を確認してください。",
+    "deleteSuccess": "ファイルが正常に削除されました！",
+    "deleteError": "ファイルの削除に失敗しました。",
+    "deleteMultiSuccess": "{{count}}個のファイルが正常に削除されました！",
+    "deleteMultiError": "ファイルの削除に失敗しました。"
+  },
+  "accessibility": {
+    "skipToMain": "メインコンテンツへスキップ",
+    "mainContent": "ファイル共有アプリケーション"
+  }
+}

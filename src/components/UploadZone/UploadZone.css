@@ -1,0 +1,330 @@
+
+.upload-zone {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease, background 0.5s ease, border-color 0.5s ease;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.upload-zone:hover .upload-light {
+  opacity: 1;
+}
+
+.upload-zone:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.upload-zone:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.upload-content,
+.upload-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  z-index: 1;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.upload-content.fade-out,
+.upload-loading.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+
+.upload-content.fade-in,
+.upload-loading.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.upload-zone::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.upload-zone:hover::before {
+  opacity: 1;
+}
+
+.upload-zone:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.upload-zone.dragging {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.upload-zone.uploading {
+  cursor: not-allowed;
+}
+
+.upload-icon {
+  width: 48px;
+  height: 48px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  stroke-width: 2;
+}
+
+.upload-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+
+.upload-subtitle {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+
+.upload-text {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.upload-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.upload-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.info-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .upload-zone {
+    height: 200px;
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .upload-content,
+  .upload-loading {
+    padding: 1.5rem 1rem;
+  }
+
+  .upload-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 4px;
+  }
+
+  .upload-title {
+    font-size: 1.125rem;
+  }
+
+  .upload-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .upload-info {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .info-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .upload-spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+  }
+
+  .upload-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-zone {
+    height: 180px;
+    padding: 1rem 0.75rem;
+    border-radius: 12px;
+  }
+
+  .upload-content,
+  .upload-loading {
+    padding: 1rem 0.75rem;
+  }
+
+  .upload-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .upload-title {
+    font-size: 1rem;
+  }
+
+  .upload-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .upload-info {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .upload-spinner {
+    width: 36px;
+    height: 36px;
+  }
+
+  .upload-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Light Theme Styles */
+.app.theme-light .upload-zone {
+  background: rgba(0, 0, 0, 0.03);
+  border: 2px dashed rgba(0, 0, 0, 0.2);
+}
+
+.app.theme-light .upload-zone::before {
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.05) 0%, transparent 70%);
+}
+
+.app.theme-light .upload-zone:hover {
+  border-color: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.app.theme-light .upload-zone.dragging {
+  border-color: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.app.theme-light .upload-zone:focus {
+  outline-color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+.app.theme-light .upload-icon {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.app.theme-light .upload-title {
+  color: #1a1a1a;
+}
+
+.app.theme-light .upload-subtitle {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.app.theme-light .upload-text {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.app.theme-light .upload-spinner {
+  border-color: rgba(0, 0, 0, 0.1);
+  border-top-color: rgba(0, 0, 0, 0.6);
+}
+
+.app.theme-light .upload-info {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.9);
+}

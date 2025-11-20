@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "TempBin - Temporary File Sharing",
+    "description": "Share files temporarily with auto-expiring links"
+  },
+  "header": {
+    "logo": "tempbin",
+    "github": "Visit kazeochan on GitHub (opens in new tab)",
+    "settings": "Settings",
+    "openSettings": "Open settings",
+    "language": "Language",
+    "lightMode": "Switch to light mode",
+    "darkMode": "Switch to dark mode"
+  },
+  "hero": {
+    "title": "Share Files Temporarily",
+    "subtitle": "Upload files and get shareable links that automatically expire in {{minutes}} minute",
+    "subtitle_plural": "Upload files and get shareable links that automatically expire in {{minutes}} minutes"
+  },
+  "expiration": {
+    "label": "Files expire in:",
+    "minutes": "{{count}} minute",
+    "minutes_plural": "{{count}} minutes",
+    "min1": "1 min",
+    "min5": "5 min",
+    "min10": "10 min"
+  },
+  "hashFilename": {
+    "label": "Hash File Names",
+    "hint": "Anonymize file names for better privacy",
+    "enabled": "File names will be hashed",
+    "disabled": "Original file names will be used"
+  },
+  "upload": {
+    "title": "Drop your file here",
+    "subtitle": "or click to browse",
+    "info": "Files expire automatically after {{minutes}} minute",
+    "info_plural": "Files expire automatically after {{minutes}} minutes",
+    "uploading": "Uploading...",
+    "ariaLabel": "Upload file area. Click to select a file or drag and drop a file here"
+  },
+  "fileList": {
+    "title": "Files",
+    "deleteSelected": "Delete ({{count}})",
+    "deleteSelectedAria": "Delete {{count}} selected file(s)",
+    "copyAllLinks": "Copy All Links",
+    "copyAllLinksAria": "Copy all file links to clipboard",
+    "selectAllAria": "Select all files",
+    "selectFileAria": "Select {{name}}",
+    "name": "Name",
+    "size": "Size",
+    "expires": "Expires",
+    "actions": "Actions",
+    "expired": "Expired",
+    "copied": "✓",
+    "copiedAll": "Copied!",
+    "deleteConfirm": "Delete {{count}} selected file(s)?",
+    "copyLinkTitle": "Copy link",
+    "copyLinkAria": "Copy link for {{name}}",
+    "openFileTitle": "Open file",
+    "openFileAria": "Open {{name}}",
+    "deleteFileTitle": "Delete file",
+    "deleteFileAria": "Delete {{name}}"
+  },
+  "fileCard": {
+    "delete": "Delete file",
+    "copyLink": "Copy Link",
+    "copied": "Copied!",
+    "open": "Open"
+  },
+  "empty": {
+    "title": "No files uploaded yet",
+    "subtitle": "Upload your first file to get started"
+  },
+  "settings": {
+    "title": "Settings",
+    "closeAria": "Close settings",
+    "r2Title": "Cloudflare R2",
+    "infoTitle": "Configure your Cloudflare R2 bucket",
+    "infoDescription": "You'll need your R2 credentials from the Cloudflare dashboard. All data is stored locally in your browser.",
+    "accountId": "Account ID",
+    "accountIdPlaceholder": "Your Cloudflare account ID",
+    "bucketName": "Bucket Name",
+    "bucketNamePlaceholder": "my-bucket",
+    "accessKeyId": "Access Key ID",
+    "accessKeyIdPlaceholder": "Your R2 access key ID",
+    "secretAccessKey": "Secret Access Key",
+    "secretAccessKeyPlaceholder": "Your R2 secret access key",
+    "publicUrl": "Public URL (Optional)",
+    "publicUrlPlaceholder": "https://your-domain.com",
+    "publicUrlHint": "Custom domain for public file access",
+    "appearance": "Appearance",
+    "themeMode": "Theme Mode",
+    "themeModeHint": "Choose between light and dark theme",
+    "light": "Light",
+    "dark": "Dark",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode",
+    "highContrast": "High Contrast",
+    "highContrastHint": "Increase contrast for better visibility",
+    "language": "Language",
+    "languageHint": "Choose your preferred language",
+    "cancel": "Cancel",
+    "save": "Save Settings",
+    "saving": "Saving...",
+    "requiredFields": "Please fill in all required fields",
+    "saveSuccess": "Settings saved successfully!",
+    "saveError": "Failed to save settings"
+  },
+  "notifications": {
+    "uploadSuccess": "File uploaded successfully!",
+    "uploadError": "Failed to upload file. Please check your R2 settings.",
+    "deleteSuccess": "File deleted successfully!",
+    "deleteError": "Failed to delete file.",
+    "deleteMultiSuccess": "{{count}} file(s) deleted successfully!",
+    "deleteMultiError": "Failed to delete files."
+  },
+  "accessibility": {
+    "skipToMain": "Skip to main content",
+    "mainContent": "File sharing application"
+  }
+}

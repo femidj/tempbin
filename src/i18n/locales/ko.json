@@ -1,0 +1,120 @@
+{
+  "app": {
+    "title": "TempBin - 임시 파일 공유",
+    "description": "자동 만료 링크로 임시 파일 공유"
+  },
+  "header": {
+    "logo": "tempbin",
+    "github": "GitHub에서 kazeochan 방문 (새 탭에서 열기)",
+    "settings": "설정",
+    "openSettings": "설정 열기",
+    "language": "언어",
+    "lightMode": "라이트 모드로 전환",
+    "darkMode": "다크 모드로 전환"
+  },
+  "hero": {
+    "title": "임시로 파일 공유",
+    "subtitle": "파일을 업로드하고 {{minutes}}분 후 자동으로 만료되는 공유 링크 받기",
+    "subtitle_plural": "파일을 업로드하고 {{minutes}}분 후 자동으로 만료되는 공유 링크 받기"
+  },
+  "expiration": {
+    "label": "파일 만료 시간:",
+    "minutes": "{{count}}분",
+    "minutes_plural": "{{count}}분",
+    "min1": "1분",
+    "min5": "5분",
+    "min10": "10분"
+  },
+  "hashFilename": {
+    "label": "파일명 해싱",
+    "hint": "개인정보 보호를 위해 파일명을 익명화",
+    "enabled": "파일명이 해싱됩니다",
+    "disabled": "원본 파일명이 사용됩니다"
+  },
+  "upload": {
+    "title": "파일을 여기에 드롭하세요",
+    "subtitle": "또는 클릭하여 찾아보기",
+    "info": "파일은 {{minutes}}분 후 자동으로 만료됩니다",
+    "info_plural": "파일은 {{minutes}}분 후 자동으로 만료됩니다",
+    "uploading": "업로드 중...",
+    "ariaLabel": "파일 업로드 영역. 클릭하여 파일을 선택하거나 여기에 파일을 드래그 앤 드롭하세요"
+  },
+  "fileList": {
+    "title": "파일",
+    "deleteSelected": "삭제 ({{count}})",
+    "deleteSelectedAria": "선택한 {{count}}개 파일 삭제",
+    "copyAllLinks": "모든 링크 복사",
+    "copyAllLinksAria": "모든 파일 링크를 클립보드에 복사",
+    "selectAllAria": "모든 파일 선택",
+    "selectFileAria": "{{name}} 선택",
+    "name": "이름",
+    "size": "크기",
+    "expires": "만료 시간",
+    "actions": "작업",
+    "expired": "만료됨",
+    "copied": "✓",
+    "copiedAll": "복사됨！",
+    "deleteConfirm": "선택한 {{count}}개 파일을 삭제하시겠습니까?",
+    "copyLinkTitle": "링크 복사",
+    "copyLinkAria": "{{name}} 링크 복사",
+    "openFileTitle": "파일 열기",
+    "openFileAria": "{{name}} 열기",
+    "deleteFileTitle": "파일 삭제",
+    "deleteFileAria": "{{name}} 삭제"
+  },
+  "fileCard": {
+    "delete": "파일 삭제",
+    "copyLink": "링크 복사",
+    "copied": "복사됨!",
+    "open": "열기"
+  },
+  "empty": {
+    "title": "아직 업로드된 파일이 없습니다",
+    "subtitle": "첫 번째 파일을 업로드하여 시작하세요"
+  },
+  "settings": {
+    "title": "설정",
+    "closeAria": "설정 닫기",
+    "r2Title": "Cloudflare R2",
+    "infoTitle": "Cloudflare R2 버킷 구성",
+    "infoDescription": "Cloudflare 대시보드에서 R2 자격 증명이 필요합니다. 모든 데이터는 브라우저에 로컬로 저장됩니다.",
+    "accountId": "계정 ID",
+    "accountIdPlaceholder": "Cloudflare 계정 ID",
+    "bucketName": "버킷 이름",
+    "bucketNamePlaceholder": "my-bucket",
+    "accessKeyId": "액세스 키 ID",
+    "accessKeyIdPlaceholder": "R2 액세스 키 ID",
+    "secretAccessKey": "비밀 액세스 키",
+    "secretAccessKeyPlaceholder": "R2 비밀 액세스 키",
+    "publicUrl": "공개 URL (선택사항)",
+    "publicUrlPlaceholder": "https://your-domain.com",
+    "publicUrlHint": "공개 파일 액세스용 커스텀 도메인",
+    "appearance": "외관",
+    "themeMode": "테마 모드",
+    "themeModeHint": "라이트 테마와 다크 테마 중 선택",
+    "light": "라이트",
+    "dark": "다크",
+    "lightMode": "라이트 모드",
+    "darkMode": "다크 모드",
+    "highContrast": "고대비",
+    "highContrastHint": "더 나은 가시성을 위해 대비 증가",
+    "cancel": "취소",
+    "save": "설정 저장",
+    "saving": "저장 중...",
+    "requiredFields": "모든 필수 필드를 입력하세요",
+    "saveSuccess": "설정이 성공적으로 저장되었습니다!",
+    "saveError": "설정 저장 실패"
+  },
+  "notifications": {
+    "uploadSuccess": "파일이 성공적으로 업로드되었습니다!",
+    "uploadError": "파일 업로드 실패. R2 설정을 확인하세요.",
+    "deleteSuccess": "파일이 성공적으로 삭제되었습니다!",
+    "deleteError": "파일 삭제 실패.",
+    "deleteMultiSuccess": "{{count}}개의 파일이 성공적으로 삭제되었습니다!",
+    "deleteMultiError": "파일 삭제 실패."
+  },
+  "accessibility": {
+    "skipToMain": "메인 콘텐츠로 건너뛰기",
+    "mainContent": "파일 공유 애플리케이션"
+  }
+}

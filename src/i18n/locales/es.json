@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "TempBin - Compartir Archivos Temporales",
+    "description": "Comparte archivos temporalmente con enlaces que expiran automáticamente"
+  },
+  "header": {
+    "logo": "tempbin",
+    "github": "Visitar kazeochan en GitHub (se abre en una nueva pestaña)",
+    "settings": "Configuración",
+    "openSettings": "Abrir configuración",
+    "language": "Idioma",
+    "lightMode": "Cambiar a modo claro",
+    "darkMode": "Cambiar a modo oscuro"
+  },
+  "hero": {
+    "title": "Compartir Archivos Temporalmente",
+    "subtitle": "Sube archivos y obtén enlaces para compartir que expiran automáticamente en {{minutes}} minuto",
+    "subtitle_plural": "Sube archivos y obtén enlaces para compartir que expiran automáticamente en {{minutes}} minutos"
+  },
+  "expiration": {
+    "label": "Los archivos expiran en:",
+    "minutes": "{{count}} minuto",
+    "minutes_plural": "{{count}} minutos",
+    "min1": "1 min",
+    "min5": "5 min",
+    "min10": "10 min"
+  },
+  "hashFilename": {
+    "label": "Cifrar Nombres de Archivos",
+    "hint": "Anonimizar nombres de archivos para mejor privacidad",
+    "enabled": "Los nombres de archivos serán cifrados",
+    "disabled": "Se usarán los nombres originales"
+  },
+  "upload": {
+    "title": "Suelta tu archivo aquí",
+    "subtitle": "o haz clic para explorar",
+    "info": "Los archivos expiran automáticamente después de {{minutes}} minuto",
+    "info_plural": "Los archivos expiran automáticamente después de {{minutes}} minutos",
+    "uploading": "Subiendo...",
+    "ariaLabel": "Área de carga de archivos. Haz clic para seleccionar un archivo o arrastra y suelta un archivo aquí"
+  },
+  "fileList": {
+    "title": "Archivos",
+    "deleteSelected": "Eliminar ({{count}})",
+    "deleteSelectedAria": "Eliminar {{count}} archivo(s) seleccionado(s)",
+    "copyAllLinks": "Copiar Todos los Enlaces",
+    "copyAllLinksAria": "Copiar todos los enlaces de archivos al portapapeles",
+    "selectAllAria": "Seleccionar todos los archivos",
+    "selectFileAria": "Seleccionar {{name}}",
+    "name": "Nombre",
+    "size": "Tamaño",
+    "expires": "Expira",
+    "actions": "Acciones",
+    "expired": "Expirado",
+    "copied": "✓",
+    "copiedAll": "¡Copiado!",
+    "deleteConfirm": "¿Eliminar {{count}} archivo(s) seleccionado(s)?",
+    "copyLinkTitle": "Copiar enlace",
+    "copyLinkAria": "Copiar enlace de {{name}}",
+    "openFileTitle": "Abrir archivo",
+    "openFileAria": "Abrir {{name}}",
+    "deleteFileTitle": "Eliminar archivo",
+    "deleteFileAria": "Eliminar {{name}}"
+  },
+  "fileCard": {
+    "delete": "Eliminar archivo",
+    "copyLink": "Copiar Enlace",
+    "copied": "¡Copiado!",
+    "open": "Abrir"
+  },
+  "empty": {
+    "title": "Aún no hay archivos subidos",
+    "subtitle": "Sube tu primer archivo para comenzar"
+  },
+  "settings": {
+    "title": "Configuración",
+    "closeAria": "Cerrar configuración",
+    "r2Title": "Cloudflare R2",
+    "infoTitle": "Configura tu bucket de Cloudflare R2",
+    "infoDescription": "Necesitarás tus credenciales de R2 del panel de Cloudflare. Todos los datos se almacenan localmente en tu navegador.",
+    "accountId": "ID de Cuenta",
+    "accountIdPlaceholder": "Tu ID de cuenta de Cloudflare",
+    "bucketName": "Nombre del Bucket",
+    "bucketNamePlaceholder": "mi-bucket",
+    "accessKeyId": "ID de Clave de Acceso",
+    "accessKeyIdPlaceholder": "Tu ID de clave de acceso R2",
+    "secretAccessKey": "Clave de Acceso Secreta",
+    "secretAccessKeyPlaceholder": "Tu clave de acceso secreta R2",
+    "publicUrl": "URL Pública (Opcional)",
+    "publicUrlPlaceholder": "https://tu-dominio.com",
+    "publicUrlHint": "Dominio personalizado para acceso público a archivos",
+    "appearance": "Apariencia",
+    "themeMode": "Modo de Tema",
+    "themeModeHint": "Elige entre tema claro y oscuro",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "lightMode": "Modo claro",
+    "darkMode": "Modo oscuro",
+    "highContrast": "Alto Contraste",
+    "highContrastHint": "Aumentar el contraste para mejor visibilidad",
+    "language": "Idioma",
+    "languageHint": "Elige tu idioma preferido",
+    "cancel": "Cancelar",
+    "save": "Guardar Configuración",
+    "saving": "Guardando...",
+    "requiredFields": "Por favor completa todos los campos requeridos",
+    "saveSuccess": "¡Configuración guardada exitosamente!",
+    "saveError": "Error al guardar la configuración"
+  },
+  "notifications": {
+    "uploadSuccess": "¡Archivo subido exitosamente!",
+    "uploadError": "Error al subir el archivo. Por favor verifica tu configuración de R2.",
+    "deleteSuccess": "¡Archivo eliminado exitosamente!",
+    "deleteError": "Error al eliminar el archivo.",
+    "deleteMultiSuccess": "¡{{count}} archivo(s) eliminado(s) exitosamente!",
+    "deleteMultiError": "Error al eliminar archivos."
+  },
+  "accessibility": {
+    "skipToMain": "Saltar al contenido principal",
+    "mainContent": "Aplicación para compartir archivos"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "TempBin - Partage de Fichiers Temporaires",
+    "description": "Partagez des fichiers temporairement avec des liens à expiration automatique"
+  },
+  "header": {
+    "logo": "tempbin",
+    "github": "Visiter kazeochan sur GitHub (s'ouvre dans un nouvel onglet)",
+    "settings": "Paramètres",
+    "openSettings": "Ouvrir les paramètres",
+    "language": "Langue",
+    "lightMode": "Passer en mode clair",
+    "darkMode": "Passer en mode sombre"
+  },
+  "hero": {
+    "title": "Partager des Fichiers Temporairement",
+    "subtitle": "Téléchargez des fichiers et obtenez des liens partageables qui expirent automatiquement dans {{minutes}} minute",
+    "subtitle_plural": "Téléchargez des fichiers et obtenez des liens partageables qui expirent automatiquement dans {{minutes}} minutes"
+  },
+  "expiration": {
+    "label": "Les fichiers expirent dans :",
+    "minutes": "{{count}} minute",
+    "minutes_plural": "{{count}} minutes",
+    "min1": "1 min",
+    "min5": "5 min",
+    "min10": "10 min"
+  },
+  "hashFilename": {
+    "label": "Hacher les Noms de Fichiers",
+    "hint": "Anonymiser les noms de fichiers pour plus de confidentialité",
+    "enabled": "Les noms de fichiers seront hachés",
+    "disabled": "Les noms de fichiers d'origine seront utilisés"
+  },
+  "upload": {
+    "title": "Déposez votre fichier ici",
+    "subtitle": "ou cliquez pour parcourir",
+    "info": "Les fichiers expirent automatiquement après {{minutes}} minute",
+    "info_plural": "Les fichiers expirent automatiquement après {{minutes}} minutes",
+    "uploading": "Téléchargement...",
+    "ariaLabel": "Zone de téléchargement de fichiers. Cliquez pour sélectionner un fichier ou faites glisser et déposez un fichier ici"
+  },
+  "fileList": {
+    "title": "Fichiers",
+    "deleteSelected": "Supprimer ({{count}})",
+    "deleteSelectedAria": "Supprimer {{count}} fichier(s) sélectionné(s)",
+    "copyAllLinks": "Copier Tous les Liens",
+    "copyAllLinksAria": "Copier tous les liens de fichiers dans le presse-papiers",
+    "selectAllAria": "Sélectionner tous les fichiers",
+    "selectFileAria": "Sélectionner {{name}}",
+    "name": "Nom",
+    "size": "Taille",
+    "expires": "Expire",
+    "actions": "Actions",
+    "expired": "Expiré",
+    "copied": "✓",
+    "copiedAll": "Copié !",
+    "deleteConfirm": "Supprimer {{count}} fichier(s) sélectionné(s) ?",
+    "copyLinkTitle": "Copier le lien",
+    "copyLinkAria": "Copier le lien de {{name}}",
+    "openFileTitle": "Ouvrir le fichier",
+    "openFileAria": "Ouvrir {{name}}",
+    "deleteFileTitle": "Supprimer le fichier",
+    "deleteFileAria": "Supprimer {{name}}"
+  },
+  "fileCard": {
+    "delete": "Supprimer le fichier",
+    "copyLink": "Copier le Lien",
+    "copied": "Copié !",
+    "open": "Ouvrir"
+  },
+  "empty": {
+    "title": "Aucun fichier téléchargé pour le moment",
+    "subtitle": "Téléchargez votre premier fichier pour commencer"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "closeAria": "Fermer les paramètres",
+    "r2Title": "Cloudflare R2",
+    "infoTitle": "Configurez votre bucket Cloudflare R2",
+    "infoDescription": "Vous aurez besoin de vos identifiants R2 depuis le tableau de bord Cloudflare. Toutes les données sont stockées localement dans votre navigateur.",
+    "accountId": "ID de Compte",
+    "accountIdPlaceholder": "Votre ID de compte Cloudflare",
+    "bucketName": "Nom du Bucket",
+    "bucketNamePlaceholder": "mon-bucket",
+    "accessKeyId": "ID de Clé d'Accès",
+    "accessKeyIdPlaceholder": "Votre ID de clé d'accès R2",
+    "secretAccessKey": "Clé d'Accès Secrète",
+    "secretAccessKeyPlaceholder": "Votre clé d'accès secrète R2",
+    "publicUrl": "URL Publique (Optionnel)",
+    "publicUrlPlaceholder": "https://votre-domaine.com",
+    "publicUrlHint": "Domaine personnalisé pour l'accès public aux fichiers",
+    "appearance": "Apparence",
+    "themeMode": "Mode de Thème",
+    "themeModeHint": "Choisir entre thème clair et sombre",
+    "light": "Clair",
+    "dark": "Sombre",
+    "lightMode": "Mode clair",
+    "darkMode": "Mode sombre",
+    "highContrast": "Contraste Élevé",
+    "highContrastHint": "Augmenter le contraste pour une meilleure visibilité",
+    "language": "Langue",
+    "languageHint": "Choisissez votre langue préférée",
+    "cancel": "Annuler",
+    "save": "Enregistrer les Paramètres",
+    "saving": "Enregistrement...",
+    "requiredFields": "Veuillez remplir tous les champs requis",
+    "saveSuccess": "Paramètres enregistrés avec succès !",
+    "saveError": "Échec de l'enregistrement des paramètres"
+  },
+  "notifications": {
+    "uploadSuccess": "Fichier téléchargé avec succès !",
+    "uploadError": "Échec du téléchargement du fichier. Veuillez vérifier vos paramètres R2.",
+    "deleteSuccess": "Fichier supprimé avec succès !",
+    "deleteError": "Échec de la suppression du fichier.",
+    "deleteMultiSuccess": "{{count}} fichier(s) supprimé(s) avec succès !",
+    "deleteMultiError": "Échec de la suppression des fichiers."
+  },
+  "accessibility": {
+    "skipToMain": "Passer au contenu principal",
+    "mainContent": "Application de partage de fichiers"
+  }
+}

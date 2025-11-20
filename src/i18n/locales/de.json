@@ -1,0 +1,120 @@
+{
+  "app": {
+    "title": "TempBin - Temporäre Dateifreigabe",
+    "description": "Dateien temporär mit automatisch ablaufenden Links teilen"
+  },
+  "header": {
+    "logo": "tempbin",
+    "github": "Besuchen Sie kazeochan auf GitHub (öffnet in neuem Tab)",
+    "settings": "Einstellungen",
+    "openSettings": "Einstellungen öffnen",
+    "language": "Sprache",
+    "lightMode": "Zu hellem Modus wechseln",
+    "darkMode": "Zu dunklem Modus wechseln"
+  },
+  "hero": {
+    "title": "Dateien Temporär Teilen",
+    "subtitle": "Laden Sie Dateien hoch und erhalten Sie teilbare Links, die automatisch in {{minutes}} Minute ablaufen",
+    "subtitle_plural": "Laden Sie Dateien hoch und erhalten Sie teilbare Links, die automatisch in {{minutes}} Minuten ablaufen"
+  },
+  "expiration": {
+    "label": "Dateien verfallen in:",
+    "minutes": "{{count}} Minute",
+    "minutes_plural": "{{count}} Minuten",
+    "min1": "1 Min",
+    "min5": "5 Min",
+    "min10": "10 Min"
+  },
+  "hashFilename": {
+    "label": "Dateinamen hashen",
+    "hint": "Dateinamen anonymisieren für besseren Datenschutz",
+    "enabled": "Dateinamen werden gehasht",
+    "disabled": "Original-Dateinamen werden verwendet"
+  },
+  "upload": {
+    "title": "Datei hier ablegen",
+    "subtitle": "oder klicken zum Durchsuchen",
+    "info": "Dateien laufen automatisch nach {{minutes}} Minute ab",
+    "info_plural": "Dateien laufen automatisch nach {{minutes}} Minuten ab",
+    "uploading": "Wird hochgeladen...",
+    "ariaLabel": "Datei-Upload-Bereich. Klicken Sie, um eine Datei auszuwählen, oder ziehen Sie eine Datei hierher"
+  },
+  "fileList": {
+    "title": "Dateien",
+    "deleteSelected": "Löschen ({{count}})",
+    "deleteSelectedAria": "{{count}} ausgewählte Datei(en) löschen",
+    "copyAllLinks": "Alle Links Kopieren",
+    "copyAllLinksAria": "Alle Dateilinks in die Zwischenablage kopieren",
+    "selectAllAria": "Alle Dateien auswählen",
+    "selectFileAria": "{{name}} auswählen",
+    "name": "Name",
+    "size": "Größe",
+    "expires": "Läuft ab",
+    "actions": "Aktionen",
+    "expired": "Abgelaufen",
+    "copied": "✓",
+    "copiedAll": "Kopiert!",
+    "deleteConfirm": "{{count}} ausgewählte Datei(en) löschen?",
+    "copyLinkTitle": "Link kopieren",
+    "copyLinkAria": "Link für {{name}} kopieren",
+    "openFileTitle": "Datei öffnen",
+    "openFileAria": "{{name}} öffnen",
+    "deleteFileTitle": "Datei löschen",
+    "deleteFileAria": "{{name}} löschen"
+  },
+  "fileCard": {
+    "delete": "Datei löschen",
+    "copyLink": "Link Kopieren",
+    "copied": "Kopiert!",
+    "open": "Öffnen"
+  },
+  "empty": {
+    "title": "Noch keine Dateien hochgeladen",
+    "subtitle": "Laden Sie Ihre erste Datei hoch, um zu beginnen"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "closeAria": "Einstellungen schließen",
+    "r2Title": "Cloudflare R2",
+    "infoTitle": "Konfigurieren Sie Ihren Cloudflare R2 Bucket",
+    "infoDescription": "Sie benötigen Ihre R2-Anmeldedaten aus dem Cloudflare-Dashboard. Alle Daten werden lokal in Ihrem Browser gespeichert.",
+    "accountId": "Konto-ID",
+    "accountIdPlaceholder": "Ihre Cloudflare-Konto-ID",
+    "bucketName": "Bucket-Name",
+    "bucketNamePlaceholder": "mein-bucket",
+    "accessKeyId": "Zugriffsschlüssel-ID",
+    "accessKeyIdPlaceholder": "Ihre R2-Zugriffsschlüssel-ID",
+    "secretAccessKey": "Geheimer Zugriffsschlüssel",
+    "secretAccessKeyPlaceholder": "Ihr geheimer R2-Zugriffsschlüssel",
+    "publicUrl": "Öffentliche URL (Optional)",
+    "publicUrlPlaceholder": "https://ihre-domain.com",
+    "publicUrlHint": "Benutzerdefinierte Domain für öffentlichen Dateizugriff",
+    "appearance": "Erscheinungsbild",
+    "themeMode": "Themenmodus",
+    "themeModeHint": "Zwischen hellem und dunklem Thema wählen",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "lightMode": "Heller Modus",
+    "darkMode": "Dunkler Modus",
+    "highContrast": "Hoher Kontrast",
+    "highContrastHint": "Kontrast für bessere Sichtbarkeit erhöhen",
+    "cancel": "Abbrechen",
+    "save": "Einstellungen Speichern",
+    "saving": "Wird gespeichert...",
+    "requiredFields": "Bitte füllen Sie alle Pflichtfelder aus",
+    "saveSuccess": "Einstellungen erfolgreich gespeichert!",
+    "saveError": "Fehler beim Speichern der Einstellungen"
+  },
+  "notifications": {
+    "uploadSuccess": "Datei erfolgreich hochgeladen!",
+    "uploadError": "Fehler beim Hochladen der Datei. Bitte überprüfen Sie Ihre R2-Einstellungen.",
+    "deleteSuccess": "Datei erfolgreich gelöscht!",
+    "deleteError": "Fehler beim Löschen der Datei.",
+    "deleteMultiSuccess": "{{count}} Datei(en) erfolgreich gelöscht!",
+    "deleteMultiError": "Fehler beim Löschen der Dateien."
+  },
+  "accessibility": {
+    "skipToMain": "Zum Hauptinhalt springen",
+    "mainContent": "Dateifreigabe-Anwendung"
+  }
+}

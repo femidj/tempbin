@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "TempBin - 临时文件分享",
+    "description": "使用自动过期链接分享临时文件"
+  },
+  "header": {
+    "logo": "tempbin",
+    "github": "在 GitHub 上访问 kazeochan（在新标签页打开）",
+    "settings": "设置",
+    "openSettings": "打开设置",
+    "language": "语言",
+    "lightMode": "切换到亮色模式",
+    "darkMode": "切换到深色模式"
+  },
+  "hero": {
+    "title": "临时分享文件",
+    "subtitle": "上传文件并获得会在 {{minutes}} 分钟后自动过期的分享链接",
+    "subtitle_plural": "上传文件并获得会在 {{minutes}} 分钟后自动过期的分享链接"
+  },
+  "expiration": {
+    "label": "文件将在以下时间后过期：",
+    "minutes": "{{count}} 分钟",
+    "minutes_plural": "{{count}} 分钟",
+    "min1": "1 分钟",
+    "min5": "5 分钟",
+    "min10": "10 分钟"
+  },
+  "hashFilename": {
+    "label": "哈希文件名",
+    "hint": "匿名化文件名以提高隐私性",
+    "enabled": "文件名将被哈希处理",
+    "disabled": "将使用原始文件名"
+  },
+  "upload": {
+    "title": "将文件拖放到此处",
+    "subtitle": "或点击浏览",
+    "info": "文件会在 {{minutes}} 分钟后自动过期",
+    "info_plural": "文件会在 {{minutes}} 分钟后自动过期",
+    "uploading": "正在上传...",
+    "ariaLabel": "上传文件区域。点击选择文件或将文件拖放到此处"
+  },
+  "fileList": {
+    "title": "文件",
+    "deleteSelected": "删除 ({{count}})",
+    "deleteSelectedAria": "删除 {{count}} 个已选文件",
+    "copyAllLinks": "复制所有链接",
+    "copyAllLinksAria": "复制所有文件链接到剪贴板",
+    "selectAllAria": "选择所有文件",
+    "selectFileAria": "选择 {{name}}",
+    "name": "名称",
+    "size": "大小",
+    "expires": "过期时间",
+    "actions": "操作",
+    "expired": "已过期",
+    "copied": "✓",
+    "copiedAll": "已复制！",
+    "deleteConfirm": "删除 {{count}} 个已选文件？",
+    "copyLinkTitle": "复制链接",
+    "copyLinkAria": "复制 {{name}} 的链接",
+    "openFileTitle": "打开文件",
+    "openFileAria": "打开 {{name}}",
+    "deleteFileTitle": "删除文件",
+    "deleteFileAria": "删除 {{name}}"
+  },
+  "fileCard": {
+    "delete": "删除文件",
+    "copyLink": "复制链接",
+    "copied": "已复制！",
+    "open": "打开"
+  },
+  "empty": {
+    "title": "尚未上传文件",
+    "subtitle": "上传您的第一个文件以开始使用"
+  },
+  "settings": {
+    "title": "设置",
+    "closeAria": "关闭设置",
+    "r2Title": "Cloudflare R2",
+    "infoTitle": "配置您的 Cloudflare R2 存储桶",
+    "infoDescription": "您需要从 Cloudflare 控制台获取 R2 凭证。所有数据都存储在您的浏览器本地。",
+    "accountId": "账户 ID",
+    "accountIdPlaceholder": "您的 Cloudflare 账户 ID",
+    "bucketName": "存储桶名称",
+    "bucketNamePlaceholder": "my-bucket",
+    "accessKeyId": "访问密钥 ID",
+    "accessKeyIdPlaceholder": "您的 R2 访问密钥 ID",
+    "secretAccessKey": "秘密访问密钥",
+    "secretAccessKeyPlaceholder": "您的 R2 秘密访问密钥",
+    "publicUrl": "公开 URL（可选）",
+    "publicUrlPlaceholder": "https://your-domain.com",
+    "publicUrlHint": "用于公开文件访问的自定义域名",
+    "appearance": "外观",
+    "themeMode": "主题模式",
+    "themeModeHint": "在亮色和深色主题之间选择",
+    "light": "亮色",
+    "dark": "深色",
+    "lightMode": "亮色模式",
+    "darkMode": "深色模式",
+    "highContrast": "高对比度",
+    "highContrastHint": "提高对比度以获得更好的可见性",
+    "language": "语言",
+    "languageHint": "选择您的首选语言",
+    "cancel": "取消",
+    "save": "保存设置",
+    "saving": "正在保存...",
+    "requiredFields": "请填写所有必填字段",
+    "saveSuccess": "设置已成功保存！",
+    "saveError": "保存设置失败"
+  },
+  "notifications": {
+    "uploadSuccess": "文件上传成功！",
+    "uploadError": "上传文件失败。请检查您的 R2 设置。",
+    "deleteSuccess": "文件删除成功！",
+    "deleteError": "删除文件失败。",
+    "deleteMultiSuccess": "已成功删除 {{count}} 个文件！",
+    "deleteMultiError": "删除文件失败。"
+  },
+  "accessibility": {
+    "skipToMain": "跳至主要内容",
+    "mainContent": "文件分享应用程序"
+  }
+}

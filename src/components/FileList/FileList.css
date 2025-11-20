@@ -1,0 +1,561 @@
+
+.file-list {
+  margin-top: 2rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.file-list.fade-out {
+  animation: fadeOut 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.file-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: white;
+  transition: color 0.4s ease;
+}
+
+.file-list-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+.bulk-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.bulk-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s, background 0.5s ease, border 0.5s ease, color 0.5s ease;
+}
+
+.bulk-action-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.bulk-action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.bulk-action-btn.delete {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.bulk-action-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.bulk-action-btn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+.bulk-action-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.app.theme-light .bulk-action-btn:focus {
+  outline-color: rgba(0, 0, 0, 0.6);
+}
+
+.file-list-table {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: background 0.5s ease, border 0.5s ease;
+}
+
+.file-list-table-header {
+  display: grid;
+  grid-template-columns: 40px 1fr 100px 100px 120px;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.file-list-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 100px 100px 120px;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s;
+  align-items: center;
+  animation: slideIn 0.3s ease backwards;
+}
+
+.file-list-row.deleting {
+  animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+.file-list-row:nth-child(1) { animation-delay: 0.05s; }
+.file-list-row:nth-child(2) { animation-delay: 0.1s; }
+.file-list-row:nth-child(3) { animation-delay: 0.15s; }
+.file-list-row:nth-child(4) { animation-delay: 0.2s; }
+.file-list-row:nth-child(5) { animation-delay: 0.25s; }
+.file-list-row:nth-child(6) { animation-delay: 0.3s; }
+.file-list-row:nth-child(7) { animation-delay: 0.35s; }
+.file-list-row:nth-child(8) { animation-delay: 0.4s; }
+.file-list-row:nth-child(9) { animation-delay: 0.45s; }
+.file-list-row:nth-child(10) { animation-delay: 0.5s; }
+
+@keyframes fileRowSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.file-list-row:last-child {
+  border-bottom: none;
+}
+
+.file-list-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.file-list-row.selected {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.file-cell {
+  display: flex;
+  align-items: center;
+}
+
+.file-cell-checkbox {
+  justify-content: center;
+}
+
+.file-cell-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: rgba(255, 255, 255, 0.8);
+}
+
+.file-cell-checkbox input[type="checkbox"]:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+.file-cell-checkbox input[type="checkbox"]:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.app.theme-light .file-cell-checkbox input[type="checkbox"]:focus {
+  outline-color: rgba(0, 0, 0, 0.6);
+}
+
+.file-cell-name {
+  overflow: hidden;
+}
+
+.file-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+.file-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.file-cell-size {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.file-cell-timer {
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.file-cell-actions {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.action-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.action-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.action-btn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+.action-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.app.theme-light .action-btn:focus {
+  outline-color: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 1024px) {
+  .file-list-table-header {
+    grid-template-columns: 40px 1fr 90px 110px;
+    gap: 0.75rem;
+  }
+
+  .file-list-row {
+    grid-template-columns: 40px 1fr 90px 110px;
+    gap: 0.75rem;
+  }
+
+  .file-cell-size {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .file-list {
+    margin-top: 1.5rem;
+  }
+
+  .file-list-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  .file-list-title {
+    font-size: 1.125rem;
+  }
+
+  .bulk-actions {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .bulk-action-btn {
+    flex: 1;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .bulk-action-btn span {
+    display: none;
+  }
+
+  .file-list-table {
+    border-radius: 12px;
+  }
+
+  .file-list-table-header {
+    grid-template-columns: 32px 1fr 70px;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.65rem;
+  }
+
+  .file-list-row {
+    grid-template-columns: 32px 1fr 70px;
+    gap: 0.5rem;
+    padding: 0.75rem 0.75rem;
+  }
+
+  .file-cell-size,
+  .file-cell-timer {
+    display: none;
+  }
+
+  .file-name-wrapper {
+    gap: 0.4rem;
+  }
+
+  .file-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .file-name {
+    font-size: 0.8rem;
+  }
+
+  .file-cell-actions {
+    gap: 0.2rem;
+  }
+
+  .action-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .action-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .file-list-title {
+    font-size: 1rem;
+  }
+
+  .bulk-action-btn {
+    padding: 0.4rem 0.4rem;
+  }
+
+  .bulk-action-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .file-list-table-header {
+    grid-template-columns: 28px 1fr 60px;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .file-list-row {
+    grid-template-columns: 28px 1fr 60px;
+    padding: 0.6rem 0.5rem;
+  }
+
+  .file-cell-checkbox input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+  }
+
+  .file-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .file-name {
+    font-size: 0.75rem;
+  }
+
+  .file-cell-actions {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .action-btn {
+    width: 26px;
+    height: 26px;
+  }
+
+  .action-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Light Theme Styles */
+.app.theme-light .file-list-header,
+.app.theme-light .file-list-title {
+  color: #1a1a1a;
+}
+
+.app.theme-light .bulk-action-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.app.theme-light .bulk-action-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.app.theme-light .bulk-action-btn.delete {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+}
+
+.app.theme-light .bulk-action-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.app.theme-light .file-list-table {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app.theme-light .file-list-table-header {
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.app.theme-light .file-list-row {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.app.theme-light .file-list-row:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.app.theme-light .file-list-row.selected {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.app.theme-light .file-cell-checkbox input[type="checkbox"] {
+  accent-color: rgba(0, 0, 0, 0.8);
+}
+
+.app.theme-light .file-icon {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.app.theme-light .file-name {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.app.theme-light .file-cell-size {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.app.theme-light .timer-text {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.app.theme-light .action-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.app.theme-light .action-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.25);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.app.theme-light .action-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #dc2626;
+}
