@@ -25,7 +25,7 @@ cp .env.example .env
 ```
 
 | Variable | Description | Default |
-|Str | --- | --- |
+| --- | --- | --- |
 | `VITE_APP_URL` | The public URL of your application | `http://localhost:5173` |
 | `VITE_OG_IMAGE_URL` | URL for the Open Graph image (Facebook/LinkedIn) | `http://localhost:5173/og-image.png` |
 | `VITE_TWITTER_IMAGE_URL` | URL for the Twitter card image | `http://localhost:5173/twitter-image.png` |
@@ -132,11 +132,13 @@ This will generate a `dist` folder containing the static assets.
 ## 🔒 Security & Privacy
 
 *   **Credentials**: Your R2 Access Keys are stored in your browser's `localStorage`. They are strictly used to sign requests within the browser and are never transmitted to any backend server managed by TempBin.
-*   **Least Privilege**: **Strongly Recommended**: Do not use your root Cloudflare account API keys. Instead, create a specific API Token with **Object Read & Write** permissions scoped *only* to the specific bucket you are using for this application. This limits the potential impact if your browser environment is ever compromised.
+> [!WARNING]
+> Do not use your root Cloudflare account API keys. Instead, create a specific API Token with **Object Read & Write** permissions scoped *only* to the specific bucket you are using for this application. This limits the potential impact if your browser environment is ever compromised.
 *   **File Access**: Files are uploaded directly to R2.
 *   **Expiration**:
     *   **Links**: The generated download links are "presigned URLs" that expire after a set time (default 10 minutes).
-    *   **Files**: The application attempts to delete expired files when you have the app open. **Recommendation**: Set up an Object Lifecycle Rule in your R2 bucket settings to automatically delete files after 1 day as a fallback to ensure storage cleanup.
+    *   **Files**: The application attempts to delete expired files when you have the app open. 
+    *   **Recommendation**: Set up an Object Lifecycle Rule in your R2 bucket settings to automatically delete files after 1 day as a fallback to ensure storage cleanup.
 
 ## 🤝 Contributing
 

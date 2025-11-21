@@ -112,7 +112,7 @@ const Header: React.FC<HeaderProps> = ({ onSettingsClick, theme, onThemeToggle, 
           </button>
           
           <a 
-            href="https://github.com/kazeochan" 
+            href="https://github.com/kazeochan/tempbin" 
             target="_blank" 
             rel="noopener noreferrer"
             className="github-link"
