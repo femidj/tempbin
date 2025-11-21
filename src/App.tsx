@@ -6,6 +6,7 @@ import FileList from './components/FileList/FileList';
 import Header from './components/Header/Header';
 import Settings from './components/Settings/Settings';
 import OnboardingWizard from './components/OnboardingWizard/OnboardingWizard';
+import PasteConfirmation from './components/PasteConfirmation/PasteConfirmation';
 import { FileItem, R2Config } from './types';
 import { uploadFileToR2, deleteFileFromR2, getFilesList } from './services/r2Service';
 import { persistence } from './utils/persistence';
@@ -16,6 +17,7 @@ function App() {
   const [isUploading, setIsUploading] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showWizard, setShowWizard] = useState(false);
+  const [pastedFile, setPastedFile] = useState<File | null>(null);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const [notificationFadeOut, setNotificationFadeOut] = useState(false);
   const [fileListFadeOut, setFileListFadeOut] = useState(false);
@@ -64,12 +66,25 @@ function App() {
     };
     window.addEventListener('keydown', handleEscape);
     
+    // Handle paste events
+    const handlePaste = (e: ClipboardEvent) => {
+      if (showSettings || showWizard || isUploading || pastedFile) return;
+      
+      if (e.clipboardData && e.clipboardData.files.length > 0) {
+        e.preventDefault();
+        const file = e.clipboardData.files[0];
+        setPastedFile(file);
+      }
+    };
+    window.addEventListener('paste', handlePaste);
+    
     return () => {
       clearInterval(interval);
       motionQuery.removeEventListener('change', handleMotionChange);
       window.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('paste', handlePaste);
     };
-  }, [showSettings]);
+  }, [showSettings, showWizard, isUploading, pastedFile]);
 
   // Update document title when language changes
   useEffect(() => {
@@ -371,6 +386,17 @@ function App() {
           onThemeChange={handleThemeChange}
           highContrast={highContrast}
           onHighContrastChange={handleHighContrastChange}
+        />
+      )}
+
+      {pastedFile && (
+        <PasteConfirmation
+          file={pastedFile}
+          onConfirm={() => {
+            handleFileUpload(pastedFile);
+            setPastedFile(null);
+          }}
+          onCancel={() => setPastedFile(null)}
         />
       )}
 

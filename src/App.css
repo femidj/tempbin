@@ -1,5 +1,13 @@
-
 .app {
+  /* CSS Variables for theming */
+  --card-bg: rgba(20, 20, 20, 0.95);
+  --bg-secondary: rgba(255, 255, 255, 0.05);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
+
   min-height: 100vh;
   background: linear-gradient(-45deg, #000000, #0a0a0a, #050505, #0d0d0d);
   background-size: 400% 400%;
@@ -50,6 +58,13 @@
 
 /* Light Theme */
 .app.theme-light {
+  /* Light Theme Variables Override */
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --bg-secondary: rgba(0, 0, 0, 0.05);
+  --text-primary: #1a1a1a;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --border-color: rgba(0, 0, 0, 0.1);
+  
   background: linear-gradient(-45deg, #f5f5f5, #fafafa, #f0f0f0, #f8f8f8);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;

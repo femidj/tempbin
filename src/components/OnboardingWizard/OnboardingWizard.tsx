@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import './OnboardingWizard.css';
 import { R2Config } from '../../types';
 import { persistence } from '../../utils/persistence';
@@ -25,6 +27,9 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
   const [copied, setCopied] = useState(false);
   const [height, setHeight] = useState<number | undefined>(undefined);
   const innerRef = useRef<HTMLDivElement>(null);
+  const isDarkMode = document.documentElement.classList.contains('theme-dark') || 
+                     (!document.documentElement.classList.contains('theme-light') && 
+                      window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   useEffect(() => {
     if (!innerRef.current) return;
@@ -294,18 +299,21 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
           <div className="form-group">
             <label>{t('wizard.step4.jsonLabel')}</label>
             <div style={{ position: 'relative' }}>
-              <textarea
-                readOnly
-                value={corsString}
-                style={{ 
-                  height: '200px', 
-                  fontFamily: 'monospace', 
-                  fontSize: '12px', 
-                  whiteSpace: 'pre',
-                  resize: 'none'
+              <SyntaxHighlighter
+                language="json"
+                style={isDarkMode ? vscDarkPlus : vs}
+                customStyle={{
+                  margin: 0,
+                  padding: '1rem',
+                  borderRadius: '8px',
+                  fontSize: '12px',
+                  height: '200px',
+                  backgroundColor: 'var(--bg-secondary)',
+                  border: '1px solid var(--border-color)',
                 }}
-                onClick={(e) => (e.target as HTMLTextAreaElement).select()}
-              />
+              >
+                {corsString}
+              </SyntaxHighlighter>
               <button 
                 className="btn-secondary"
                 style={{ 
@@ -317,7 +325,8 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
                   background: 'var(--bg-secondary)',
                   border: '1px solid var(--border-color)',
                   color: copied ? '#4caf50' : 'inherit',
-                  borderColor: copied ? '#4caf50' : 'var(--border-color)'
+                  borderColor: copied ? '#4caf50' : 'var(--border-color)',
+                  zIndex: 10
                 }}
                 onClick={copyToClipboard}
               >

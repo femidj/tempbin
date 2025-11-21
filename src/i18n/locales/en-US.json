@@ -182,6 +182,14 @@
     "back": "Back",
     "skip": "Skip"
   },
+  "paste": {
+    "title": "Confirm Upload",
+    "fileName": "Name",
+    "fileSize": "Size",
+    "fileType": "Type",
+    "cancel": "Cancel",
+    "upload": "Upload"
+  },
   "notifications": {
     "uploadSuccess": "File uploaded successfully!",
     "uploadError": "Failed to upload file. Please check your R2 settings.",
