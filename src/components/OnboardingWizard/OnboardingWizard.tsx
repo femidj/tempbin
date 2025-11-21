@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './OnboardingWizard.css';
 import { R2Config } from '../../types';
 import { persistence } from '../../utils/persistence';
+import { 
+  validateAccountId, 
+  validateBucketName, 
+  validateAccessKeyId, 
+  validateSecretAccessKey, 
+  validatePublicUrl 
+} from '../../utils/validation';
 
 interface OnboardingWizardProps {
   onComplete: () => void;
@@ -13,6 +20,22 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
   const { t } = useTranslation();
   const [step, setStep] = useState(0);
   const [config, setConfig] = useState<Partial<R2Config>>(initialConfig || {});
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [copied, setCopied] = useState(false);
+  const [height, setHeight] = useState<number | undefined>(undefined);
+  const innerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!innerRef.current) return;
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        setHeight(entry.contentRect.height);
+      }
+    });
+    observer.observe(innerRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleNext = () => {
     setStep(prev => prev + 1);
@@ -23,12 +46,63 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
   };
 
   const handleChange = (field: keyof R2Config, value: string) => {
-    setConfig(prev => ({ ...prev, [field]: value }));
+    const newValue = value.trim();
+    setConfig(prev => ({ ...prev, [field]: newValue }));
+    
+    // Validate on change if touched
+    if (touched[field]) {
+      validateField(field, newValue);
+    }
+  };
+
+  const handleBlur = (field: keyof R2Config) => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+    validateField(field, config[field] || '');
+  };
+
+  const validateField = (field: keyof R2Config, value: string) => {
+    let error: string | null = null;
+    switch (field) {
+      case 'accountId':
+        error = validateAccountId(value);
+        break;
+      case 'bucketName':
+        error = validateBucketName(value);
+        break;
+      case 'accessKeyId':
+        error = validateAccessKeyId(value);
+        break;
+      case 'secretAccessKey':
+        error = validateSecretAccessKey(value);
+        break;
+      case 'publicUrl':
+        error = validatePublicUrl(value);
+        break;
+    }
+
+    setErrors(prev => {
+      const newErrors = { ...prev };
+      if (error) {
+        newErrors[field] = error;
+      } else {
+        delete newErrors[field];
+      }
+      return newErrors;
+    });
+    return !error;
+  };
+
+  const isStep1Valid = () => {
+    return !validateAccountId(config.accountId || '') && !validateBucketName(config.bucketName || '');
+  };
+
+  const isStep2Valid = () => {
+    return !validateAccessKeyId(config.accessKeyId || '') && !validateSecretAccessKey(config.secretAccessKey || '');
   };
 
   const handleFinish = async () => {
     if (config.accountId && config.accessKeyId && config.secretAccessKey && config.bucketName) {
-      await persistence.setItem('r2Settings', JSON.stringify(config));
+      await persistence.setItem('r2Config', JSON.stringify(config));
       onComplete();
     }
   };
@@ -62,9 +136,12 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
             type="text"
             value={config.accountId || ''}
             onChange={(e) => handleChange('accountId', e.target.value)}
+            onBlur={() => handleBlur('accountId')}
             placeholder={t('settings.accountIdPlaceholder')}
+            className={errors.accountId ? 'error' : ''}
             autoFocus
           />
+          {errors.accountId && <span className="error-message">{t(errors.accountId)}</span>}
         </div>
         <div className="form-group">
           <label htmlFor="bucketName">{t('settings.bucketName')}</label>
@@ -73,8 +150,11 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
             type="text"
             value={config.bucketName || ''}
             onChange={(e) => handleChange('bucketName', e.target.value)}
+            onBlur={() => handleBlur('bucketName')}
             placeholder={t('settings.bucketNamePlaceholder')}
+            className={errors.bucketName ? 'error' : ''}
           />
+          {errors.bucketName && <span className="error-message">{t(errors.bucketName)}</span>}
         </div>
       </div>
       <div className="wizard-actions">
@@ -82,7 +162,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
         <button 
           className="btn-primary" 
           onClick={handleNext}
-          disabled={!config.accountId || !config.bucketName}
+          disabled={!isStep1Valid()}
         >
           {t('wizard.next')}
         </button>
@@ -102,9 +182,12 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
             type="text"
             value={config.accessKeyId || ''}
             onChange={(e) => handleChange('accessKeyId', e.target.value)}
+            onBlur={() => handleBlur('accessKeyId')}
             placeholder={t('settings.accessKeyIdPlaceholder')}
+            className={errors.accessKeyId ? 'error' : ''}
             autoFocus
           />
+          {errors.accessKeyId && <span className="error-message">{t(errors.accessKeyId)}</span>}
         </div>
         <div className="form-group">
           <label htmlFor="secretAccessKey">{t('settings.secretAccessKey')}</label>
@@ -113,8 +196,11 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
             type="password"
             value={config.secretAccessKey || ''}
             onChange={(e) => handleChange('secretAccessKey', e.target.value)}
+            onBlur={() => handleBlur('secretAccessKey')}
             placeholder={t('settings.secretAccessKeyPlaceholder')}
+            className={errors.secretAccessKey ? 'error' : ''}
           />
+          {errors.secretAccessKey && <span className="error-message">{t(errors.secretAccessKey)}</span>}
         </div>
       </div>
       <div className="wizard-actions">
@@ -122,7 +208,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
         <button 
           className="btn-primary" 
           onClick={handleNext}
-          disabled={!config.accessKeyId || !config.secretAccessKey}
+          disabled={!isStep2Valid()}
         >
           {t('wizard.next')}
         </button>
@@ -130,36 +216,130 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
     </div>
   );
 
-  const renderStep3_PublicUrl = () => (
-    <div className="wizard-step">
-      <h2 className="wizard-title">{t('wizard.step3.title')}</h2>
-      <p className="wizard-description">{t('wizard.step3.description')}</p>
-      <div className="wizard-form">
-        <div className="form-group">
-          <label htmlFor="publicUrl">{t('settings.publicUrl')}</label>
-          <input
-            id="publicUrl"
-            type="text"
-            value={config.publicUrl || ''}
-            onChange={(e) => handleChange('publicUrl', e.target.value)}
-            placeholder={t('settings.publicUrlPlaceholder')}
-            autoFocus
-          />
-          <small style={{ display: 'block', marginTop: '4px', color: 'var(--text-secondary)' }}>
-            {t('settings.publicUrlHint')}
-          </small>
+  const renderStep3_PublicUrl = () => {
+    const getDisplayUrl = () => {
+      if (!config.publicUrl) return '';
+      return config.publicUrl.replace(/^https?:\/\//, '');
+    };
+
+    return (
+      <div className="wizard-step">
+        <h2 className="wizard-title">{t('wizard.step3.title')}</h2>
+        <p className="wizard-description">{t('wizard.step3.description')}</p>
+        <div className="wizard-form">
+          <div className="form-group">
+            <label htmlFor="publicUrl">{t('settings.publicUrl')}</label>
+            <div className="url-input-group">
+              <span className="url-prefix">https://</span>
+              <input
+                id="publicUrl"
+                type="text"
+                value={getDisplayUrl()}
+                onChange={(e) => handleChange('publicUrl', `https://${e.target.value}`)}
+                placeholder="your-domain.com"
+                autoFocus
+                className="url-input"
+              />
+            </div>
+            <small style={{ display: 'block', marginTop: '4px', color: 'var(--text-secondary)' }}>
+              {t('settings.publicUrlHint')}
+            </small>
+          </div>
+        </div>
+        <div className="wizard-actions">
+          <button className="btn-secondary" onClick={handleBack}>{t('wizard.back')}</button>
+          <button className="btn-primary" onClick={handleNext}>
+            {t('wizard.next')}
+          </button>
         </div>
       </div>
-      <div className="wizard-actions">
-        <button className="btn-secondary" onClick={handleBack}>{t('wizard.back')}</button>
-        <button className="btn-primary" onClick={handleNext}>
-          {t('wizard.next')}
-        </button>
-      </div>
-    </div>
-  );
+    );
+  };
 
-  const renderStep4_Completion = () => (
+  const renderStep4_CORS = () => {
+    const origin = window.location.origin;
+    const corsConfig = [
+      {
+        "AllowedOrigins": [
+          origin
+        ],
+        "AllowedMethods": [
+          "GET",
+          "PUT",
+          "DELETE",
+          "HEAD"
+        ],
+        "AllowedHeaders": [
+          "*"
+        ],
+        "ExposeHeaders": [
+          "ETag"
+        ],
+        "MaxAgeSeconds": 3000
+      }
+    ];
+    const corsString = JSON.stringify(corsConfig, null, 2);
+
+    const copyToClipboard = () => {
+      navigator.clipboard.writeText(corsString);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    };
+
+    return (
+      <div className="wizard-step">
+        <h2 className="wizard-title">{t('wizard.step4.title')}</h2>
+        <p className="wizard-description">{t('wizard.step4.description')}</p>
+        <div className="wizard-form">
+          <div className="form-group">
+            <label>CORS Configuration JSON</label>
+            <div style={{ position: 'relative' }}>
+              <textarea
+                readOnly
+                value={corsString}
+                style={{ 
+                  height: '200px', 
+                  fontFamily: 'monospace', 
+                  fontSize: '12px', 
+                  whiteSpace: 'pre',
+                  resize: 'none'
+                }}
+                onClick={(e) => (e.target as HTMLTextAreaElement).select()}
+              />
+              <button 
+                className="btn-secondary"
+                style={{ 
+                  position: 'absolute', 
+                  top: '8px', 
+                  right: '8px', 
+                  padding: '4px 8px', 
+                  fontSize: '12px',
+                  background: 'var(--bg-secondary)',
+                  border: '1px solid var(--border-color)',
+                  color: copied ? '#4caf50' : 'inherit',
+                  borderColor: copied ? '#4caf50' : 'var(--border-color)'
+                }}
+                onClick={copyToClipboard}
+              >
+                {copied ? t('fileCard.copied') : 'Copy'}
+              </button>
+            </div>
+            <small style={{ display: 'block', marginTop: '4px', color: 'var(--text-secondary)' }}>
+              Paste this into your R2 bucket's CORS policy settings.
+            </small>
+          </div>
+        </div>
+        <div className="wizard-actions">
+          <button className="btn-secondary" onClick={handleBack}>{t('wizard.back')}</button>
+          <button className="btn-primary" onClick={handleNext}>
+            {t('wizard.next')}
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  const renderStep5_Completion = () => (
     <div className="wizard-step">
       <svg className="completion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -180,45 +360,60 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
     renderStep1_Account,
     renderStep2_Credentials,
     renderStep3_PublicUrl,
-    renderStep4_Completion
+    renderStep4_CORS,
+    renderStep5_Completion
   ];
 
   const renderInstructions = () => {
-    if (step === 0 || step === 4) return null;
+    if (step === 0 || step === 5) return null;
 
     const instructionKey = `wizard.step${step}.instructions`;
     
     return (
       <div className="wizard-instructions">
-        <h3 className="instructions-title">{t(`${instructionKey}.title`)}</h3>
-        <ol className="instructions-list">
-          <li>{t(`${instructionKey}.step1`)}</li>
-          <li>{t(`${instructionKey}.step2`)}</li>
-          <li>{t(`${instructionKey}.step3`)}</li>
-          {step !== 3 && <li>{t(`${instructionKey}.step4`)}</li>}
-        </ol>
+        <div key={step} className="instruction-animation-wrapper">
+          <h3 className="instructions-title">{t(`${instructionKey}.title`)}</h3>
+          <ol className="instructions-list">
+            <li>{t(`${instructionKey}.step1`)}</li>
+            <li>{t(`${instructionKey}.step2`)}</li>
+            <li>{t(`${instructionKey}.step3`)}</li>
+            {step !== 3 && <li>{t(`${instructionKey}.step4`)}</li>}
+          </ol>
+        </div>
       </div>
     );
   };
 
+  const hasInstructions = step > 0 && step < 5;
+
   return (
-    <div className={`wizard-container ${step > 0 && step < 4 ? 'has-instructions' : ''}`}>
-      <div className="wizard-main">
-        <div className="wizard-header">
-          <div className="wizard-progress">
-            {steps.map((_, index) => (
-              <div 
-                key={index} 
-                className={`progress-dot ${index === step ? 'active' : ''} ${index < step ? 'completed' : ''}`}
-              />
-            ))}
+    <div 
+      className={`wizard-container ${hasInstructions ? 'has-instructions' : ''}`}
+      style={{ height: height ? `${height}px` : 'auto' }}
+    >
+      <div 
+        className={`wizard-inner ${hasInstructions ? 'has-instructions' : ''}`}
+        ref={innerRef}
+      >
+        <div className="wizard-main">
+          <div className="wizard-header">
+            <div className="wizard-progress">
+              {steps.map((_, index) => (
+                <div 
+                  key={index} 
+                  className={`progress-dot ${index === step ? 'active' : ''} ${index < step ? 'completed' : ''}`}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="wizard-content">
+            <div key={step} className="step-animation-wrapper">
+              {steps[step]()}
+            </div>
           </div>
         </div>
-        <div className="wizard-content">
-          {steps[step]()}
-        </div>
+        {renderInstructions()}
       </div>
-      {renderInstructions()}
     </div>
   );
 };

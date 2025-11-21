@@ -137,12 +137,23 @@
     },
     "step3": {
       "title": "公開存取",
-      "description": "可選配置用於公開檔案存取的自訂網域。",
+      "description": "可選擇設定用於公開檔案存取的自訂網域。",
       "instructions": {
         "title": "設定公開存取",
-        "step1": "前往 R2 控制台中的儲存體設定。",
+        "step1": "前往 R2 儀表板中的儲存貯體設定。",
         "step2": "在「公開存取」下，您可以連接自訂網域或允許透過 R2.dev 子網域進行公開存取。",
         "step3": "在此處輸入完整 URL（例如 https://files.example.com）。"
+      }
+    },
+    "step4": {
+      "title": "CORS 設定",
+      "description": "設定跨來源資源共用 (CORS) 以允許從本網站上傳。",
+      "instructions": {
+        "title": "設定 CORS",
+        "step1": "前往 R2 儀表板中的儲存貯體設定。",
+        "step2": "找到 CORS 原則部分。",
+        "step3": "複製下方的 JSON 設定。",
+        "step4": "將其貼上到 CORS 原則編輯器中並儲存。"
       }
     },
     "completion": {

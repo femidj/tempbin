@@ -136,13 +136,24 @@
       }
     },
     "step3": {
-      "title": "Accès public",
-      "description": "Configurez éventuellement un domaine personnalisé pour l'accès public aux fichiers.",
+      "title": "Accès Public",
+      "description": "Configurez optionnellement un domaine personnalisé pour l'accès public aux fichiers.",
       "instructions": {
         "title": "Configuration de l'accès public",
         "step1": "Allez dans les paramètres de votre bucket dans le tableau de bord R2.",
-        "step2": "Sous 'Accès public', vous pouvez connecter un domaine personnalisé ou autoriser l'accès public via le sous-domaine R2.dev.",
-        "step3": "Entrez l'URL complète (par exemple, https://files.example.com) ici."
+        "step2": "Sous 'Accès Public', vous pouvez connecter un domaine personnalisé ou autoriser l'accès public via le sous-domaine R2.dev.",
+        "step3": "Entrez l'URL complète (ex: https://files.example.com) ici."
+      }
+    },
+    "step4": {
+      "title": "Configuration CORS",
+      "description": "Configurez le partage de ressources inter-origines (CORS) pour autoriser les téléchargements depuis ce site web.",
+      "instructions": {
+        "title": "Configuration de CORS",
+        "step1": "Allez dans les paramètres de votre bucket dans le tableau de bord R2.",
+        "step2": "Localisez la section Politique CORS.",
+        "step3": "Copiez la configuration JSON ci-dessous.",
+        "step4": "Collez-la dans l'éditeur de Politique CORS et enregistrez."
       }
     },
     "completion": {

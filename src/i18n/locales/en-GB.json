@@ -145,6 +145,17 @@
         "step3": "Enter the full URL (e.g., https://files.example.com) here."
       }
     },
+    "step4": {
+      "title": "CORS Setup",
+      "description": "Configure Cross-Origin Resource Sharing (CORS) to allow uploads from this website.",
+      "instructions": {
+        "title": "Setting up CORS",
+        "step1": "Go to your bucket settings in the R2 dashboard.",
+        "step2": "Locate the CORS Policy section.",
+        "step3": "Copy the JSON configuration below.",
+        "step4": "Paste it into the CORS Policy editor and save."
+      }
+    },
     "completion": {
       "title": "All Set!",
       "subtitle": "Your R2 storage is configured and ready to use.",

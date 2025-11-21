@@ -140,9 +140,20 @@
       "description": "可选配置用于公开文件访问的自定义域名。",
       "instructions": {
         "title": "设置公开访问",
-        "step1": "转到 R2 控制台中的存储桶设置。",
+        "step1": "前往 R2 仪表板中的存储桶设置。",
         "step2": "在“公开访问”下，您可以连接自定义域名或允许通过 R2.dev 子域名进行公开访问。",
         "step3": "在此处输入完整 URL（例如 https://files.example.com）。"
+      }
+    },
+    "step4": {
+      "title": "CORS 设置",
+      "description": "配置跨源资源共享 (CORS) 以允许从本网站上传。",
+      "instructions": {
+        "title": "设置 CORS",
+        "step1": "前往 R2 仪表板中的存储桶设置。",
+        "step2": "找到 CORS 策略部分。",
+        "step3": "复制下方的 JSON 配置。",
+        "step4": "将其粘贴到 CORS 策略编辑器中并保存。"
       }
     },
     "completion": {

@@ -139,8 +139,19 @@
       "instructions": {
         "title": "Öffentlichen Zugriff einrichten",
         "step1": "Gehen Sie zu Ihren Bucket-Einstellungen im R2-Dashboard.",
-        "step2": "Unter 'Öffentlicher Zugriff' können Sie eine benutzerdefinierte Domain verbinden oder den öffentlichen Zugriff über die R2.dev-Subdomain erlauben.",
+        "step2": "Unter 'Öffentlicher Zugriff' können Sie eine benutzerdefinierte Domain verbinden oder den Zugriff über die R2.dev-Subdomain erlauben.",
         "step3": "Geben Sie hier die vollständige URL (z. B. https://files.example.com) ein."
+      }
+    },
+    "step4": {
+      "title": "CORS-Einrichtung",
+      "description": "Konfigurieren Sie Cross-Origin Resource Sharing (CORS), um Uploads von dieser Website zu erlauben.",
+      "instructions": {
+        "title": "CORS einrichten",
+        "step1": "Gehen Sie zu Ihren Bucket-Einstellungen im R2-Dashboard.",
+        "step2": "Suchen Sie den Abschnitt CORS-Richtlinie.",
+        "step3": "Kopieren Sie die untenstehende JSON-Konfiguration.",
+        "step4": "Fügen Sie sie in den CORS-Richtlinien-Editor ein und speichern Sie."
       }
     },
     "completion": {

@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     loadFiles();
     checkExpiredFiles();
-    checkR2Settings();
+    checkR2Config();
     const interval = setInterval(checkExpiredFiles, 10000); // Check every 10 seconds
     
     const savedExpiration = localStorage.getItem('fileExpirationMinutes');
@@ -89,19 +89,19 @@ function App() {
     }
   };
 
-  const checkR2Settings = async () => {
+  const checkR2Config = async () => {
     try {
-      const savedSettings = await persistence.getItem('r2Settings');
-      if (!savedSettings) {
+      const savedConfig = await persistence.getItem('r2Config');
+      if (!savedConfig) {
         setShowWizard(true);
       } else {
-        const config: R2Config = JSON.parse(savedSettings);
+        const config: R2Config = JSON.parse(savedConfig);
         if (!config.accountId || !config.accessKeyId || !config.secretAccessKey || !config.bucketName) {
           setShowWizard(true);
         }
       }
     } catch (error) {
-      console.error('Error checking R2 settings:', error);
+      console.error('Error checking R2 config:', error);
       setShowWizard(true);
     }
   };

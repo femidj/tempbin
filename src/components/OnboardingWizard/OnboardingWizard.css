@@ -8,14 +8,24 @@
   margin: 2rem auto;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; Removed flex from container */
+  /* flex-direction: column; Removed flex-direction from container */
   animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  transition: max-width 0.4s ease;
+  transition: max-width 0.4s ease, height 0.4s ease; /* Added height transition */
 }
 
 .wizard-container.has-instructions {
   max-width: 900px;
+  /* flex-direction: row; Removed flex-direction from container */
+}
+
+.wizard-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.wizard-inner.has-instructions {
   flex-direction: row;
 }
 
@@ -99,7 +109,26 @@
 
 .wizard-step {
   width: 100%;
-  animation: fadeIn 0.4s ease-out;
+}
+
+.step-animation-wrapper {
+  width: 100%;
+  animation: slideIn 0.3s ease-out;
+}
+
+.instruction-animation-wrapper {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .wizard-title {
@@ -144,10 +173,74 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.form-group input:focus {
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  font-size: 0.85rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
   outline: none;
   border-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #ff3b30;
+}
+
+.form-group input.error:focus,
+.form-group textarea.error:focus {
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.1);
+}
+
+.error-message {
+  display: block;
+  color: #ff3b30;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.url-input-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.url-input-group:focus-within {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.url-prefix {
+  padding: 10px 0 10px 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.form-group input.url-input {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding-left: 2px;
+}
+
+.form-group input.url-input:focus {
+  box-shadow: none;
+  border: none;
 }
 
 .wizard-actions {
@@ -243,9 +336,41 @@
   color: #1a1a1a;
 }
 
-.app.theme-light .form-group input:focus {
+.app.theme-light .form-group textarea {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1a1a1a;
+}
+
+.app.theme-light .form-group input:focus,
+.app.theme-light .form-group textarea:focus {
   border-color: rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.app.theme-light .url-input-group {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app.theme-light .url-input-group:focus-within {
+  border-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.app.theme-light .url-prefix {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.app.theme-light .form-group input.url-input {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.app.theme-light .form-group input.url-input:focus {
+  box-shadow: none;
+  border: none;
 }
 
 .app.theme-light .btn-secondary {
@@ -288,8 +413,12 @@
 
 @media (max-width: 768px) {
   .wizard-container.has-instructions {
-    flex-direction: column;
+    /* flex-direction: column; Removed as it's handled by inner now */
     max-width: 480px;
+  }
+
+  .wizard-inner.has-instructions {
+    flex-direction: column;
   }
 
   .wizard-instructions {

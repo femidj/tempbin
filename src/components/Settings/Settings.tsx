@@ -1,9 +1,16 @@
-
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Settings.css';
 import { R2Config } from '../../types';
 import { getR2Config, saveR2Config } from '../../services/r2Service';
+import { persistence } from '../../utils/persistence';
+import { 
+  validateAccountId, 
+  validateBucketName, 
+  validateAccessKeyId, 
+  validateSecretAccessKey, 
+  validatePublicUrl 
+} from '../../utils/validation';
 
 interface SettingsProps {
   onClose: () => void;
@@ -26,6 +33,8 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
   const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
   const [isClosing, setIsClosing] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     loadConfig();
@@ -42,7 +51,35 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
   };
 
   const handleSave = async () => {
-    if (!config.accountId || !config.accessKeyId || !config.secretAccessKey || !config.bucketName) {
+    // Validate all fields
+    const newErrors: Record<string, string> = {};
+    let isValid = true;
+
+    const accountIdError = validateAccountId(config.accountId);
+    if (accountIdError) { newErrors.accountId = accountIdError; isValid = false; }
+
+    const bucketNameError = validateBucketName(config.bucketName);
+    if (bucketNameError) { newErrors.bucketName = bucketNameError; isValid = false; }
+
+    const accessKeyIdError = validateAccessKeyId(config.accessKeyId);
+    if (accessKeyIdError) { newErrors.accessKeyId = accessKeyIdError; isValid = false; }
+
+    const secretAccessKeyError = validateSecretAccessKey(config.secretAccessKey);
+    if (secretAccessKeyError) { newErrors.secretAccessKey = secretAccessKeyError; isValid = false; }
+
+    const publicUrlError = validatePublicUrl(config.publicUrl || '');
+    if (publicUrlError) { newErrors.publicUrl = publicUrlError; isValid = false; }
+
+    setErrors(newErrors);
+    setTouched({
+      accountId: true,
+      bucketName: true,
+      accessKeyId: true,
+      secretAccessKey: true,
+      publicUrl: true
+    });
+
+    if (!isValid) {
       setMessage({ text: t('settings.requiredFields'), type: 'error' });
       return;
     }
@@ -59,6 +96,48 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
     } finally {
       setIsSaving(false);
     }
+  };
+
+  const handleClearData = async () => {
+    if (window.confirm(t('settings.clearDataConfirm'))) {
+      await persistence.clear();
+      setMessage({ text: t('settings.clearDataSuccess'), type: 'success' });
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }
+  };
+
+  const handleChange = (field: keyof R2Config, value: string) => {
+    const newValue = value.trim();
+    setConfig(prev => ({ ...prev, [field]: newValue }));
+    
+    if (touched[field]) {
+      validateField(field, newValue);
+    }
+  };
+
+  const handleBlur = (field: keyof R2Config) => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+    validateField(field, config[field] || '');
+  };
+
+  const validateField = (field: keyof R2Config, value: string) => {
+    let error: string | null = null;
+    switch (field) {
+      case 'accountId': error = validateAccountId(value); break;
+      case 'bucketName': error = validateBucketName(value); break;
+      case 'accessKeyId': error = validateAccessKeyId(value); break;
+      case 'secretAccessKey': error = validateSecretAccessKey(value); break;
+      case 'publicUrl': error = validatePublicUrl(value); break;
+    }
+
+    setErrors(prev => {
+      const newErrors = { ...prev };
+      if (error) newErrors[field] = error;
+      else delete newErrors[field];
+      return newErrors;
+    });
   };
 
   const handleClose = () => {
@@ -134,11 +213,14 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
                 id="accountId"
                 type="text"
                 value={config.accountId}
-                onChange={(e) => setConfig({ ...config, accountId: e.target.value })}
+                onChange={(e) => handleChange('accountId', e.target.value)}
+                onBlur={() => handleBlur('accountId')}
                 placeholder={t('settings.accountIdPlaceholder')}
                 autoComplete="off"
                 aria-required="true"
+                className={errors.accountId ? 'error' : ''}
               />
+              {errors.accountId && <span className="error-message">{t(errors.accountId)}</span>}
             </div>
 
             <div className="form-group">
@@ -147,11 +229,14 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
                 id="bucketName"
                 type="text"
                 value={config.bucketName}
-                onChange={(e) => setConfig({ ...config, bucketName: e.target.value })}
+                onChange={(e) => handleChange('bucketName', e.target.value)}
+                onBlur={() => handleBlur('bucketName')}
                 placeholder={t('settings.bucketNamePlaceholder')}
                 autoComplete="off"
                 aria-required="true"
+                className={errors.bucketName ? 'error' : ''}
               />
+              {errors.bucketName && <span className="error-message">{t(errors.bucketName)}</span>}
             </div>
 
             <div className="form-group">
@@ -160,11 +245,14 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
                 id="accessKeyId"
                 type="text"
                 value={config.accessKeyId}
-                onChange={(e) => setConfig({ ...config, accessKeyId: e.target.value })}
+                onChange={(e) => handleChange('accessKeyId', e.target.value)}
+                onBlur={() => handleBlur('accessKeyId')}
                 placeholder={t('settings.accessKeyIdPlaceholder')}
                 autoComplete="off"
                 aria-required="true"
+                className={errors.accessKeyId ? 'error' : ''}
               />
+              {errors.accessKeyId && <span className="error-message">{t(errors.accessKeyId)}</span>}
             </div>
 
             <div className="form-group">
@@ -173,11 +261,14 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
                 id="secretAccessKey"
                 type="password"
                 value={config.secretAccessKey}
-                onChange={(e) => setConfig({ ...config, secretAccessKey: e.target.value })}
+                onChange={(e) => handleChange('secretAccessKey', e.target.value)}
+                onBlur={() => handleBlur('secretAccessKey')}
                 placeholder={t('settings.secretAccessKeyPlaceholder')}
                 autoComplete="new-password"
                 aria-required="true"
+                className={errors.secretAccessKey ? 'error' : ''}
               />
+              {errors.secretAccessKey && <span className="error-message">{t(errors.secretAccessKey)}</span>}
             </div>
 
             <div className="form-group">
@@ -186,11 +277,14 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
                 id="publicUrl"
                 type="url"
                 value={config.publicUrl}
-                onChange={(e) => setConfig({ ...config, publicUrl: e.target.value })}
+                onChange={(e) => handleChange('publicUrl', e.target.value)}
+                onBlur={() => handleBlur('publicUrl')}
                 placeholder={t('settings.publicUrlPlaceholder')}
                 autoComplete="url"
                 aria-describedby="publicUrl-hint"
+                className={errors.publicUrl ? 'error' : ''}
               />
+              {errors.publicUrl && <span className="error-message">{t(errors.publicUrl)}</span>}
               <small id="publicUrl-hint">{t('settings.publicUrlHint')}</small>
             </div>
           </div>
@@ -274,6 +368,14 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
           )}
 
           <div className="settings-actions">
+            <button 
+              className="button danger" 
+              onClick={handleClearData} 
+              type="button"
+              style={{ marginRight: 'auto' }}
+            >
+              {t('settings.clearData')}
+            </button>
             <button className="button secondary" onClick={handleClose} type="button">
               {t('settings.cancel')}
             </button>
