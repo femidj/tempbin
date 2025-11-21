@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import './i18n/config';
 import App from './App';
 
