@@ -77,6 +77,19 @@ function App() {
     document.documentElement.lang = i18n.language;
   }, [i18n.language, t]);
 
+  // Update html/body background and theme-color meta tag when theme changes
+  useEffect(() => {
+    const bgColor = theme === 'dark' ? '#000000' : '#f5f5f5';
+    document.documentElement.style.backgroundColor = bgColor;
+    document.body.style.backgroundColor = bgColor;
+    
+    // Update theme-color meta tag for mobile browsers
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', bgColor);
+    }
+  }, [theme]);
+
   const loadFiles = async () => {
     try {
       const savedFiles = await persistence.getItem('files');
