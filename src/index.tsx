@@ -8,9 +8,11 @@ const container = document.getElementById('app');
 if (container) {
   const root = createRoot(container);
   root.render(
-    <React.StrictMode>
-      <App />
+    <>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
       <SpeedInsights />
-    </React.StrictMode>
+    </>
   );
 }
