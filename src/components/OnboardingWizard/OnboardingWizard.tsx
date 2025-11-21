@@ -271,6 +271,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
         "AllowedMethods": [
           "GET",
           "PUT",
+          "POST",
           "DELETE",
           "HEAD"
         ],

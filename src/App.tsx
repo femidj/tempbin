@@ -18,6 +18,7 @@ function App() {
   const [showSettings, setShowSettings] = useState(false);
   const [showWizard, setShowWizard] = useState(false);
   const [pastedFiles, setPastedFiles] = useState<File[]>([]);
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const [notificationFadeOut, setNotificationFadeOut] = useState(false);
   const [fileListFadeOut, setFileListFadeOut] = useState(false);
@@ -194,29 +195,62 @@ function App() {
     localStorage.setItem('hashFilenames', enabled.toString());
   };
 
+  const asyncPool = async <T,>(
+    concurrency: number,
+    items: any[],
+    fn: (item: any, index: number) => Promise<T>
+  ): Promise<T[]> => {
+    const results: T[] = [];
+    const executing: Promise<void>[] = [];
+    
+    for (const [index, item] of items.entries()) {
+      const p = Promise.resolve().then(() => fn(item, index));
+      results[index] = p as any;
+      
+      const e = p.then((res) => {
+        results[index] = res;
+        executing.splice(executing.indexOf(e), 1);
+      });
+      executing.push(e);
+      
+      if (executing.length >= concurrency) {
+        await Promise.race(executing);
+      }
+    }
+    return Promise.all(results);
+  };
+
   const handleFileUpload = async (filesToUpload: File[]) => {
     if (filesToUpload.length === 0) return;
     
     setIsUploading(true);
+    setUploadProgress(0);
     try {
-      const uploadedFiles: FileItem[] = [];
       const expirationMs = expirationMinutes * 60 * 1000;
+      const fileProgresses = new Array(filesToUpload.length).fill(0);
+      const totalSize = filesToUpload.reduce((acc, f) => acc + f.size, 0);
       
-      // Upload files sequentially to avoid overwhelming the network/browser
-      for (const file of filesToUpload) {
-        const result = await uploadFileToR2(file, hashFilenames);
+      const uploadedFiles = await asyncPool(2, filesToUpload, async (file, index) => {
+        const result = await uploadFileToR2(file, hashFilenames, (progress) => {
+          fileProgresses[index] = progress;
+          
+          // Calculate weighted total progress
+          const totalUploaded = filesToUpload.reduce((acc, f, idx) => {
+             return acc + (f.size * (fileProgresses[idx] / 100));
+          }, 0);
+          
+          setUploadProgress((totalUploaded / totalSize) * 100);
+        });
         
-        const newFile: FileItem = {
+        return {
           id: result.fileId,
           name: file.name,
           size: file.size,
           uploadedAt: Date.now(),
           expiresAt: Date.now() + expirationMs,
           url: result.url,
-        };
-        
-        uploadedFiles.push(newFile);
-      }
+        } as FileItem;
+      });
 
       const updatedFiles = [...uploadedFiles, ...files];
       setFiles(updatedFiles);
@@ -232,6 +266,7 @@ function App() {
       showNotification(t('notifications.uploadError'), 'error');
     } finally {
       setIsUploading(false);
+      setUploadProgress(0);
     }
   };
 
@@ -366,6 +401,7 @@ function App() {
                 onFileUpload={handleFileUpload} 
                 isUploading={isUploading}
                 expirationMinutes={expirationMinutes}
+                progress={uploadProgress}
               />
 
               {files.length > 0 && (

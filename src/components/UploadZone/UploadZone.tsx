@@ -7,9 +7,10 @@ interface UploadZoneProps {
   onFileUpload: (files: File[]) => void;
   isUploading: boolean;
   expirationMinutes: number;
+  progress?: number;
 }
 
-const UploadZone: React.FC<UploadZoneProps> = ({ onFileUpload, isUploading, expirationMinutes }) => {
+const UploadZone: React.FC<UploadZoneProps> = ({ onFileUpload, isUploading, expirationMinutes, progress }) => {
   const { t } = useTranslation();
   const [isDragging, setIsDragging] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -131,6 +132,14 @@ const UploadZone: React.FC<UploadZoneProps> = ({ onFileUpload, isUploading, expi
       <div className={`upload-loading ${isUploading ? 'fade-in' : 'fade-out'}`} aria-live="polite" aria-atomic="true">
         <div className="upload-spinner" role="status" aria-label="Uploading file"></div>
         <p className="upload-text">{t('upload.uploading')}</p>
+        {progress !== undefined && (
+          <>
+            <div className="progress-container">
+              <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+            </div>
+            <span className="progress-text">{Math.round(progress)}%</span>
+          </>
+        )}
       </div>
     </div>
   );
