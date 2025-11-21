@@ -14,22 +14,6 @@ TempBin is a secure, client-side temporary file sharing application powered by C
 - **Internationalization**: Support for multiple languages (English, Spanish, French, German, Japanese, Korean, Chinese).
 - **Drag & Drop**: Easy file upload interface.
 
-## ⚙️ Configuration
-
-TempBin uses environment variables for configuration. You can create a `.env` file in the root directory to override the defaults.
-
-Copy `.env.example` to `.env` and update the values:
-
-```bash
-cp .env.example .env
-```
-
-| Variable | Description | Default |
-| --- | --- | --- |
-| `VITE_APP_URL` | The public URL of your application | `http://localhost:5173` |
-| `VITE_OG_IMAGE_URL` | URL for the Open Graph image (Facebook/LinkedIn) | `http://localhost:5173/og-image.png` |
-| `VITE_TWITTER_IMAGE_URL` | URL for the Twitter card image | `http://localhost:5173/twitter-image.png` |
-
 ## 🚀 Getting Started
 
 ### Prerequisites
