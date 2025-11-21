@@ -55,8 +55,10 @@ const Header: React.FC<HeaderProps> = ({ onSettingsClick, theme, onThemeToggle, 
       <div className="header-container">
         <div className="header-logo">
           <h1 className="logo-heading">
-            <svg className="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 5 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+            <svg className="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="100" height="100" rx="22" ry="22" />
+              <path d="m35 50 15-20 15 20Z" fill="#fff" />
+              <path d="M62 76a16 16 0 0 0 13-28 22 22 0 0 0-50 0 16 16 0 0 0 7 28c10 0 18-5 18-20v-8" fill="none" stroke="#fff" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <span className="logo-text">{t('header.logo')}</span>
           </h1>

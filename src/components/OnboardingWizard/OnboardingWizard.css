@@ -289,7 +289,7 @@
   transform: none;
 }
 
-.welcome-icon, .completion-icon {
+.completion-icon {
   width: 64px;
   height: 64px;
   margin-bottom: 24px;
@@ -297,6 +297,13 @@
   background-color: rgba(255, 255, 255, 0.1);
   padding: 16px;
   border-radius: 20px;
+}
+
+.welcome-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
 }
 
 /* Light Theme Support */
@@ -392,7 +399,6 @@
   background-color: #000000;
 }
 
-.app.theme-light .welcome-icon, 
 .app.theme-light .completion-icon {
   color: #1a1a1a;
   background-color: rgba(0, 0, 0, 0.05);

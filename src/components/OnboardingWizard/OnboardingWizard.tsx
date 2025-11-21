@@ -109,10 +109,10 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
 
   const renderStep0_Welcome = () => (
     <div className="wizard-step">
-      <svg className="welcome-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-        <polyline points="17 8 12 3 7 8" />
-        <line x1="12" y1="3" x2="12" y2="15" />
+      <svg className="welcome-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="100" height="100" rx="22" ry="22" />
+        <path d="m35 50 15-20 15 20Z" fill="#fff" />
+        <path d="M62 76a16 16 0 0 0 13-28 22 22 0 0 0-50 0 16 16 0 0 0 7 28c10 0 18-5 18-20v-8" fill="none" stroke="#fff" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
       <h2 className="wizard-title">{t('wizard.welcome.title')}</h2>
       <p className="wizard-description">{t('wizard.welcome.subtitle')}</p>
@@ -292,7 +292,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
         <p className="wizard-description">{t('wizard.step4.description')}</p>
         <div className="wizard-form">
           <div className="form-group">
-            <label>CORS Configuration JSON</label>
+            <label>{t('wizard.step4.jsonLabel')}</label>
             <div style={{ position: 'relative' }}>
               <textarea
                 readOnly
@@ -321,11 +321,11 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
                 }}
                 onClick={copyToClipboard}
               >
-                {copied ? t('fileCard.copied') : 'Copy'}
+                {copied ? t('fileCard.copied') : t('wizard.step4.copy')}
               </button>
             </div>
             <small style={{ display: 'block', marginTop: '4px', color: 'var(--text-secondary)' }}>
-              Paste this into your R2 bucket's CORS policy settings.
+              {t('wizard.step4.pasteHint')}
             </small>
           </div>
         </div>

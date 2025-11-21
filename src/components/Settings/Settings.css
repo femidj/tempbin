@@ -388,6 +388,74 @@
   color: #ffffff;
 }
 
+/* URL Input Group Styles */
+.url-input-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s;
+}
+
+.url-input-group.error {
+  border-color: #ff3b30;
+}
+
+.url-input-group:focus-within {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+}
+
+.url-input-group.error:focus-within {
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.1);
+}
+
+.url-prefix {
+  padding: 0.75rem 0 0.75rem 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.form-group input.url-input {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding-left: 2px;
+  margin: 0;
+  border-radius: 0 12px 12px 0;
+}
+
+.form-group input.url-input:focus {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+/* Light theme overrides for URL input */
+.app.theme-light .url-input-group {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.app.theme-light .url-input-group:focus-within {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.app.theme-light .url-prefix {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.app.theme-light .url-input-group.error {
+  border-color: #ff3b30;
+}
+
 /* Light theme styles */
 .app.theme-light .settings-overlay {
   background: rgba(0, 0, 0, 0.6);
@@ -651,6 +719,18 @@
   margin-bottom: 1.5rem;
   font-weight: 500;
   backdrop-filter: blur(10px);
+  animation: slideInMessage 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .settings-message.success {

@@ -273,17 +273,20 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
 
             <div className="form-group">
               <label htmlFor="publicUrl">{t('settings.publicUrl')}</label>
-              <input
-                id="publicUrl"
-                type="url"
-                value={config.publicUrl}
-                onChange={(e) => handleChange('publicUrl', e.target.value)}
-                onBlur={() => handleBlur('publicUrl')}
-                placeholder={t('settings.publicUrlPlaceholder')}
-                autoComplete="url"
-                aria-describedby="publicUrl-hint"
-                className={errors.publicUrl ? 'error' : ''}
-              />
+              <div className={`url-input-group ${errors.publicUrl ? 'error' : ''}`}>
+                <span className="url-prefix">https://</span>
+                <input
+                  id="publicUrl"
+                  type="text"
+                  value={config.publicUrl ? config.publicUrl.replace(/^https?:\/\//, '') : ''}
+                  onChange={(e) => handleChange('publicUrl', `https://${e.target.value}`)}
+                  onBlur={() => handleBlur('publicUrl')}
+                  placeholder="your-domain.com"
+                  autoComplete="url"
+                  aria-describedby="publicUrl-hint"
+                  className="url-input"
+                />
+              </div>
               {errors.publicUrl && <span className="error-message">{t(errors.publicUrl)}</span>}
               <small id="publicUrl-hint">{t('settings.publicUrlHint')}</small>
             </div>
