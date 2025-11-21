@@ -40,6 +40,7 @@ Since TempBin runs in the browser, you must configure CORS (Cross-Origin Resourc
       "GET",
       "PUT",
       "DELETE",
+      "POST",
       "HEAD"
     ],
     "AllowedHeaders": [
