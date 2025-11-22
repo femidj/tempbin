@@ -245,7 +245,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
                 id="publicUrl"
                 type="text"
                 value={getDisplayUrl()}
-                onChange={(e) => handleChange('publicUrl', `https://${e.target.value}`)}
+                onChange={(e) => handleChange('publicUrl', e.target.value ? `https://${e.target.value}` : '')}
                 placeholder="your-domain.com"
                 autoFocus
                 className="url-input"

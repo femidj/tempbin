@@ -356,7 +356,7 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
                   id="publicUrl"
                   type="text"
                   value={config.publicUrl ? config.publicUrl.replace(/^https?:\/\//, '') : ''}
-                  onChange={(e) => handleChange('publicUrl', `https://${e.target.value}`)}
+                  onChange={(e) => handleChange('publicUrl', e.target.value ? `https://${e.target.value}` : '')}
                   onBlur={() => handleBlur('publicUrl')}
                   placeholder="your-domain.com"
                   autoComplete="url"
