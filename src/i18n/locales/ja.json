@@ -72,6 +72,9 @@
     "title": "まだファイルがアップロードされていません",
     "subtitle": "最初のファイルをアップロードして始めましょう"
   },
+  "storage": {
+    "usage": "ストレージ使用量"
+  },
   "settings": {
     "title": "設定",
     "closeAria": "設定を閉じる",
@@ -89,6 +92,8 @@
     "publicUrl": "パブリックURL（オプション）",
     "publicUrlPlaceholder": "https://your-domain.com",
     "publicUrlHint": "公開ファイルアクセス用のカスタムドメイン",
+    "storageLimit": "ストレージ制限",
+    "storageLimitHint": "月間ストレージ制限を設定（無料プランは10 GB）",
     "appearance": "外観",
     "themeMode": "テーマモード",
     "themeModeHint": "ライトテーマとダークテーマから選択",
@@ -187,6 +192,17 @@
     "fileType": "タイプ",
     "cancel": "キャンセル",
     "upload": "アップロード"
+  },
+  "limit": {
+    "title": "ストレージ制限を超過",
+    "message": "これらのファイルをアップロードすると、ストレージ制限を超過します。",
+    "currentUsage": "現在の使用量",
+    "uploadSize": "アップロードサイズ",
+    "newTotal": "新しい合計",
+    "limit": "制限",
+    "dontShowAgain": "今日は再表示しない",
+    "cancel": "キャンセル",
+    "continue": "アップロードを続行"
   },
   "notifications": {
     "uploadSuccess": "ファイルが正常にアップロードされました！",

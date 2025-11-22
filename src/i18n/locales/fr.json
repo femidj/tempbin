@@ -72,6 +72,9 @@
     "title": "Aucun fichier téléchargé pour le moment",
     "subtitle": "Téléchargez votre premier fichier pour commencer"
   },
+  "storage": {
+    "usage": "Utilisation du Stockage"
+  },
   "settings": {
     "title": "Paramètres",
     "closeAria": "Fermer les paramètres",
@@ -89,6 +92,8 @@
     "publicUrl": "URL Publique (Optionnel)",
     "publicUrlPlaceholder": "https://votre-domaine.com",
     "publicUrlHint": "Domaine personnalisé pour l'accès public aux fichiers",
+    "storageLimit": "Limite de Stockage",
+    "storageLimitHint": "Définissez votre limite de stockage mensuelle (Niveau Gratuit est de 10 Go)",
     "appearance": "Apparence",
     "themeMode": "Mode de Thème",
     "themeModeHint": "Choisir entre thème clair et sombre",
@@ -189,6 +194,17 @@
     "fileType": "Type",
     "cancel": "Annuler",
     "upload": "Télécharger"
+  },
+  "limit": {
+    "title": "Limite de Stockage Dépassée",
+    "message": "Le téléchargement de ces fichiers dépassera votre limite de stockage.",
+    "currentUsage": "Utilisation Actuelle",
+    "uploadSize": "Taille du Téléchargement",
+    "newTotal": "Nouveau Total",
+    "limit": "Limite",
+    "dontShowAgain": "Ne plus afficher aujourd'hui",
+    "cancel": "Annuler",
+    "continue": "Continuer le Téléchargement"
   },
   "notifications": {
     "uploadSuccess": "Fichier téléchargé avec succès !",

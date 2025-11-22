@@ -72,6 +72,9 @@
     "title": "아직 업로드된 파일이 없습니다",
     "subtitle": "첫 번째 파일을 업로드하여 시작하세요"
   },
+  "storage": {
+    "usage": "스토리지 사용량"
+  },
   "settings": {
     "title": "설정",
     "closeAria": "설정 닫기",
@@ -89,6 +92,8 @@
     "publicUrl": "공개 URL (선택사항)",
     "publicUrlPlaceholder": "https://your-domain.com",
     "publicUrlHint": "공개 파일 액세스용 커스텀 도메인",
+    "storageLimit": "스토리지 제한",
+    "storageLimitHint": "월간 스토리지 제한 설정 (무료 플랜은 10 GB)",
     "appearance": "외관",
     "themeMode": "테마 모드",
     "themeModeHint": "라이트 테마와 다크 테마 중 선택",
@@ -187,6 +192,17 @@
     "fileType": "유형",
     "cancel": "취소",
     "upload": "업로드"
+  },
+  "limit": {
+    "title": "스토리지 제한 초과",
+    "message": "이 파일들을 업로드하면 스토리지 제한을 초과합니다.",
+    "currentUsage": "현재 사용량",
+    "uploadSize": "업로드 크기",
+    "newTotal": "새 합계",
+    "limit": "제한",
+    "dontShowAgain": "오늘은 다시 표시 안 함",
+    "cancel": "취소",
+    "continue": "업로드 계속"
   },
   "notifications": {
     "uploadSuccess": "파일이 성공적으로 업로드되었습니다!",

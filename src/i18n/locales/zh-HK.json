@@ -43,8 +43,8 @@
     "title": "檔案",
     "deleteSelected": "刪除 ({{count}})",
     "deleteSelectedAria": "刪除 {{count}} 個揀咗嘅檔案",
-    "copyAllLinks": "抄晒所有連結",
-    "copyAllLinksAria": "將所有檔案連結抄入去剪貼簿",
+    "copyAllLinks": "抄低晒所有連結",
+    "copyAllLinksAria": "將所有檔案連結抄低入去剪貼簿",
     "selectAllAria": "揀晒所有檔案",
     "selectFileAria": "揀 {{name}}",
     "name": "名",
@@ -53,10 +53,10 @@
     "actions": "操作",
     "expired": "過咗期",
     "copied": "✓",
-    "copiedAll": "抄咗！",
+    "copiedAll": "抄低咗！",
     "deleteConfirm": "刪除 {{count}} 個揀咗嘅檔案？",
-    "copyLinkTitle": "抄連結",
-    "copyLinkAria": "抄 {{name}} 嘅連結",
+    "copyLinkTitle": "抄低連結",
+    "copyLinkAria": "抄低 {{name}} 嘅連結",
     "openFileTitle": "開檔案",
     "openFileAria": "開 {{name}}",
     "deleteFileTitle": "刪除檔案",
@@ -64,13 +64,16 @@
   },
   "fileCard": {
     "delete": "刪除檔案",
-    "copyLink": "抄連結",
-    "copied": "抄咗！",
+    "copyLink": "抄低連結",
+    "copied": "抄低咗！",
     "open": "打開"
   },
   "empty": {
     "title": "未上傳過檔案",
     "subtitle": "上傳你第一個檔案嚟開始用"
+  },
+  "storage": {
+    "usage": "儲存空間使用量"
   },
   "settings": {
     "title": "設定",
@@ -89,6 +92,8 @@
     "publicUrl": "公開網址（可選）",
     "publicUrlPlaceholder": "https://your-domain.com",
     "publicUrlHint": "用嚟公開檔案存取嘅自訂網域",
+    "storageLimit": "儲存空間限制",
+    "storageLimitHint": "設定你每個月嘅儲存空間限制（免費版係 10 GB）",
     "appearance": "外觀",
     "themeMode": "主題模式",
     "themeModeHint": "揀光亮定深色主題",
@@ -189,6 +194,17 @@
     "fileType": "類型",
     "cancel": "取消",
     "upload": "上傳"
+  },
+  "limit": {
+    "title": "儲存空間限制超咗",
+    "message": "上傳呢啲檔案會超過你嘅儲存空間限制。",
+    "currentUsage": "而家用緊",
+    "uploadSize": "上傳大細",
+    "newTotal": "新嘅總數",
+    "limit": "限制",
+    "dontShowAgain": "今日唔好再顯示",
+    "cancel": "取消",
+    "continue": "繼續上傳"
   },
   "notifications": {
     "uploadSuccess": "檔案上傳咗！",

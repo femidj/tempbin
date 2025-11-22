@@ -72,6 +72,9 @@
     "title": "Noch keine Dateien hochgeladen",
     "subtitle": "Laden Sie Ihre erste Datei hoch, um zu beginnen"
   },
+  "storage": {
+    "usage": "Speichernutzung"
+  },
   "settings": {
     "title": "Einstellungen",
     "closeAria": "Einstellungen schließen",
@@ -89,6 +92,8 @@
     "publicUrl": "Öffentliche URL (Optional)",
     "publicUrlPlaceholder": "https://ihre-domain.com",
     "publicUrlHint": "Benutzerdefinierte Domain für öffentlichen Dateizugriff",
+    "storageLimit": "Speicherlimit",
+    "storageLimitHint": "Setzen Sie Ihr monatliches Speicherlimit (Free Tier ist 10 GB)",
     "appearance": "Erscheinungsbild",
     "themeMode": "Themenmodus",
     "themeModeHint": "Zwischen hellem und dunklem Thema wählen",
@@ -187,6 +192,17 @@
     "fileType": "Typ",
     "cancel": "Abbrechen",
     "upload": "Hochladen"
+  },
+  "limit": {
+    "title": "Speicherlimit überschritten",
+    "message": "Das Hochladen dieser Dateien würde Ihr Speicherlimit überschreiten.",
+    "currentUsage": "Aktuelle Nutzung",
+    "uploadSize": "Upload-Größe",
+    "newTotal": "Neue Summe",
+    "limit": "Limit",
+    "dontShowAgain": "Heute nicht mehr anzeigen",
+    "cancel": "Abbrechen",
+    "continue": "Upload Fortsetzen"
   },
   "notifications": {
     "uploadSuccess": "Datei erfolgreich hochgeladen!",

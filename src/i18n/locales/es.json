@@ -72,6 +72,9 @@
     "title": "Aún no hay archivos subidos",
     "subtitle": "Sube tu primer archivo para comenzar"
   },
+  "storage": {
+    "usage": "Uso de Almacenamiento"
+  },
   "settings": {
     "title": "Configuración",
     "closeAria": "Cerrar configuración",
@@ -89,6 +92,8 @@
     "publicUrl": "URL Pública (Opcional)",
     "publicUrlPlaceholder": "https://tu-dominio.com",
     "publicUrlHint": "Dominio personalizado para acceso público a archivos",
+    "storageLimit": "Límite de Almacenamiento",
+    "storageLimitHint": "Establezca su límite de almacenamiento mensual (Nivel Gratuito es 10 GB)",
     "appearance": "Apariencia",
     "themeMode": "Modo de Tema",
     "themeModeHint": "Elige entre tema claro y oscuro",
@@ -189,6 +194,17 @@
     "fileType": "Tipo",
     "cancel": "Cancelar",
     "upload": "Subir"
+  },
+  "limit": {
+    "title": "Límite de Almacenamiento Excedido",
+    "message": "Subir estos archivos excederá su límite de almacenamiento.",
+    "currentUsage": "Uso Actual",
+    "uploadSize": "Tamaño de Carga",
+    "newTotal": "Nuevo Total",
+    "limit": "Límite",
+    "dontShowAgain": "No mostrar de nuevo hoy",
+    "cancel": "Cancelar",
+    "continue": "Continuar Carga"
   },
   "notifications": {
     "uploadSuccess": "¡Archivo subido exitosamente!",

@@ -72,6 +72,9 @@
     "title": "尚未上传文件",
     "subtitle": "上传您的第一个文件以开始使用"
   },
+  "storage": {
+    "usage": "存储使用量"
+  },
   "settings": {
     "title": "设置",
     "closeAria": "关闭设置",
@@ -89,6 +92,8 @@
     "publicUrl": "公开 URL（可选）",
     "publicUrlPlaceholder": "https://your-domain.com",
     "publicUrlHint": "用于公开文件访问的自定义域名",
+    "storageLimit": "存储限制",
+    "storageLimitHint": "设置您的每月存储限制（免费套餐为 10 GB）",
     "appearance": "外观",
     "themeMode": "主题模式",
     "themeModeHint": "在亮色和深色主题之间选择",
@@ -189,6 +194,17 @@
     "fileType": "类型",
     "cancel": "取消",
     "upload": "上传"
+  },
+  "limit": {
+    "title": "存储限制已超出",
+    "message": "上传这些文件将超出您的存储限制。",
+    "currentUsage": "当前使用量",
+    "uploadSize": "上传大小",
+    "newTotal": "新总量",
+    "limit": "限制",
+    "dontShowAgain": "今天不再显示",
+    "cancel": "取消",
+    "continue": "继续上传"
   },
   "notifications": {
     "uploadSuccess": "文件上传成功！",
