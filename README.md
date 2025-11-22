@@ -12,6 +12,8 @@ TempBin is a secure, client-side temporary file sharing application powered by C
 - **Auto-Expiration**: Links are generated with a built-in expiration time. The app also attempts to delete expired files from storage when active.
 - **Modern UI**: Clean, responsive interface with Dark/Light mode support.
 - **Internationalization**: Support for multiple languages (English, Spanish, French, German, Japanese, Korean, Chinese).
+- **Storage Limits**: Set a client-side monthly storage limit to help manage costs.
+- **Automatic Configuration**: Built-in tools to automatically configure CORS policies on your bucket.
 - **Drag & Drop**: Easy file upload interface.
 
 ## 🚀 Getting Started
@@ -24,6 +26,8 @@ TempBin is a secure, client-side temporary file sharing application powered by C
 ### R2 Configuration (Crucial!)
 
 Since TempBin runs in the browser, you must configure CORS (Cross-Origin Resource Sharing) on your R2 bucket to allow your browser to upload files directly.
+
+**The application now includes an automatic configuration tool in the onboarding wizard.** However, if you prefer to do it manually:
 
 1.  Go to your Cloudflare Dashboard > R2 > Select your bucket.
 2.  Go to **Settings** > **CORS Policy**.
@@ -80,6 +84,26 @@ Since TempBin runs in the browser, you must configure CORS (Cross-Origin Resourc
     *   **Secret Access Key**: The secret key for the token.
     *   **Bucket Name**: The name of the bucket you created.
     *   **Public URL (Optional)**: If you have a custom domain connected to your bucket.
+    *   **Storage Limit**: Set a warning threshold for monthly usage.
+    *   **CORS Setup**: Automatically configure or check your bucket's CORS policy.
+
+## 🧪 Testing
+
+The project includes integration tests to verify R2 connectivity and functionality.
+
+1.  Create a `.env.test` file in the root directory with your test credentials (see `.env.example` or use your own):
+    ```env
+    VITE_R2_ACCOUNT_ID=your_account_id
+    VITE_R2_ACCESS_KEY_ID=your_access_key
+    VITE_R2_SECRET_ACCESS_KEY=your_secret_key
+    VITE_R2_BUCKET_NAME=your_test_bucket
+    VITE_R2_PUBLIC_URL=https://your-optional-public-url.com
+    ```
+
+2.  Run the tests:
+    ```bash
+    npm test
+    ```
 
 ## 🛠️ Building & Deployment
 
