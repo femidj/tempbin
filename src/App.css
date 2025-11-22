@@ -62,7 +62,7 @@
   --card-bg: rgba(255, 255, 255, 0.95);
   --bg-secondary: rgba(0, 0, 0, 0.05);
   --text-primary: #1a1a1a;
-  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-secondary: rgba(0, 0, 0, 0.7);
   --border-color: rgba(0, 0, 0, 0.1);
   
   background: linear-gradient(-45deg, #f5f5f5, #fafafa, #f0f0f0, #f8f8f8);
@@ -593,39 +593,169 @@
 
 /* High Contrast Mode */
 .app.high-contrast {
-  --border-color: rgba(255, 255, 255, 0.5);
-  --bg-color: rgba(255, 255, 255, 0.15);
-  --text-color: #ffffff;
+  --card-bg: #000000;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --border-color: #ffffff;
+  --accent-color: #ffff00; /* Yellow for high visibility */
+  --accent-hover: #cccc00;
+  
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
-.app.high-contrast .hero-title,
-.app.high-contrast .hero-subtitle,
+.app.high-contrast::before {
+  display: none;
+}
+
+.app.high-contrast .hero-title {
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.app.high-contrast .hero-subtitle {
+  color: #ffffff !important;
+  opacity: 1;
+}
+
 .app.high-contrast .controls-card,
 .app.high-contrast .notification,
-.app.high-contrast .empty-state {
-  border: 2px solid rgba(255, 255, 255, 0.4);
+.app.high-contrast .empty-state,
+.app.high-contrast .upload-zone {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
 }
 
-.app.high-contrast .hero-subtitle,
+.app.high-contrast .expiration-control label,
+.app.high-contrast .hash-filename-info label,
 .app.high-contrast .hash-filename-info small,
-.app.high-contrast .slider-labels,
-.app.high-contrast .file-size,
-.app.high-contrast .file-cell-size {
-  color: rgba(255, 255, 255, 0.95) !important;
+.app.high-contrast .slider-labels {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.app.high-contrast .expiration-control label strong {
+  background: #333333;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.app.high-contrast .expiration-slider {
+  background: #333333;
+  border: 1px solid #ffffff;
+  height: 12px;
+}
+
+.app.high-contrast .expiration-slider::-webkit-slider-thumb {
+  background: #ffffff;
+  border: 2px solid #000000;
+  width: 24px;
+  height: 24px;
+}
+
+.app.high-contrast .switch-slider {
+  background-color: #000000;
+  border: 2px solid #ffffff;
+}
+
+.app.high-contrast .switch input:checked + .switch-slider {
+  background-color: #ffffff;
+}
+
+.app.high-contrast .switch input:checked + .switch-slider:before {
+  background-color: #000000;
+}
+
+.app.high-contrast .switch-slider:before {
+  background-color: #ffffff;
 }
 
 .app.high-contrast button:focus,
 .app.high-contrast a:focus,
-.app.high-contrast input:focus {
-  outline: 3px solid #ffffff;
-  outline-offset: 3px;
+.app.high-contrast input:focus,
+.app.high-contrast .upload-zone:focus {
+  outline: 4px solid #ffff00 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px #000000 !important;
+}
+
+/* High Contrast Light Mode Overrides */
+.app.theme-light.high-contrast {
+  --card-bg: #ffffff;
+  --bg-secondary: #f0f0f0;
+  --text-primary: #000000;
+  --text-secondary: #1a1a1a;
+  --border-color: #000000;
+  --accent-color: #0000ff; /* Blue for high visibility in light mode */
+  
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .hero-title {
+  -webkit-text-fill-color: #000000;
+  color: #000000;
+}
+
+.app.theme-light.high-contrast .hero-subtitle,
+.app.theme-light.high-contrast .expiration-control label,
+.app.theme-light.high-contrast .hash-filename-info label,
+.app.theme-light.high-contrast .hash-filename-info small,
+.app.theme-light.high-contrast .slider-labels {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .controls-card,
+.app.theme-light.high-contrast .notification,
+.app.theme-light.high-contrast .empty-state,
+.app.theme-light.high-contrast .upload-zone {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .expiration-control label strong {
+  background: #eeeeee;
+  border: 1px solid #000000;
+  color: #000000;
+}
+
+.app.theme-light.high-contrast .expiration-slider {
+  background: #eeeeee;
+  border: 1px solid #000000;
+}
+
+.app.theme-light.high-contrast .expiration-slider::-webkit-slider-thumb {
+  background: #000000;
+  border: 2px solid #ffffff;
+}
+
+.app.theme-light.high-contrast .switch-slider {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+}
+
+.app.theme-light.high-contrast .switch input:checked + .switch-slider {
+  background-color: #000000;
+}
+
+.app.theme-light.high-contrast .switch input:checked + .switch-slider:before {
+  background-color: #ffffff;
+}
+
+.app.theme-light.high-contrast .switch-slider:before {
+  background-color: #000000;
 }
 
 .app.theme-light.high-contrast button:focus,
 .app.theme-light.high-contrast a:focus,
 .app.theme-light.high-contrast input:focus {
-  outline: 3px solid #000000;
-  outline-offset: 3px;
+  outline: 4px solid #0000ff !important;
+  box-shadow: 0 0 0 4px #ffffff !important;
 }
 
 /* Reduced Motion Mode */

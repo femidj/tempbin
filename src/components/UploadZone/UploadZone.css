@@ -219,8 +219,8 @@
 
 /* Light Theme Styles */
 .app.theme-light .upload-zone {
-  background: rgba(0, 0, 0, 0.03);
-  border: 2px dashed rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px dashed rgba(0, 0, 0, 0.3);
 }
 
 .app.theme-light .upload-zone::before {
@@ -228,7 +228,7 @@
 }
 
 .app.theme-light .upload-zone:hover {
-  border-color: rgba(0, 0, 0, 0.4);
+  border-color: rgba(0, 0, 0, 0.5);
   background: rgba(0, 0, 0, 0.05);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
@@ -276,4 +276,88 @@
 
 .app.theme-light .progress-text {
   color: rgba(0, 0, 0, 0.8);
+}
+
+/* High Contrast Mode */
+.app.high-contrast .upload-zone {
+  background: #000000 !important;
+  border: 4px dashed #ffffff !important;
+  backdrop-filter: none !important;
+}
+
+.app.high-contrast .upload-zone:hover {
+  background: #333333 !important;
+  border-style: solid !important;
+}
+
+.app.high-contrast .upload-title,
+.app.high-contrast .upload-text,
+.app.high-contrast .upload-info {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.app.high-contrast .upload-subtitle,
+.app.high-contrast .progress-text {
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.app.high-contrast .upload-icon {
+  color: #ffffff !important;
+}
+
+.app.high-contrast .upload-spinner {
+  border: 4px solid #333333;
+  border-top-color: #ffffff;
+}
+
+.app.high-contrast .progress-container {
+  background: #333333 !important;
+  border: 1px solid #ffffff;
+  height: 12px;
+}
+
+.app.high-contrast .progress-bar {
+  background: #ffffff !important;
+}
+
+/* High Contrast Light Mode */
+.app.theme-light.high-contrast .upload-zone {
+  background: #ffffff !important;
+  border: 4px dashed #000000 !important;
+}
+
+.app.theme-light.high-contrast .upload-zone:hover {
+  background: #eeeeee !important;
+  border-style: solid !important;
+}
+
+.app.theme-light.high-contrast .upload-title,
+.app.theme-light.high-contrast .upload-text,
+.app.theme-light.high-contrast .upload-info {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .upload-subtitle,
+.app.theme-light.high-contrast .progress-text {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .upload-icon {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .upload-spinner {
+  border: 4px solid #eeeeee;
+  border-top-color: #000000;
+}
+
+.app.theme-light.high-contrast .progress-container {
+  background: #eeeeee !important;
+  border: 1px solid #000000;
+}
+
+.app.theme-light.high-contrast .progress-bar {
+  background: #000000 !important;
 }

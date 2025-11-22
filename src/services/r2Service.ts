@@ -14,7 +14,6 @@ export const getR2Config = async (): Promise<R2Config | null> => {
 export const saveR2Config = async (config: R2Config): Promise<void> => {
   try {
     await persistence.setItem('r2Config', JSON.stringify(config));
-    console.log('R2 config saved successfully');
   } catch (error) {
     console.error('Error saving R2 config:', error);
     throw error;
@@ -309,11 +308,6 @@ export const deleteFileFromR2 = async (fileId: string): Promise<void> => {
   if (!response.ok && response.status !== 404) {
     throw new Error(`Delete failed: ${response.status} ${response.statusText}`);
   }
-};
-
-export const getFilesList = async (): Promise<string[]> => {
-  // This is a placeholder - R2 list operations would require similar signing
-  return [];
 };
 
 export const putBucketCors = async (config: R2Config, allowedOrigins: string[]): Promise<void> => {

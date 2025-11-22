@@ -5,7 +5,7 @@ import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import './OnboardingWizard.css';
 import { R2Config } from '../../types';
 import { persistence } from '../../utils/persistence';
-import { putBucketCors, getBucketCors } from '../../services/r2Service';
+import { getBucketCors } from '../../services/r2Service';
 import { 
   validateAccountId, 
   validateBucketName, 
@@ -17,9 +17,16 @@ import {
 interface OnboardingWizardProps {
   onComplete: () => void;
   initialConfig?: Partial<R2Config>;
+  highContrast?: boolean;
+  onHighContrastChange?: (enabled: boolean) => void;
 }
 
-const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initialConfig }) => {
+const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ 
+  onComplete, 
+  initialConfig,
+  highContrast,
+  onHighContrastChange 
+}) => {
   const { t } = useTranslation();
   const [step, setStep] = useState(0);
   const [config, setConfig] = useState<Partial<R2Config>>(initialConfig || {});
@@ -358,20 +365,6 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
       setTimeout(() => setCopied(false), 2000);
     };
 
-    const handleAutoCors = async () => {
-      setCorsStatus('loading');
-      setCorsMessage('');
-      try {
-        const r2Config = config as R2Config; 
-        await putBucketCors(r2Config, [window.location.origin]);
-        setCorsStatus('success');
-        setCorsMessage(t('wizard.step5.autoSuccess'));
-      } catch (error: any) {
-        setCorsStatus('error');
-        setCorsMessage(t('wizard.step5.autoError') + ': ' + error.message);
-      }
-    };
-
     const handleCheckCors = async () => {
       setCorsStatus('loading');
       setCorsMessage('');
@@ -399,35 +392,29 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
         <div className="wizard-form">
           <div className="cors-actions" style={{ marginBottom: '1.5rem', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <button 
-              className="btn-primary" 
-              onClick={handleAutoCors}
-              disabled={corsStatus === 'loading'}
-              style={{ flex: 1 }}
-            >
-              {corsStatus === 'loading' ? t('wizard.step5.configuring') : t('wizard.step5.autoConfigure')}
-            </button>
-            <button 
-              className="btn-secondary" 
+              className={`btn-secondary cors-check-button ${corsStatus}`} 
               onClick={handleCheckCors}
-              disabled={corsStatus === 'loading'}
+              disabled={corsStatus === 'loading' || corsStatus === 'success'}
               style={{ flex: 1 }}
             >
-              {t('wizard.step5.checkConfig')}
+              {corsStatus === 'idle' && t('wizard.step5.checkConfig')}
+              {corsStatus === 'loading' && (
+                <>
+                  <span className="spinner-small"></span> {t('wizard.step5.checkConfig')}...
+                </>
+              )}
+              {corsStatus === 'success' && (
+                <>
+                  <span className="check-icon">✓</span> {t('wizard.step5.checkSuccess')}
+                </>
+              )}
+              {corsStatus === 'error' && (
+                <>
+                  <span className="error-icon">✕</span> {corsMessage || t('wizard.step5.checkError')}
+                </>
+              )}
             </button>
           </div>
-
-          {corsMessage && (
-            <div className={`cors-message ${corsStatus}`} style={{ 
-              padding: '10px', 
-              borderRadius: '4px', 
-              marginBottom: '1rem',
-              backgroundColor: corsStatus === 'success' ? 'rgba(76, 175, 80, 0.1)' : 'rgba(244, 67, 54, 0.1)',
-              color: corsStatus === 'success' ? '#4caf50' : '#f44336',
-              border: `1px solid ${corsStatus === 'success' ? '#4caf50' : '#f44336'}`
-            }}>
-              {corsMessage}
-            </div>
-          )}
 
           <div className="form-group">
             <label>{t('wizard.step5.manualLabel')}</label>
@@ -441,7 +428,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
                   borderRadius: '8px',
                   fontSize: '12px',
                   height: '150px',
-                  backgroundColor: 'var(--bg-secondary)',
+                  backgroundColor: isDarkMode ? 'var(--bg-secondary)' : '#f5f5f5',
                   border: '1px solid var(--border-color)',
                 }}
               >
@@ -534,6 +521,18 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
       className={`wizard-container ${hasInstructions ? 'has-instructions' : ''}`}
       style={{ height: height ? `${height}px` : 'auto' }}
     >
+      {step === 0 && onHighContrastChange && (
+        <button 
+          className="high-contrast-toggle-corner"
+          onClick={() => onHighContrastChange(!highContrast)}
+          title={highContrast ? t('settings.highContrastOff') : t('settings.highContrastOn')}
+          aria-label={highContrast ? t('settings.highContrastOff') : t('settings.highContrastOn')}
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0-2V4a8 8 0 1 1 0 16z"/>
+          </svg>
+        </button>
+      )}
       <div 
         className={`wizard-inner ${hasInstructions ? 'has-instructions' : ''}`}
         ref={innerRef}

@@ -1,4 +1,5 @@
 .wizard-container {
+  position: relative;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -167,7 +168,7 @@
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
   color: #ffffff;
   font-size: 0.95rem;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -178,7 +179,7 @@
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
   color: #ffffff;
   font-size: 0.85rem;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -241,6 +242,75 @@
 .form-group input.url-input:focus {
   box-shadow: none;
   border: none;
+}
+
+.cors-check-button {
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cors-check-button.success {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  border-color: #4caf50;
+  cursor: default;
+  animation: pulseSuccess 0.5s ease-out;
+}
+
+.cors-check-button.error {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+  border-color: #f44336;
+  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 1s ease-in-out infinite;
+  display: inline-block;
+}
+
+.app.theme-light .spinner-small {
+  border-color: rgba(0, 0, 0, 0.1);
+  border-top-color: #000000;
+}
+
+.app.theme-light .cors-check-button.success {
+  background-color: rgba(76, 175, 80, 0.15);
+  color: #2e7d32;
+  border-color: #2e7d32;
+}
+
+.app.theme-light .cors-check-button.error {
+  background-color: rgba(244, 67, 54, 0.15);
+  color: #c62828;
+  border-color: #c62828;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseSuccess {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
 }
 
 .wizard-actions {
@@ -338,13 +408,13 @@
 }
 
 .app.theme-light .form-group input {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #1a1a1a;
 }
 
 .app.theme-light .form-group textarea {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #1a1a1a;
 }
@@ -417,6 +487,58 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
+.high-contrast-toggle-corner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.high-contrast-toggle-corner:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.app.theme-light .high-contrast-toggle-corner {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.app.theme-light .high-contrast-toggle-corner:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000000;
+}
+
+.app.high-contrast .high-contrast-toggle-corner {
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  background: #000000 !important;
+}
+
+.app.high-contrast .high-contrast-toggle-corner:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .high-contrast-toggle-corner {
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  background: #ffffff !important;
+}
+
+.app.theme-light.high-contrast .high-contrast-toggle-corner:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
 @media (max-width: 768px) {
   .wizard-container.has-instructions {
     /* flex-direction: column; Removed as it's handled by inner now */
@@ -446,4 +568,131 @@
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* High Contrast Mode */
+.app.high-contrast .wizard-container {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.app.high-contrast .wizard-instructions {
+  background: #000000 !important;
+  border-left: 2px solid #ffffff !important;
+}
+
+.app.high-contrast .wizard-title,
+.app.high-contrast .instructions-title,
+.app.high-contrast .form-group label {
+  color: #ffffff !important;
+}
+
+.app.high-contrast .wizard-description,
+.app.high-contrast .instructions-list {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.app.high-contrast .form-group input,
+.app.high-contrast .url-input-group {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.app.high-contrast .progress-dot {
+  background-color: #333333 !important;
+  border: 1px solid #ffffff !important;
+}
+
+.app.high-contrast .progress-dot.active {
+  background-color: #ffffff !important;
+  transform: scale(1.5);
+}
+
+.app.high-contrast .progress-dot.completed {
+  background-color: #aaaaaa !important;
+}
+
+.app.high-contrast .btn-primary,
+.app.high-contrast .btn-secondary {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.app.high-contrast .btn-primary:hover,
+.app.high-contrast .btn-secondary:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.app.high-contrast .completion-icon {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* High Contrast Light Mode */
+.app.theme-light.high-contrast .wizard-container {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .wizard-instructions {
+  background: #ffffff !important;
+  border-left: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .wizard-title,
+.app.theme-light.high-contrast .instructions-title,
+.app.theme-light.high-contrast .form-group label {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .wizard-description,
+.app.theme-light.high-contrast .instructions-list {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .form-group input,
+.app.theme-light.high-contrast .url-input-group {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .progress-dot {
+  background-color: #eeeeee !important;
+  border: 1px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .progress-dot.active {
+  background-color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .progress-dot.completed {
+  background-color: #666666 !important;
+}
+
+.app.theme-light.high-contrast .btn-primary,
+.app.theme-light.high-contrast .btn-secondary {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .btn-primary:hover,
+.app.theme-light.high-contrast .btn-secondary:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+.app.theme-light.high-contrast .completion-icon {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
 }

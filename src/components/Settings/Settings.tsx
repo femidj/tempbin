@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import './Settings.css';
 import { R2Config } from '../../types';
-import { getR2Config, saveR2Config } from '../../services/r2Service';
+import { getR2Config, saveR2Config, getBucketCors } from '../../services/r2Service';
 import { persistence } from '../../utils/persistence';
 import { 
   validateAccountId, 
@@ -36,6 +38,12 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [corsStatus, setCorsStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [corsMessage, setCorsMessage] = useState<string>('');
+  const [showCorsModal, setShowCorsModal] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const isDarkMode = theme === 'dark';
 
   useEffect(() => {
     loadConfig();
@@ -53,6 +61,15 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
     if (savedLimit) {
       setStorageLimit(parseInt(savedLimit, 10));
     }
+  };
+
+  const saveAndClose = async () => {
+    await saveR2Config(config);
+    await persistence.setItem('storageLimit', storageLimit.toString());
+    setMessage({ text: t('settings.saveSuccess'), type: 'success' });
+    setTimeout(() => {
+      handleClose();
+    }, 1500);
   };
 
   const handleSave = async () => {
@@ -90,18 +107,67 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
     }
 
     setIsSaving(true);
+    setCorsMessage('');
+    
     try {
-      await saveR2Config(config);
-      await persistence.setItem('storageLimit', storageLimit.toString());
-      setMessage({ text: t('settings.saveSuccess'), type: 'success' });
-      setTimeout(() => {
-        handleClose();
-      }, 1500);
+      // Check CORS before saving
+      setCorsStatus('loading');
+      const corsExists = await getBucketCors(config);
+      
+      if (!corsExists) {
+        setIsSaving(false);
+        setShowCorsModal(true);
+        return;
+      } else {
+        setCorsStatus('success');
+      }
+
+      await saveAndClose();
     } catch (error) {
+      console.error('Save error:', error);
       setMessage({ text: t('settings.saveError'), type: 'error' });
     } finally {
       setIsSaving(false);
     }
+  };
+
+  const handleCheckAgain = () => {
+    setShowCorsModal(false);
+    handleSave();
+  };
+
+  const handleCorsCancel = () => {
+    setShowCorsModal(false);
+  };
+
+  const origin = window.location.origin;
+  const corsConfig = [
+    {
+      "AllowedOrigins": [
+        origin
+      ],
+      "AllowedMethods": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "HEAD"
+      ],
+      "AllowedHeaders": [
+        "*"
+      ],
+      "ExposeHeaders": [
+        "ETag"
+      ],
+      "MaxAgeSeconds": 3000
+    }
+  ];
+  const corsString = JSON.stringify(corsConfig, null, 2);
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(corsString);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   const handleClearData = async () => {
@@ -256,6 +322,55 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
         aria-modal="true"
         aria-labelledby="settings-dialog-title"
       >
+        {showCorsModal && (
+          <div className="cors-modal-overlay">
+            <div className="cors-modal-content">
+              <h3 className="cors-modal-title">{t('wizard.step5.checkNotFound')}</h3>
+              <p className="cors-modal-description">
+                {t('wizard.step5.manualLabel')}
+              </p>
+
+              <div className="cors-code-block-container">
+                <SyntaxHighlighter
+                  language="json"
+                  style={isDarkMode ? vscDarkPlus : vs}
+                  customStyle={{
+                    margin: 0,
+                    padding: '1rem',
+                    borderRadius: '8px',
+                    fontSize: '12px',
+                    height: '150px',
+                    backgroundColor: 'var(--bg-secondary)',
+                  }}
+                >
+                  {corsString}
+                </SyntaxHighlighter>
+                <button 
+                  className={`cors-copy-button ${copied ? 'copied' : ''}`}
+                  onClick={copyToClipboard}
+                >
+                  {copied ? t('fileCard.copied') : t('wizard.step5.copy')}
+                </button>
+              </div>
+
+              <div className="cors-actions">
+                <button 
+                  className="button secondary" 
+                  onClick={handleCorsCancel}
+                >
+                  {t('settings.cancel')}
+                </button>
+                <button 
+                  className="button primary" 
+                  onClick={handleCheckAgain}
+                >
+                  {t('wizard.step5.checkConfig')}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="settings-header">
           <h2 className="settings-title" id="settings-dialog-title">{t('settings.title')}</h2>
           <button 

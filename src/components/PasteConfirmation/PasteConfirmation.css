@@ -297,3 +297,145 @@
   font-size: 0.9rem;
   font-weight: 500;
 }
+
+/* High Contrast Mode */
+.app.high-contrast .paste-modal {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: none !important;
+}
+
+.app.high-contrast .paste-title,
+.app.high-contrast .detail-label,
+.app.high-contrast .detail-value,
+.app.high-contrast .file-preview-text,
+.app.high-contrast .file-preview-item-name,
+.app.high-contrast .file-preview-item-size,
+.app.high-contrast .total-size {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.app.high-contrast .file-preview-container,
+.app.high-contrast .file-details,
+.app.high-contrast .file-list-preview,
+.app.high-contrast .file-preview-text {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+
+.app.high-contrast .detail-row,
+.app.high-contrast .file-preview-item {
+  border-bottom: 1px solid #ffffff !important;
+}
+
+.app.high-contrast .file-preview-icon,
+.app.high-contrast .file-preview-item-icon {
+  color: #ffffff !important;
+}
+
+.app.high-contrast .close-button {
+  color: #ffffff !important;
+  border: 2px solid transparent;
+}
+
+.app.high-contrast .close-button:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.app.high-contrast .close-button:focus {
+  outline: 2px solid #ffffff;
+}
+
+.app.high-contrast .button.primary {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.app.high-contrast .button.primary:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.app.high-contrast .button.secondary {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.app.high-contrast .button.secondary:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* High Contrast Light Mode */
+.app.theme-light.high-contrast .paste-modal {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .paste-title,
+.app.theme-light.high-contrast .detail-label,
+.app.theme-light.high-contrast .detail-value,
+.app.theme-light.high-contrast .file-preview-text,
+.app.theme-light.high-contrast .file-preview-item-name,
+.app.theme-light.high-contrast .file-preview-item-size,
+.app.theme-light.high-contrast .total-size {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .file-preview-container,
+.app.theme-light.high-contrast .file-details,
+.app.theme-light.high-contrast .file-list-preview,
+.app.theme-light.high-contrast .file-preview-text {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .detail-row,
+.app.theme-light.high-contrast .file-preview-item {
+  border-bottom: 1px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .file-preview-icon,
+.app.theme-light.high-contrast .file-preview-item-icon {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .close-button {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .close-button:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+.app.theme-light.high-contrast .close-button:focus {
+  outline: 2px solid #000000;
+}
+
+.app.theme-light.high-contrast .button.primary {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .button.primary:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+.app.theme-light.high-contrast .button.secondary {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .button.secondary:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}

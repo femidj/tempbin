@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, vi } from 'vitest';
-import { uploadFileToR2, deleteFileFromR2, getBucketCors, putBucketCors } from './r2Service';
+import { uploadFileToR2, deleteFileFromR2, getBucketCors } from './r2Service';
 import { persistence } from '../utils/persistence';
 import { R2Config } from '../types';
 // @ts-ignore
@@ -75,15 +75,18 @@ describe('R2 Service Integration Tests', () => {
     await deleteFileFromR2(result.fileId);
   }, 30000);
 
-  it('should check and set CORS policy', async () => {
+  it('should check if CORS policy is configured', async () => {
      // Mock persistence to return config
      vi.mocked(persistence.getItem).mockResolvedValue(JSON.stringify(testConfig));
 
-     // Set CORS
-     await putBucketCors(testConfig, ['http://localhost:3000']);
-
      // Verify CORS is set
      const corsExists = await getBucketCors(testConfig);
-     expect(corsExists).toBe(true);
+     
+     if (!corsExists) {
+       console.error('\n\x1b[31mERROR: CORS is not configured for the test bucket.\x1b[0m');
+       console.error('\x1b[33mPlease configure CORS manually in your Cloudflare R2 dashboard to allow the test origin.\x1b[0m\n');
+     }
+
+     expect(corsExists, 'CORS policy is not configured. Please set CORS manually for the test bucket.').toBe(true);
   }, 30000);
 });

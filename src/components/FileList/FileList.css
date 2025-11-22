@@ -500,7 +500,7 @@
 }
 
 .app.theme-light .file-list-table {
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -558,4 +558,141 @@
   background: rgba(239, 68, 68, 0.2);
   border-color: rgba(239, 68, 68, 0.4);
   color: #dc2626;
+}
+
+/* High Contrast Mode */
+.app.high-contrast .file-list-table {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  backdrop-filter: none !important;
+}
+
+.app.high-contrast .file-list-table-header {
+  background: #000000 !important;
+  border-bottom: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.app.high-contrast .file-list-row {
+  border-bottom: 1px solid #ffffff !important;
+  background: #000000 !important;
+}
+
+.app.high-contrast .file-list-row:hover {
+  background: #333333 !important;
+}
+
+.app.high-contrast .file-list-row.selected {
+  background: #333333 !important;
+  border: 2px solid #ffffff !important;
+}
+
+.app.high-contrast .file-name {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+.app.high-contrast .file-cell-size,
+.app.high-contrast .timer-text,
+.app.high-contrast .file-icon {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.app.high-contrast .bulk-action-btn,
+.app.high-contrast .action-btn {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.app.high-contrast .bulk-action-btn:hover,
+.app.high-contrast .action-btn:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.app.high-contrast .bulk-action-btn.delete,
+.app.high-contrast .action-btn.delete {
+  border-color: #ff0000 !important;
+  color: #ff0000 !important;
+}
+
+.app.high-contrast .bulk-action-btn.delete:hover,
+.app.high-contrast .action-btn.delete:hover {
+  background: #ff0000 !important;
+  color: #ffffff !important;
+}
+
+.app.high-contrast .file-cell-checkbox input[type="checkbox"] {
+  accent-color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+/* High Contrast Light Mode */
+.app.theme-light.high-contrast .file-list-table {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .file-list-table-header {
+  background: #ffffff !important;
+  border-bottom: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .file-list-row {
+  border-bottom: 1px solid #000000 !important;
+  background: #ffffff !important;
+}
+
+.app.theme-light.high-contrast .file-list-row:hover {
+  background: #eeeeee !important;
+}
+
+.app.theme-light.high-contrast .file-list-row.selected {
+  background: #eeeeee !important;
+  border: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .file-name {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .file-cell-size,
+.app.theme-light.high-contrast .timer-text,
+.app.theme-light.high-contrast .file-icon {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .bulk-action-btn,
+.app.theme-light.high-contrast .action-btn {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .bulk-action-btn:hover,
+.app.theme-light.high-contrast .action-btn:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+.app.theme-light.high-contrast .bulk-action-btn.delete,
+.app.theme-light.high-contrast .action-btn.delete {
+  border-color: #cc0000 !important;
+  color: #cc0000 !important;
+}
+
+.app.theme-light.high-contrast .bulk-action-btn.delete:hover,
+.app.theme-light.high-contrast .action-btn.delete:hover {
+  background: #cc0000 !important;
+  color: #ffffff !important;
+}
+
+.app.theme-light.high-contrast .file-cell-checkbox input[type="checkbox"] {
+  accent-color: #000000;
+  border: 2px solid #000000;
 }

@@ -60,3 +60,60 @@
 .app.theme-light .storage-bar-container {
   background: rgba(0, 0, 0, 0.1);
 }
+
+/* High Contrast Mode */
+.app.high-contrast .storage-label {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.app.high-contrast .storage-value {
+  background: #000000 !important;
+  border: 1px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.app.high-contrast .storage-bar-container {
+  background: #333333 !important;
+  border: 1px solid #ffffff !important;
+}
+
+.app.high-contrast .storage-bar {
+  background: #ffffff !important;
+}
+
+.app.high-contrast .storage-bar.warning {
+  background: #ffff00 !important;
+}
+
+.app.high-contrast .storage-bar.critical {
+  background: #ff0000 !important;
+}
+
+/* High Contrast Light Mode */
+.app.theme-light.high-contrast .storage-label {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .storage-value {
+  background: #ffffff !important;
+  border: 1px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .storage-bar-container {
+  background: #eeeeee !important;
+  border: 1px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .storage-bar {
+  background: #000000 !important;
+}
+
+.app.theme-light.high-contrast .storage-bar.warning {
+  background: #ffcc00 !important;
+}
+
+.app.theme-light.high-contrast .storage-bar.critical {
+  background: #cc0000 !important;
+}

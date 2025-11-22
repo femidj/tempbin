@@ -11,7 +11,7 @@ import PasteConfirmation from './components/PasteConfirmation/PasteConfirmation'
 import StorageUsage from './components/StorageUsage/StorageUsage';
 import LimitExceededModal from './components/LimitExceededModal/LimitExceededModal';
 import { FileItem, R2Config } from './types';
-import { uploadFileToR2, deleteFileFromR2, getFilesList } from './services/r2Service';
+import { uploadFileToR2, deleteFileFromR2 } from './services/r2Service';
 import { persistence } from './utils/persistence';
 
 function App() {
@@ -394,6 +394,8 @@ function App() {
           {showWizard ? (
             <OnboardingWizard 
               onComplete={() => setShowWizard(false)} 
+              highContrast={highContrast}
+              onHighContrastChange={handleHighContrastChange}
             />
           ) : (
             <>

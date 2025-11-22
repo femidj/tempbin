@@ -164,3 +164,100 @@
 .app.theme-light .button.warning:hover {
   background-color: #b45309;
 }
+
+/* High Contrast Mode */
+.app.high-contrast .limit-modal {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: none !important;
+}
+
+.app.high-contrast .limit-title,
+.app.high-contrast .limit-message,
+.app.high-contrast .limit-row,
+.app.high-contrast .checkbox-label {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.app.high-contrast .limit-details {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+
+.app.high-contrast .limit-row.total {
+  border-top: 2px solid #ffffff !important;
+}
+
+.app.high-contrast .limit-warning-icon {
+  color: #ff0000 !important;
+}
+
+.app.high-contrast .limit-exceeded-value {
+  color: #ff0000 !important;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.app.high-contrast .button.warning {
+  background: #000000 !important;
+  border: 2px solid #ff0000 !important;
+  color: #ff0000 !important;
+  font-weight: bold;
+}
+
+.app.high-contrast .button.warning:hover {
+  background: #ff0000 !important;
+  color: #ffffff !important;
+}
+
+.app.high-contrast .checkbox-label input {
+  accent-color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+/* High Contrast Light Mode */
+.app.theme-light.high-contrast .limit-modal {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .limit-title,
+.app.theme-light.high-contrast .limit-message,
+.app.theme-light.high-contrast .limit-row,
+.app.theme-light.high-contrast .checkbox-label {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .limit-details {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .limit-row.total {
+  border-top: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .limit-warning-icon {
+  color: #cc0000 !important;
+}
+
+.app.theme-light.high-contrast .limit-exceeded-value {
+  color: #cc0000 !important;
+}
+
+.app.theme-light.high-contrast .button.warning {
+  background: #ffffff !important;
+  border: 2px solid #cc0000 !important;
+  color: #cc0000 !important;
+}
+
+.app.theme-light.high-contrast .button.warning:hover {
+  background: #cc0000 !important;
+  color: #ffffff !important;
+}
+
+.app.theme-light.high-contrast .checkbox-label input {
+  accent-color: #000000;
+  border: 2px solid #000000;
+}

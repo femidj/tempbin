@@ -257,6 +257,96 @@
   outline-offset: 2px;
 }
 
+/* High Contrast Mode */
+.app.high-contrast .header {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.app.high-contrast .header-logo,
+.app.high-contrast .logo-text {
+  color: #ffffff !important;
+}
+
+.app.high-contrast .github-link,
+.app.high-contrast .theme-toggle-button,
+.app.high-contrast .language-button,
+.app.high-contrast .settings-button {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.app.high-contrast .github-link:hover,
+.app.high-contrast .theme-toggle-button:hover,
+.app.high-contrast .language-button:hover,
+.app.high-contrast .settings-button:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.app.high-contrast .language-menu {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: none !important;
+}
+
+.app.high-contrast .language-option {
+  color: #ffffff !important;
+}
+
+.app.high-contrast .language-option:hover,
+.app.high-contrast .language-option.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  font-weight: bold;
+}
+
+/* High Contrast Light Mode */
+.app.theme-light.high-contrast .header {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .header-logo,
+.app.theme-light.high-contrast .logo-text {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .github-link,
+.app.theme-light.high-contrast .theme-toggle-button,
+.app.theme-light.high-contrast .language-button,
+.app.theme-light.high-contrast .settings-button {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .github-link:hover,
+.app.theme-light.high-contrast .theme-toggle-button:hover,
+.app.theme-light.high-contrast .language-button:hover,
+.app.theme-light.high-contrast .settings-button:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+.app.theme-light.high-contrast .language-menu {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+.app.theme-light.high-contrast .language-option {
+  color: #000000 !important;
+}
+
+.app.theme-light.high-contrast .language-option:hover,
+.app.theme-light.high-contrast .language-option.active {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
 @media (max-width: 1024px) {
   .header {
     min-width: 450px;
