@@ -460,7 +460,11 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
         </div>
         <div className="wizard-actions">
           <button className="btn-secondary" onClick={handleBack}>{t('wizard.back')}</button>
-          <button className="btn-primary" onClick={handleNext}>
+          <button 
+            className="btn-primary" 
+            onClick={handleNext}
+            disabled={corsStatus !== 'success'}
+          >
             {t('wizard.next')}
           </button>
         </div>
