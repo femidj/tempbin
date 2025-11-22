@@ -13,7 +13,6 @@ TempBin is a secure, client-side temporary file sharing application powered by C
 - **Modern UI**: Clean, responsive interface with Dark/Light mode support.
 - **Internationalization**: Support for multiple languages (English, Spanish, French, German, Japanese, Korean, Chinese).
 - **Storage Limits**: Set a client-side monthly storage limit to help manage costs.
-- **Automatic Configuration**: Built-in tools to automatically configure CORS policies on your bucket.
 - **Drag & Drop**: Easy file upload interface.
 
 ## 🚀 Getting Started
@@ -26,8 +25,6 @@ TempBin is a secure, client-side temporary file sharing application powered by C
 ### R2 Configuration (Crucial!)
 
 Since TempBin runs in the browser, you must configure CORS (Cross-Origin Resource Sharing) on your R2 bucket to allow your browser to upload files directly.
-
-**The application now includes an automatic configuration tool in the onboarding wizard.** However, if you prefer to do it manually:
 
 1.  Go to your Cloudflare Dashboard > R2 > Select your bucket.
 2.  Go to **Settings** > **CORS Policy**.
@@ -85,7 +82,6 @@ Since TempBin runs in the browser, you must configure CORS (Cross-Origin Resourc
     *   **Bucket Name**: The name of the bucket you created.
     *   **Public URL (Optional)**: If you have a custom domain connected to your bucket.
     *   **Storage Limit**: Set a warning threshold for monthly usage.
-    *   **CORS Setup**: Automatically configure or check your bucket's CORS policy.
 
 ## 🧪 Testing
 
