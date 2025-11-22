@@ -6,6 +6,10 @@ import UploadZone from './components/UploadZone/UploadZone';
 import FileList from './components/FileList/FileList';
 import Header from './components/Header/Header';
 import StorageUsage from './components/StorageUsage/StorageUsage';
+import SettingsSkeleton from './components/SkeletonLoader/SettingsSkeleton';
+import OnboardingSkeleton from './components/SkeletonLoader/OnboardingSkeleton';
+import PasteSkeleton from './components/SkeletonLoader/PasteSkeleton';
+import LimitSkeleton from './components/SkeletonLoader/LimitSkeleton';
 import { FileItem, R2Config } from './types';
 import { uploadFileToR2, deleteFileFromR2, calculateFileHash } from './services/r2Service';
 import { persistence } from './utils/persistence';
@@ -34,7 +38,9 @@ function App() {
   const [notificationFadeOut, setNotificationFadeOut] = useState(false);
   const [fileListFadeOut, setFileListFadeOut] = useState(false);
   const [expirationMinutes, setExpirationMinutes] = useState(10);
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    return (localStorage.getItem('theme') as 'light' | 'dark') || 'dark';
+  });
   const [highContrast, setHighContrast] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [hashFilenames, setHashFilenames] = useState(true);
@@ -60,10 +66,6 @@ function App() {
     }
     
     // Check for accessibility preferences
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    }
     const highContrastPref = localStorage.getItem('highContrast') === 'true';
     const reducedMotionPref = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     setHighContrast(highContrastPref);
@@ -448,7 +450,7 @@ function App() {
       <main id="main-content" className="main-content" role="main" aria-label="File sharing application">
         <div className="container">
           {showWizard ? (
-            <Suspense fallback={<div className="modal-loading"><div className="loading-spinner"></div></div>}>
+            <Suspense fallback={<OnboardingSkeleton />}>
               <OnboardingWizard 
                 onComplete={() => setShowWizard(false)}  
                 highContrast={highContrast}
@@ -542,7 +544,7 @@ function App() {
       </main>
 
       {showSettings && (
-        <Suspense fallback={<div className="modal-loading"><div className="loading-spinner"></div></div>}>
+        <Suspense fallback={<SettingsSkeleton />}>
           <Settings 
             onClose={() => {
               setShowSettings(false);
@@ -557,7 +559,7 @@ function App() {
       )}
 
       {showLimitModal && (
-        <Suspense fallback={<div className="modal-loading"><div className="loading-spinner"></div></div>}>
+        <Suspense fallback={<LimitSkeleton />}>
           <LimitExceededModal
             onConfirm={handleLimitConfirm}
             onCancel={handleLimitCancel}
@@ -569,7 +571,7 @@ function App() {
       )}
 
       {pastedFiles.length > 0 && (
-        <Suspense fallback={<div className="modal-loading"><div className="loading-spinner"></div></div>}>
+        <Suspense fallback={<PasteSkeleton />}>
           <PasteConfirmation
             files={pastedFiles}
             onConfirm={() => {
