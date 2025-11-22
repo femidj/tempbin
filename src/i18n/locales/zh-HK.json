@@ -185,6 +185,15 @@
         "step4": "貼入去 CORS 原則編輯器，然後儲存。"
       },
       "jsonLabel": "CORS 設定 JSON",
+      "manualLabel": "Manual Configuration (JSON)",
+      "autoConfigure": "Configure Automatically",
+      "configuring": "Configuring...",
+      "checkConfig": "Check Configuration",
+      "autoSuccess": "CORS configuration applied successfully!",
+      "autoError": "Failed to apply CORS configuration",
+      "checkSuccess": "CORS configuration found!",
+      "checkNotFound": "No CORS configuration found.",
+      "checkError": "Error checking CORS configuration",
       "copy": "抄",
       "pasteHint": "貼呢個入去你 R2 儲存桶嘅 CORS 原則設定。"
     },

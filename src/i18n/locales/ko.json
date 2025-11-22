@@ -183,6 +183,15 @@
         "step4": "CORS 정책 편집기에 붙여넣고 저장합니다."
       },
       "jsonLabel": "CORS 구성 JSON",
+      "manualLabel": "Manual Configuration (JSON)",
+      "autoConfigure": "Configure Automatically",
+      "configuring": "Configuring...",
+      "checkConfig": "Check Configuration",
+      "autoSuccess": "CORS configuration applied successfully!",
+      "autoError": "Failed to apply CORS configuration",
+      "checkSuccess": "CORS configuration found!",
+      "checkNotFound": "No CORS configuration found.",
+      "checkError": "Error checking CORS configuration",
       "copy": "복사",
       "pasteHint": "이것을 R2 버킷의 CORS 정책 설정에 붙여넣으세요."
     },

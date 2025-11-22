@@ -185,6 +185,15 @@
         "step4": "将其粘贴到 CORS 策略编辑器中并保存。"
       },
       "jsonLabel": "CORS 配置 JSON",
+      "manualLabel": "Manual Configuration (JSON)",
+      "autoConfigure": "Configure Automatically",
+      "configuring": "Configuring...",
+      "checkConfig": "Check Configuration",
+      "autoSuccess": "CORS configuration applied successfully!",
+      "autoError": "Failed to apply CORS configuration",
+      "checkSuccess": "CORS configuration found!",
+      "checkNotFound": "No CORS configuration found.",
+      "checkError": "Error checking CORS configuration",
       "copy": "复制",
       "pasteHint": "将其粘贴到您的 R2 存储桶的 CORS 策略设置中。"
     },

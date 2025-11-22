@@ -183,6 +183,15 @@
         "step4": "Fügen Sie sie in den CORS-Richtlinien-Editor ein und speichern Sie."
       },
       "jsonLabel": "CORS-Konfigurations-JSON",
+      "manualLabel": "Manual Configuration (JSON)",
+      "autoConfigure": "Configure Automatically",
+      "configuring": "Configuring...",
+      "checkConfig": "Check Configuration",
+      "autoSuccess": "CORS configuration applied successfully!",
+      "autoError": "Failed to apply CORS configuration",
+      "checkSuccess": "CORS configuration found!",
+      "checkNotFound": "No CORS configuration found.",
+      "checkError": "Error checking CORS configuration",
       "copy": "Kopieren",
       "pasteHint": "Fügen Sie dies in die CORS-Richtlinieneinstellungen Ihres R2-Buckets ein."
     },

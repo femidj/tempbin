@@ -316,6 +316,90 @@ export const getFilesList = async (): Promise<string[]> => {
   return [];
 };
 
+export const putBucketCors = async (config: R2Config, allowedOrigins: string[] = ['*']): Promise<void> => {
+  const endpoint = `https://${config.accountId}.r2.cloudflarestorage.com`;
+  const path = `/${config.bucketName}`;
+  const queryParams = { cors: '' };
+  const url = `${endpoint}${path}?cors`;
+  const amzDate = getAmzDate();
+
+  const xmlBody = `
+    <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+      <CORSRule>
+        ${allowedOrigins.map(origin => `<AllowedOrigin>${origin}</AllowedOrigin>`).join('')}
+        <AllowedMethod>GET</AllowedMethod>
+        <AllowedMethod>PUT</AllowedMethod>
+        <AllowedMethod>POST</AllowedMethod>
+        <AllowedMethod>DELETE</AllowedMethod>
+        <AllowedMethod>HEAD</AllowedMethod>
+        <AllowedHeader>*</AllowedHeader>
+        <ExposeHeader>ETag</ExposeHeader>
+        <MaxAgeSeconds>3000</MaxAgeSeconds>
+      </CORSRule>
+    </CORSConfiguration>
+  `.trim();
+
+  const headers: Record<string, string> = {
+    'Host': `${config.accountId}.r2.cloudflarestorage.com`,
+    'X-Amz-Date': amzDate,
+    'Content-Type': 'application/xml',
+    'X-Amz-Content-Sha256': await sha256(xmlBody),
+  };
+
+  const authorization = await createAwsSignature('PUT', path, headers, config, xmlBody, queryParams);
+  headers['Authorization'] = authorization;
+
+  const response = await fetch(url, {
+    method: 'PUT',
+    headers,
+    body: xmlBody,
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to set CORS policy: ${response.status} ${response.statusText}`);
+  }
+};
+
+export const getBucketCors = async (config: R2Config): Promise<boolean> => {
+  const endpoint = `https://${config.accountId}.r2.cloudflarestorage.com`;
+  const path = `/${config.bucketName}`;
+  const queryParams = { cors: '' };
+  const url = `${endpoint}${path}?cors`;
+  const amzDate = getAmzDate();
+
+  const headers: Record<string, string> = {
+    'Host': `${config.accountId}.r2.cloudflarestorage.com`,
+    'X-Amz-Date': amzDate,
+    'X-Amz-Content-Sha256': await sha256(''),
+  };
+
+  const authorization = await createAwsSignature('GET', path, headers, config, '', queryParams);
+  headers['Authorization'] = authorization;
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers,
+    });
+
+    if (response.status === 404) {
+      // No CORS configuration found
+      return false;
+    }
+
+    if (!response.ok) {
+      throw new Error(`Failed to get CORS policy: ${response.status} ${response.statusText}`);
+    }
+
+    // If we get a 200 OK, it means CORS is configured.
+    // We could parse the XML to check specific rules, but for now just knowing it exists is enough.
+    return true;
+  } catch (error) {
+    console.error('Error checking CORS:', error);
+    return false;
+  }
+};
+
 const MULTIPART_THRESHOLD = 100 * 1024 * 1024; // 100MB
 const PART_SIZE = 10 * 1024 * 1024; // 10MB
 const MAX_CONCURRENT_PARTS = 3;

@@ -183,6 +183,15 @@
         "step4": "CORSポリシーエディターに貼り付けて保存します。"
       },
       "jsonLabel": "CORS設定JSON",
+      "manualLabel": "Manual Configuration (JSON)",
+      "autoConfigure": "Configure Automatically",
+      "configuring": "Configuring...",
+      "checkConfig": "Check Configuration",
+      "autoSuccess": "CORS configuration applied successfully!",
+      "autoError": "Failed to apply CORS configuration",
+      "checkSuccess": "CORS configuration found!",
+      "checkNotFound": "No CORS configuration found.",
+      "checkError": "Error checking CORS configuration",
       "copy": "コピー",
       "pasteHint": "これをR2バケットのCORSポリシー設定に貼り付けてください。"
     },

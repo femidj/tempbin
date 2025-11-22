@@ -5,6 +5,7 @@ import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import './OnboardingWizard.css';
 import { R2Config } from '../../types';
 import { persistence } from '../../utils/persistence';
+import { putBucketCors, getBucketCors } from '../../services/r2Service';
 import { 
   validateAccountId, 
   validateBucketName, 
@@ -27,6 +28,8 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [copied, setCopied] = useState(false);
   const [height, setHeight] = useState<number | undefined>(undefined);
+  const [corsStatus, setCorsStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [corsMessage, setCorsMessage] = useState<string>('');
   const innerRef = useRef<HTMLDivElement>(null);
   const isDarkMode = document.documentElement.classList.contains('theme-dark') || 
                      (!document.documentElement.classList.contains('theme-light') && 
@@ -332,13 +335,79 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
       setTimeout(() => setCopied(false), 2000);
     };
 
+    const handleAutoCors = async () => {
+      setCorsStatus('loading');
+      setCorsMessage('');
+      try {
+        const r2Config = config as R2Config; 
+        await putBucketCors(r2Config, [window.location.origin]);
+        setCorsStatus('success');
+        setCorsMessage(t('wizard.step5.autoSuccess'));
+      } catch (error: any) {
+        setCorsStatus('error');
+        setCorsMessage(t('wizard.step5.autoError') + ': ' + error.message);
+      }
+    };
+
+    const handleCheckCors = async () => {
+      setCorsStatus('loading');
+      setCorsMessage('');
+      try {
+        const r2Config = config as R2Config;
+        const exists = await getBucketCors(r2Config);
+        if (exists) {
+          setCorsStatus('success');
+          setCorsMessage(t('wizard.step5.checkSuccess'));
+        } else {
+          setCorsStatus('error');
+          setCorsMessage(t('wizard.step5.checkNotFound'));
+        }
+      } catch (error: any) {
+        setCorsStatus('error');
+        setCorsMessage(t('wizard.step5.checkError') + ': ' + error.message);
+      }
+    };
+
     return (
       <div className="wizard-step">
         <h2 className="wizard-title">{t('wizard.step5.title')}</h2>
         <p className="wizard-description">{t('wizard.step5.description')}</p>
+        
         <div className="wizard-form">
+          <div className="cors-actions" style={{ marginBottom: '1.5rem', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <button 
+              className="btn-primary" 
+              onClick={handleAutoCors}
+              disabled={corsStatus === 'loading'}
+              style={{ flex: 1 }}
+            >
+              {corsStatus === 'loading' ? t('wizard.step5.configuring') : t('wizard.step5.autoConfigure')}
+            </button>
+            <button 
+              className="btn-secondary" 
+              onClick={handleCheckCors}
+              disabled={corsStatus === 'loading'}
+              style={{ flex: 1 }}
+            >
+              {t('wizard.step5.checkConfig')}
+            </button>
+          </div>
+
+          {corsMessage && (
+            <div className={`cors-message ${corsStatus}`} style={{ 
+              padding: '10px', 
+              borderRadius: '4px', 
+              marginBottom: '1rem',
+              backgroundColor: corsStatus === 'success' ? 'rgba(76, 175, 80, 0.1)' : 'rgba(244, 67, 54, 0.1)',
+              color: corsStatus === 'success' ? '#4caf50' : '#f44336',
+              border: `1px solid ${corsStatus === 'success' ? '#4caf50' : '#f44336'}`
+            }}>
+              {corsMessage}
+            </div>
+          )}
+
           <div className="form-group">
-            <label>{t('wizard.step5.jsonLabel')}</label>
+            <label>{t('wizard.step5.manualLabel')}</label>
             <div style={{ position: 'relative' }}>
               <SyntaxHighlighter
                 language="json"
@@ -348,7 +417,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, initial
                   padding: '1rem',
                   borderRadius: '8px',
                   fontSize: '12px',
-                  height: '200px',
+                  height: '150px',
                   backgroundColor: 'var(--bg-secondary)',
                   border: '1px solid var(--border-color)',
                 }}

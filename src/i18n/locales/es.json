@@ -185,6 +185,15 @@
         "step4": "Péguela en el editor de Política CORS y guarde."
       },
       "jsonLabel": "JSON de configuración CORS",
+      "manualLabel": "Manual Configuration (JSON)",
+      "autoConfigure": "Configure Automatically",
+      "configuring": "Configuring...",
+      "checkConfig": "Check Configuration",
+      "autoSuccess": "CORS configuration applied successfully!",
+      "autoError": "Failed to apply CORS configuration",
+      "checkSuccess": "CORS configuration found!",
+      "checkNotFound": "No CORS configuration found.",
+      "checkError": "Error checking CORS configuration",
       "copy": "Copiar",
       "pasteHint": "Pega esto en la configuración de la política CORS de tu bucket R2."
     },
