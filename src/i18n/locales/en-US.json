@@ -234,7 +234,8 @@
     "deleteSuccess": "File deleted successfully!",
     "deleteError": "Failed to delete file.",
     "deleteMultiSuccess": "{{count}} file(s) deleted successfully!",
-    "deleteMultiError": "Failed to delete files."
+    "deleteMultiError": "Failed to delete files.",
+    "duplicateFile": "Duplicate file(s) skipped."
   },
   "accessibility": {
     "skipToMain": "Skip to main content",

@@ -11,8 +11,14 @@ import PasteConfirmation from './components/PasteConfirmation/PasteConfirmation'
 import StorageUsage from './components/StorageUsage/StorageUsage';
 import LimitExceededModal from './components/LimitExceededModal/LimitExceededModal';
 import { FileItem, R2Config } from './types';
-import { uploadFileToR2, deleteFileFromR2 } from './services/r2Service';
+import { uploadFileToR2, deleteFileFromR2, calculateFileHash } from './services/r2Service';
 import { persistence } from './utils/persistence';
+
+interface UploadItem {
+  file: File;
+  hash: string;
+  displayName: string;
+}
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -32,7 +38,7 @@ function App() {
   const [hashFilenames, setHashFilenames] = useState(true);
   const [storageLimit, setStorageLimit] = useState<number>(10);
   const [showLimitModal, setShowLimitModal] = useState(false);
-  const [pendingFiles, setPendingFiles] = useState<File[]>([]);
+  const [pendingFiles, setPendingFiles] = useState<UploadItem[]>([]);
 
   useEffect(() => {
     loadFiles();
@@ -241,9 +247,55 @@ function App() {
   const handleFileUpload = async (filesToUpload: File[]) => {
     if (filesToUpload.length === 0) return;
 
+    const filesToProcess: UploadItem[] = [];
+    let duplicateCount = 0;
+
+    // We need to check against both existing files and files currently being processed in this batch
+    const currentHashes = new Set(files.map(f => f.hash).filter(Boolean));
+    const currentNames = new Set(files.map(f => f.name));
+    
+    // Also track names/hashes in the current batch to avoid duplicates within the batch
+    const batchHashes = new Set<string>();
+    const batchNames = new Set<string>();
+
+    for (const file of filesToUpload) {
+      const hash = await calculateFileHash(file);
+      
+      if (currentHashes.has(hash) || batchHashes.has(hash)) {
+        duplicateCount++;
+        continue;
+      }
+
+      let displayName = file.name;
+      let counter = 1;
+      
+      while (currentNames.has(displayName) || batchNames.has(displayName)) {
+        const dotIndex = file.name.lastIndexOf('.');
+        if (dotIndex === -1) {
+          displayName = `${file.name} (${counter})`;
+        } else {
+          const name = file.name.substring(0, dotIndex);
+          const ext = file.name.substring(dotIndex);
+          displayName = `${name} (${counter})${ext}`;
+        }
+        counter++;
+      }
+
+      batchHashes.add(hash);
+      batchNames.add(displayName);
+      
+      filesToProcess.push({ file, hash, displayName });
+    }
+
+    if (duplicateCount > 0) {
+       showNotification(t('notifications.duplicateFile'), 'error');
+    }
+
+    if (filesToProcess.length === 0) return;
+
     // Check storage limit
     const currentUsage = files.reduce((acc, f) => acc + f.size, 0);
-    const uploadSize = filesToUpload.reduce((acc, f) => acc + f.size, 0);
+    const uploadSize = filesToProcess.reduce((acc, item) => acc + item.file.size, 0);
     const limitBytes = storageLimit * 1024 * 1024 * 1024;
 
     if (currentUsage + uploadSize > limitBytes) {
@@ -251,42 +303,44 @@ function App() {
       const today = new Date().toDateString();
       
       if (dismissedDate !== today) {
-        setPendingFiles(filesToUpload);
+        setPendingFiles(filesToProcess);
         setShowLimitModal(true);
         return;
       }
     }
     
-    await processUpload(filesToUpload);
+    await processUpload(filesToProcess);
   };
 
-  const processUpload = async (filesToUpload: File[]) => {
+  const processUpload = async (items: UploadItem[]) => {
     setIsUploading(true);
     setUploadProgress(0);
     try {
       const expirationMs = expirationMinutes * 60 * 1000;
-      const fileProgresses = new Array(filesToUpload.length).fill(0);
-      const totalSize = filesToUpload.reduce((acc, f) => acc + f.size, 0);
+      const fileProgresses = new Array(items.length).fill(0);
+      const totalSize = items.reduce((acc, item) => acc + item.file.size, 0);
       
-      const uploadedFiles = await asyncPool(2, filesToUpload, async (file, index) => {
+      const uploadedFiles = await asyncPool(2, items, async (item, index) => {
+        const { file, hash, displayName } = item;
         const result = await uploadFileToR2(file, hashFilenames, (progress) => {
           fileProgresses[index] = progress;
           
           // Calculate weighted total progress
-          const totalUploaded = filesToUpload.reduce((acc, f, idx) => {
-             return acc + (f.size * (fileProgresses[idx] / 100));
+          const totalUploaded = items.reduce((acc, item, idx) => {
+             return acc + (item.file.size * (fileProgresses[idx] / 100));
           }, 0);
           
           setUploadProgress((totalUploaded / totalSize) * 100);
-        });
+        }, displayName);
         
         return {
           id: result.fileId,
-          name: file.name,
+          name: displayName,
           size: file.size,
           uploadedAt: Date.now(),
           expiresAt: Date.now() + expirationMs,
           url: result.url,
+          hash: hash,
         } as FileItem;
       });
 
@@ -294,10 +348,10 @@ function App() {
       setFiles(updatedFiles);
       await saveFiles(updatedFiles);
 
-      if (filesToUpload.length === 1) {
+      if (items.length === 1) {
         showNotification(t('notifications.uploadSuccess'), 'success');
       } else {
-        showNotification(t('notifications.uploadMultiSuccess', { count: filesToUpload.length }), 'success');
+        showNotification(t('notifications.uploadMultiSuccess', { count: items.length }), 'success');
       }
     } catch (error) {
       console.error('Upload error:', error);
@@ -376,7 +430,7 @@ function App() {
     setTimeout(() => {
       setNotificationFadeOut(true);
       setTimeout(() => setNotification(null), 300);
-    }, 2700);
+    }, 5000);
   };
 
   return (
@@ -501,7 +555,7 @@ function App() {
           onConfirm={handleLimitConfirm}
           onCancel={handleLimitCancel}
           currentUsage={files.reduce((acc, f) => acc + f.size, 0)}
-          uploadSize={pendingFiles.reduce((acc, f) => acc + f.size, 0)}
+          uploadSize={pendingFiles.reduce((acc, item) => acc + item.file.size, 0)}
           limitGB={storageLimit}
         />
       )}

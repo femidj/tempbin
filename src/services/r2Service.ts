@@ -11,6 +11,11 @@ export const getR2Config = async (): Promise<R2Config | null> => {
   }
 };
 
+export const calculateFileHash = async (file: File): Promise<string> => {
+  const buffer = await file.arrayBuffer();
+  return sha256(buffer);
+};
+
 export const saveR2Config = async (config: R2Config): Promise<void> => {
   try {
     await persistence.setItem('r2Config', JSON.stringify(config));
@@ -21,15 +26,20 @@ export const saveR2Config = async (config: R2Config): Promise<void> => {
 };
 
 const sanitizeFileName = (fileName: string): string => {
-  // Normalize to decompose combined characters
-  const normalized = fileName.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   // Replace spaces with hyphens
-  const noSpaces = normalized.replace(/\s+/g, '-');
-  // Remove anything that isn't alphanumeric, dot, hyphen, or underscore
-  const safeChars = noSpaces.replace(/[^a-zA-Z0-9.\-_]/g, '');
-  // Remove consecutive dots or hyphens and ensure it's not empty
+  const noSpaces = fileName.replace(/\s+/g, '-');
+  // Remove unsafe characters (keep unicode)
+  // / \ : * ? " < > | and control characters
+  const safeChars = noSpaces.replace(/[\/\\:*?"<>|\x00-\x1F\x7F]/g, '');
+  // Remove consecutive dots or hyphens
   const result = safeChars.replace(/\.{2,}/g, '.').replace(/-{2,}/g, '-');
-  return result || 'unnamed-file';
+  // Trim dots and hyphens from start/end
+  const trimmed = result.replace(/^[.-]+|[.-]+$/g, '');
+  
+  const finalName = trimmed || 'unnamed-file';
+  
+  // Encode to ensure URL friendliness (converts non-ASCII to %XX)
+  return encodeURIComponent(finalName);
 };
 
 const generateFileId = (): string => {
@@ -38,8 +48,10 @@ const generateFileId = (): string => {
 
 const hashFileName = async (fileName: string): Promise<string> => {
   const extension = fileName.includes('.') ? fileName.substring(fileName.lastIndexOf('.')) : '';
-  const hash = await sha256(fileName + Date.now() + Math.random());
-  return hash.substring(0, 16) + extension;
+  const now = new Date();
+  const timestamp = now.toISOString().replace(/[-:T.]/g, '').slice(0, 14); // YYYYMMDDHHMMSS
+  const random = Math.random().toString(36).substring(2, 8);
+  return `${timestamp}-${random}${extension}`;
 };
 
 const createAwsSignature = async (
@@ -190,7 +202,8 @@ const generatePresignedUrl = async (
 export const uploadFileToR2 = async (
   file: File, 
   hashFilenames: boolean = true,
-  onProgress?: (progress: number) => void
+  onProgress?: (progress: number) => void,
+  customName?: string
 ): Promise<{ fileId: string; url: string }> => {
   const config = await getR2Config();
   
@@ -199,7 +212,8 @@ export const uploadFileToR2 = async (
   }
 
   // Sanitize filename to be URL friendly
-  const sanitizedName = sanitizeFileName(file.name);
+  const nameToUse = customName || file.name;
+  const sanitizedName = sanitizeFileName(nameToUse);
 
   // Hash the filename to prevent guessing/enumeration while preserving extension, or use original name
   const fileName = hashFilenames ? await hashFileName(sanitizedName) : sanitizedName;

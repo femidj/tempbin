@@ -1,4 +1,3 @@
-
 export interface FileItem {
   id: string;
   name: string;
@@ -6,6 +5,7 @@ export interface FileItem {
   uploadedAt: number;
   expiresAt: number;
   url: string;
+  hash?: string;
 }
 
 export interface R2Config {

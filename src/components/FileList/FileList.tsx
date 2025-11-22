@@ -17,6 +17,8 @@ const FileList: React.FC<FileListProps> = ({ files, onDeleteFile, onDeleteSelect
   const [selectedFiles, setSelectedFiles] = useState<Set<string>>(new Set());
   const [timers, setTimers] = useState<Record<string, string>>({});
   const [deletingFiles, setDeletingFiles] = useState<Set<string>>(new Set());
+  const [copiedFiles, setCopiedFiles] = useState<Set<string>>(new Set());
+  const [allCopied, setAllCopied] = useState(false);
 
   useEffect(() => {
     const updateTimers = () => {
@@ -62,14 +64,14 @@ const FileList: React.FC<FileListProps> = ({ files, onDeleteFile, onDeleteSelect
   const handleCopyLink = async (url: string, fileId: string) => {
     try {
       await navigator.clipboard.writeText(url);
-      const button = document.getElementById(`copy-${fileId}`);
-      if (button) {
-        const originalText = button.textContent;
-        button.textContent = t('fileList.copied');
-        setTimeout(() => {
-          button.textContent = originalText;
-        }, 1500);
-      }
+      setCopiedFiles(prev => new Set(prev).add(fileId));
+      setTimeout(() => {
+        setCopiedFiles(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(fileId);
+          return newSet;
+        });
+      }, 1500);
     } catch (error) {
       console.error('Failed to copy:', error);
     }
@@ -79,14 +81,10 @@ const FileList: React.FC<FileListProps> = ({ files, onDeleteFile, onDeleteSelect
     const links = files.map(f => f.url).join('\n');
     try {
       await navigator.clipboard.writeText(links);
-      const button = document.getElementById('copy-all');
-      if (button) {
-        const originalText = button.textContent;
-        button.textContent = t('fileList.copiedAll');
-        setTimeout(() => {
-          button.textContent = originalText;
-        }, 1500);
-      }
+      setAllCopied(true);
+      setTimeout(() => {
+        setAllCopied(false);
+      }, 1500);
     } catch (error) {
       console.error('Failed to copy:', error);
     }
@@ -137,10 +135,21 @@ const FileList: React.FC<FileListProps> = ({ files, onDeleteFile, onDeleteSelect
           )}
           {files.length > 0 && (
             <button id="copy-all" className="bulk-action-btn" onClick={handleCopyAllLinks} type="button" aria-label={t('fileList.copyAllLinks')}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-              </svg>
-              {t('fileList.copyAllLinks')}
+              {allCopied ? (
+                <>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  {t('fileList.copiedAll')}
+                </>
+              ) : (
+                <>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                  </svg>
+                  {t('fileList.copyAllLinks')}
+                </>
+              )}
             </button>
           )}
         </div>
@@ -187,15 +196,21 @@ const FileList: React.FC<FileListProps> = ({ files, onDeleteFile, onDeleteSelect
             <div className="file-cell file-cell-actions">
               <button 
                 id={`copy-${file.id}`}
-                className="action-btn copy"
+                className={`action-btn copy ${copiedFiles.has(file.id) ? 'copied' : ''}`}
                 onClick={() => handleCopyLink(file.url, file.id)}
                 title={t('fileList.copyLinkTitle')}
                 aria-label={t('fileList.copyLinkAria', { name: file.name })}
                 type="button"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-                </svg>
+                {copiedFiles.has(file.id) ? (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                  </svg>
+                )}
               </button>
               <a 
                 href={file.url}
