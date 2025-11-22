@@ -103,6 +103,8 @@
     "darkMode": "Dark mode",
     "highContrast": "High Contrast",
     "highContrastHint": "Increase contrast for better visibility",
+    "highContrastOn": "Enable High Contrast",
+    "highContrastOff": "Disable High Contrast",
     "language": "Language",
     "languageHint": "Choose your preferred language",
     "cancel": "Cancel",

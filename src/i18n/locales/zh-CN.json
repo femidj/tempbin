@@ -103,6 +103,8 @@
     "darkMode": "深色模式",
     "highContrast": "高对比度",
     "highContrastHint": "提高对比度以获得更好的可见性",
+    "highContrastOn": "启用高对比度",
+    "highContrastOff": "禁用高对比度",
     "language": "语言",
     "languageHint": "选择您的首选语言",
     "cancel": "取消",

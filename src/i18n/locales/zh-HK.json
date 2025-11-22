@@ -103,6 +103,8 @@
     "darkMode": "深色模式",
     "highContrast": "高對比",
     "highContrastHint": "提高對比度，睇得清楚啲",
+    "highContrastOn": "開高對比",
+    "highContrastOff": "閂高對比",
     "language": "語言",
     "languageHint": "揀你想用嘅語言",
     "cancel": "取消",
