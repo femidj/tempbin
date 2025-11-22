@@ -80,7 +80,7 @@ describe('R2 Service Integration Tests', () => {
      vi.mocked(persistence.getItem).mockResolvedValue(JSON.stringify(testConfig));
 
      // Set CORS
-     await putBucketCors(testConfig, ['*']);
+     await putBucketCors(testConfig, ['http://localhost:3000']);
 
      // Verify CORS is set
      const corsExists = await getBucketCors(testConfig);

@@ -316,7 +316,7 @@ export const getFilesList = async (): Promise<string[]> => {
   return [];
 };
 
-export const putBucketCors = async (config: R2Config, allowedOrigins: string[] = ['*']): Promise<void> => {
+export const putBucketCors = async (config: R2Config, allowedOrigins: string[]): Promise<void> => {
   const endpoint = `https://${config.accountId}.r2.cloudflarestorage.com`;
   const path = `/${config.bucketName}`;
   const queryParams = { cors: '' };
