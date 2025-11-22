@@ -1,7 +1,7 @@
 {
   "app": {
-    "title": "TempBin - Temporary File Sharing",
-    "description": "Share files temporarily with auto-expiring links"
+    "title": "TempBin - Temporary File Sharing with Auto-Expiring Links",
+    "description": "Share files temporarily with auto-expiring links. Upload files and get shareable URLs that automatically delete after 1-10 minutes."
   },
   "header": {
     "logo": "tempbin",

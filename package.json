@@ -1,7 +1,7 @@
 {
   "name": "tempbin",
   "version": "1.0.0",
-  "description": "Secure, client-side temporary file sharing powered by Cloudflare R2",
+  "description": "Share files temporarily with auto-expiring links. Secure, fast, and private temporary file sharing powered by Cloudflare R2.",
   "main": "index.js",
   "scripts": {
     "test": "vitest run",
@@ -15,7 +15,11 @@
     "react",
     "secure",
     "temporary-storage",
-    "serverless"
+    "serverless",
+    "auto-delete",
+    "ephemeral",
+    "private",
+    "expiration"
   ],
   "author": "TempBin Contributors",
   "license": "MIT",
