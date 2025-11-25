@@ -34,7 +34,7 @@
   },
   "upload": {
     "title": "Déposez vos fichiers ici",
-    "subtitle": "ou cliquez pour sélectionner",
+    "subtitle": "collez du texte ou cliquez pour sélectionner",
     "info": "Les fichiers expirent après {{minutes}} minute",
     "info_plural": "Les fichiers expirent après {{minutes}} minutes",
     "uploading": "Téléchargement...",

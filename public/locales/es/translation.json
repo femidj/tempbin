@@ -34,7 +34,7 @@
   },
   "upload": {
     "title": "Arrastre sus archivos aquí",
-    "subtitle": "o haga clic para seleccionar",
+    "subtitle": "pegue texto o haga clic para seleccionar",
     "info": "Los archivos expiran después de {{minutes}} minuto",
     "info_plural": "Los archivos expiran después de {{minutes}} minutos",
     "uploading": "Subiendo...",

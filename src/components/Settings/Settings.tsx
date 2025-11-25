@@ -339,13 +339,13 @@ const Settings: React.FC<SettingsProps> = ({ onClose, theme, onThemeChange, high
   };
 
   const languages = [
-    { code: 'en-US', name: 'English (US)' },
-    { code: 'en-GB', name: 'English (UK)' },
+    { code: 'en', name: 'English' },
     { code: 'es', name: 'Español' },
     { code: 'fr', name: 'Français' },
     { code: 'de', name: 'Deutsch' },
+    { code: 'zh-HK', name: '粵語' },
+    { code: 'zh-TW', name: '繁體中文' },
     { code: 'zh-CN', name: '简体中文' },
-    { code: 'zh-HK', name: '繁體中文' },
     { code: 'ja', name: '日本語' },
     { code: 'ko', name: '한국어' },
   ];

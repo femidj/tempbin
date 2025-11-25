@@ -34,7 +34,7 @@
   },
   "upload": {
     "title": "將檔案拖曳到這裡",
-    "subtitle": "或點擊選擇檔案",
+    "subtitle": "貼上文字或點擊選擇檔案",
     "info": "檔案將在 {{minutes}} 分鐘後自動過期",
     "info_plural": "檔案將在 {{minutes}} 分鐘後自動過期",
     "uploading": "上傳中...",

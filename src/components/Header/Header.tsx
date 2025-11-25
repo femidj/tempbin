@@ -16,13 +16,13 @@ const Header: React.FC<HeaderProps> = ({ onSettingsClick, theme, onThemeToggle, 
   const languageMenuRef = useRef<HTMLDivElement>(null);
 
   const languages = [
-    { code: 'en-US', name: 'English (US)', flag: '🇺🇸' },
-    { code: 'en-GB', name: 'English (UK)', flag: '🇬🇧' },
+    { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'es', name: 'Español', flag: '🇪🇸' },
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
     { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-    { code: 'zh-HK', name: '繁體中文', flag: '🇭🇰' },
-    { code: 'zh-CN', name: '简体中文', flag: '🇨🇳' },
+    { code: 'zh-HK', name: '粵語', flag: '🇭🇰' },
+    { code: 'zh-TW', name: '繁體中文', flag: '🇨🇳' },
+    { code: 'zh', name: '简体中文', flag: '🇨🇳' },
     { code: 'ja', name: '日本語', flag: '🇯🇵' },
     { code: 'ko', name: '한국어', flag: '🇰🇷' },
   ];

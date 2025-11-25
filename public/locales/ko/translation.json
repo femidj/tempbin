@@ -34,7 +34,7 @@
   },
   "upload": {
     "title": "파일을 여기로 드래그하세요",
-    "subtitle": "또는 클릭하여 선택",
+    "subtitle": "텍스트를 붙여넣거나 클릭하여 선택",
     "info": "파일은 {{minutes}}분 후 만료됩니다",
     "info_plural": "파일은 {{minutes}}분 후 만료됩니다",
     "uploading": "업로드 중...",

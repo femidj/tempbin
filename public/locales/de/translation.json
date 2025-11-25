@@ -34,7 +34,7 @@
   },
   "upload": {
     "title": "Ziehe deine Dateien hierher",
-    "subtitle": "oder klicke zum Auswählen",
+    "subtitle": "Text einfügen oder klicken zum Auswählen",
     "info": "Dateien verfallen nach {{minutes}} Minute",
     "info_plural": "Dateien verfallen nach {{minutes}} Minuten",
     "uploading": "Wird hochgeladen...",

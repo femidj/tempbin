@@ -34,7 +34,7 @@
   },
   "upload": {
     "title": "拖檔案入喺呢度",
-    "subtitle": "或者按喺揀檔案",
+    "subtitle": "貼上文字或者按喺揀檔案",
     "info": "檔案會喺 {{minutes}} 分鐘後過期",
     "info_plural": "檔案會喺 {{minutes}} 分鐘後過期",
     "uploading": "上緊傳...",

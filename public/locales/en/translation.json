@@ -34,11 +34,11 @@
   },
   "upload": {
     "title": "Drag your files here",
-    "subtitle": "or click to select",
+    "subtitle": "paste text, or click to select",
     "info": "Files will expire after {{minutes}} minute",
     "info_plural": "Files will expire after {{minutes}} minutes",
     "uploading": "Uploading...",
-    "ariaLabel": "Upload file area. Click to select a file or drag and drop a file here"
+    "ariaLabel": "Upload file area. Click to select, drag and drop files, or paste text"
   },
   "fileList": {
     "title": "Files",
