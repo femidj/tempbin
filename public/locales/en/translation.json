@@ -209,7 +209,24 @@
         "step2": "Find the 'Object Lifecycle' section.",
         "step3": "Add a rule to expire objects after 1 day (or your preferred duration).",
         "step4": "This way, files will be deleted from the server even if you close the page."
-      }
+      },
+      "toggleLabel": "Object lifecycle rule is",
+      "enabled": "enabled",
+      "disabled": "disabled",
+      "ruleName": "Rule name",
+      "ruleNamePlaceholder": "e.g., Delete temp files",
+      "ruleScope": "Rule scope: Apply to objects with the following prefix (optional)",
+      "ruleScopePlaceholder": "e.g., logs/",
+      "lifecycleAction": "Lifecycle action: Select at least one lifecycle action.",
+      "deleteObjects": "Delete uploaded objects after:",
+      "abortMultipart": "Abort incomplete multipart uploads after:",
+      "days": "Days",
+      "applyPolicy": "Apply Lifecycle Policy",
+      "applying": "Applying...",
+      "policyApplied": "Policy Applied!",
+      "reapply": "Reapply",
+      "applyError": "Error",
+      "retry": "Retry"
     },
     "completion": {
       "title": "All Set!",

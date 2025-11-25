@@ -209,7 +209,24 @@
         "step2": "Localisez la section 'Cycle de Vie des Objets'.",
         "step3": "Ajoutez une règle pour faire expirer les objets après 1 jour (ou votre durée préférée).",
         "step4": "Ainsi les fichiers seront supprimés du serveur même si vous fermez la page."
-      }
+      },
+      "toggleLabel": "La règle de cycle de vie des objets est",
+      "enabled": "activée",
+      "disabled": "désactivée",
+      "ruleName": "Nom de la règle",
+      "ruleNamePlaceholder": "ex., Supprimer les fichiers temporaires",
+      "ruleScope": "Portée de la règle : Appliquer aux objets avec le préfixe suivant (optionnel)",
+      "ruleScopePlaceholder": "ex., logs/",
+      "lifecycleAction": "Action du cycle de vie : Sélectionnez au moins une action de cycle de vie.",
+      "deleteObjects": "Supprimer les objets téléchargés après :",
+      "abortMultipart": "Abandonner les téléchargements en plusieurs parties incomplets après :",
+      "days": "Jours",
+      "applyPolicy": "Appliquer la Politique de Cycle de Vie",
+      "applying": "Application...",
+      "policyApplied": "Politique Appliquée !",
+      "reapply": "Réappliquer",
+      "applyError": "Erreur",
+      "retry": "Réessayer"
     },
     "completion": {
       "title": "Tout est prêt !",

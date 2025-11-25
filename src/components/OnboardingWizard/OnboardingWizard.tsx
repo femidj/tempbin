@@ -514,7 +514,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
           <div className="lifecycle-card">
             <div className="form-group toggle-group">
               <label htmlFor="lifecycle-toggle" className="toggle-label">
-                Object lifecycle rule is {lifecycleEnabled ? 'enabled' : 'disabled'}
+                {t('wizard.step6.toggleLabel')} {lifecycleEnabled ? t('wizard.step6.enabled') : t('wizard.step6.disabled')}
               </label>
               <label className="switch">
                 <input 
@@ -529,31 +529,31 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
 
             <div className={`lifecycle-settings ${!lifecycleEnabled ? 'disabled' : ''}`}>
               <div className="form-group">
-                <label htmlFor="rule-name">Rule name</label>
+                <label htmlFor="rule-name">{t('wizard.step6.ruleName')}</label>
                 <input
                   id="rule-name"
                   type="text"
                   value={lifecycleRuleName}
                   onChange={(e) => setLifecycleRuleName(e.target.value)}
-                  placeholder="e.g., Delete temp files"
+                  placeholder={t('wizard.step6.ruleNamePlaceholder')}
                   disabled={!lifecycleEnabled}
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="rule-prefix">Rule scope: Apply to objects with the following prefix (optional)</label>
+                <label htmlFor="rule-prefix">{t('wizard.step6.ruleScope')}</label>
                 <input
                   id="rule-prefix"
                   type="text"
                   value={lifecyclePrefix}
                   onChange={(e) => setLifecyclePrefix(e.target.value)}
-                  placeholder="e.g., logs/"
+                  placeholder={t('wizard.step6.ruleScopePlaceholder')}
                   disabled={!lifecycleEnabled}
                 />
               </div>
 
               <div className="form-group lifecycle-actions">
-                <label className="section-label">Lifecycle action: Select at least one lifecycle action.</label>
+                <label className="section-label">{t('wizard.step6.lifecycleAction')}</label>
                 
                 <div className="checkbox-group">
                   <div className="checkbox-row">
@@ -564,7 +564,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
                       readOnly
                       disabled={!lifecycleEnabled}
                     />
-                    <label htmlFor="delete-objects">Delete uploaded objects after:</label>
+                    <label htmlFor="delete-objects">{t('wizard.step6.deleteObjects')}</label>
                   </div>
                   <div className="input-row">
                     <input 
@@ -575,7 +575,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
                       className="days-input"
                       disabled={!lifecycleEnabled}
                     />
-                    <span className="unit">Days</span>
+                    <span className="unit">{t('wizard.step6.days')}</span>
                   </div>
                 </div>
 
@@ -588,7 +588,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
                       onChange={(e) => setLifecycleAbortMultipart(e.target.checked)}
                       disabled={!lifecycleEnabled}
                     />
-                    <label htmlFor="abort-multipart">Abort incomplete multipart uploads after:</label>
+                    <label htmlFor="abort-multipart">{t('wizard.step6.abortMultipart')}</label>
                   </div>
                   {lifecycleAbortMultipart && (
                     <div className="input-row">
@@ -600,7 +600,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
                         className="days-input"
                         disabled={!lifecycleEnabled}
                       />
-                      <span className="unit">Days</span>
+                      <span className="unit">{t('wizard.step6.days')}</span>
                     </div>
                   )}
                 </div>
@@ -613,14 +613,14 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
             {lifecycleStatus === 'success' ? (
               <>
                 <div className="success-message" style={{ color: '#4caf50', display: 'flex', alignItems: 'center', gap: '8px', flex: 1, fontWeight: 500 }}>
-                  <span className="check-icon">✓</span> Policy Applied!
+                  <span className="check-icon">✓</span> {t('wizard.step6.policyApplied')}
                 </div>
                 <button 
                   className="btn-secondary"
                   onClick={handleApplyLifecycle}
                   style={{ padding: '8px 16px', fontSize: '0.9rem' }}
                 >
-                  Reapply
+                  {t('wizard.step6.reapply')}
                 </button>
               </>
             ) : (
@@ -630,15 +630,15 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
                 disabled={lifecycleStatus === 'loading'}
                 style={{ width: '100%' }}
               >
-                {lifecycleStatus === 'idle' && 'Apply Lifecycle Policy'}
+                {lifecycleStatus === 'idle' && t('wizard.step6.applyPolicy')}
                 {lifecycleStatus === 'loading' && (
                   <>
-                    <span className="spinner-small"></span> Applying...
+                    <span className="spinner-small"></span> {t('wizard.step6.applying')}
                   </>
                 )}
                 {lifecycleStatus === 'error' && (
                   <>
-                    <span className="error-icon">✕</span> {lifecycleMessage || 'Error'} - Retry
+                    <span className="error-icon">✕</span> {lifecycleMessage || t('wizard.step6.applyError')} - {t('wizard.step6.retry')}
                   </>
                 )}
               </button>

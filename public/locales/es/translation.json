@@ -209,7 +209,24 @@
         "step2": "Busque la sección 'Ciclo de Vida de Objetos'.",
         "step3": "Agregue una regla para que los objetos expiren después de 1 día (o su duración preferida).",
         "step4": "Así los archivos se eliminarán del servidor incluso si cierra la página."
-      }
+      },
+      "toggleLabel": "La regla de ciclo de vida de objetos está",
+      "enabled": "habilitada",
+      "disabled": "deshabilitada",
+      "ruleName": "Nombre de la regla",
+      "ruleNamePlaceholder": "ej., Eliminar archivos temporales",
+      "ruleScope": "Alcance de la regla: Aplicar a objetos con el siguiente prefijo (opcional)",
+      "ruleScopePlaceholder": "ej., logs/",
+      "lifecycleAction": "Acción del ciclo de vida: Seleccione al menos una acción del ciclo de vida.",
+      "deleteObjects": "Eliminar objetos cargados después de:",
+      "abortMultipart": "Abortar cargas multiparte incompletas después de:",
+      "days": "Días",
+      "applyPolicy": "Aplicar Política de Ciclo de Vida",
+      "applying": "Aplicando...",
+      "policyApplied": "¡Política Aplicada!",
+      "reapply": "Reaplicar",
+      "applyError": "Error",
+      "retry": "Reintentar"
     },
     "completion": {
       "title": "¡Todo listo!",

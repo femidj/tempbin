@@ -209,7 +209,24 @@
         "step2": "找到「物件生命週期」區塊。",
         "step3": "新增一條規則，讓物件在 1 天後過期（或您想要的時間）。",
         "step4": "這樣即使您關閉網頁，檔案也會自動從伺服器刪除。"
-      }
+      },
+      "toggleLabel": "物件生命週期規則",
+      "enabled": "已啟用",
+      "disabled": "已停用",
+      "ruleName": "規則名稱",
+      "ruleNamePlaceholder": "例如：刪除暫存檔案",
+      "ruleScope": "規則範圍：套用至具有以下前綴的物件（選填）",
+      "ruleScopePlaceholder": "例如：logs/",
+      "lifecycleAction": "生命週期動作：至少選擇一個生命週期動作。",
+      "deleteObjects": "刪除已上傳的物件於：",
+      "abortMultipart": "中止未完成的分段上傳於：",
+      "days": "天",
+      "applyPolicy": "套用生命週期政策",
+      "applying": "套用中...",
+      "policyApplied": "政策已套用！",
+      "reapply": "重新套用",
+      "applyError": "錯誤",
+      "retry": "重試"
     },
     "completion": {
       "title": "設定完成！",

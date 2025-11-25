@@ -210,9 +210,23 @@
         "step3": "オブジェクトを1日後に期限切れにするルールを追加します。",
         "step4": "または、サポートされている場合は以下のJSONを使用してください。"
       },
-      "jsonLabel": "ライフサイクル設定JSON",
-      "copy": "コピー",
-      "pasteHint": "孤立したファイルの自動削除を設定するために使用します。"
+      "toggleLabel": "オブジェクトライフサイクルルールは",
+      "enabled": "有効",
+      "disabled": "無効",
+      "ruleName": "ルール名",
+      "ruleNamePlaceholder": "例：一時ファイルを削除",
+      "ruleScope": "ルールの範囲：次のプレフィックスを持つオブジェクトに適用（オプション）",
+      "ruleScopePlaceholder": "例：logs/",
+      "lifecycleAction": "ライフサイクルアクション：少なくとも1つのライフサイクルアクションを選択してください。",
+      "deleteObjects": "アップロードされたオブジェクトを次の期間後に削除：",
+      "abortMultipart": "不完全なマルチパートアップロードを次の期間後に中止：",
+      "days": "日",
+      "applyPolicy": "ライフサイクルポリシーを適用",
+      "applying": "適用中...",
+      "policyApplied": "ポリシーが適用されました！",
+      "reapply": "再適用",
+      "applyError": "エラー",
+      "retry": "再試行"
     },
     "completion": {
       "title": "準備完了！",

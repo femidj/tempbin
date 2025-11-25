@@ -210,9 +210,23 @@
         "step3": "Fügen Sie eine Regel hinzu, die Objekte nach 1 Tag löscht.",
         "step4": "So werden Dateien auch vom Server gelöscht, wenn Sie die Seite schließen."
       },
-      "jsonLabel": "Lebenszyklus-Konfigurations-JSON",
-      "copy": "Kopieren",
-      "pasteHint": "Verwenden Sie dies, um die automatische Löschung verwaister Dateien zu konfigurieren."
+      "toggleLabel": "Objekt-Lebenszyklusregel ist",
+      "enabled": "aktiviert",
+      "disabled": "deaktiviert",
+      "ruleName": "Regelname",
+      "ruleNamePlaceholder": "z.B. Temporäre Dateien löschen",
+      "ruleScope": "Regelbereich: Auf Objekte mit folgendem Präfix anwenden (optional)",
+      "ruleScopePlaceholder": "z.B. logs/",
+      "lifecycleAction": "Lebenszyklus-Aktion: Wählen Sie mindestens eine Lebenszyklus-Aktion.",
+      "deleteObjects": "Hochgeladene Objekte löschen nach:",
+      "abortMultipart": "Unvollständige mehrteilige Uploads abbrechen nach:",
+      "days": "Tage",
+      "applyPolicy": "Lebenszyklusrichtlinie anwenden",
+      "applying": "Wird angewendet...",
+      "policyApplied": "Richtlinie angewendet!",
+      "reapply": "Erneut anwenden",
+      "applyError": "Fehler",
+      "retry": "Wiederholen"
     },
     "completion": {
       "title": "Alles bereit!",

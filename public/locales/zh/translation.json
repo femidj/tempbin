@@ -209,7 +209,24 @@
         "step2": "找到\"对象生命周期\"部分。",
         "step3": "添加一条规则，使对象在 1 天后过期（或您喜欢的持续时间）。",
         "step4": "这确保即使用户关闭页面，文件也会从服务器中删除。"
-      }
+      },
+      "toggleLabel": "对象生命周期规则",
+      "enabled": "已启用",
+      "disabled": "已禁用",
+      "ruleName": "规则名称",
+      "ruleNamePlaceholder": "例如：删除临时文件",
+      "ruleScope": "规则范围：应用于具有以下前缀的对象（可选）",
+      "ruleScopePlaceholder": "例如：logs/",
+      "lifecycleAction": "生命周期操作：至少选择一个生命周期操作。",
+      "deleteObjects": "删除上传的对象于：",
+      "abortMultipart": "中止不完整的分段上传于：",
+      "days": "天",
+      "applyPolicy": "应用生命周期策略",
+      "applying": "应用中...",
+      "policyApplied": "策略已应用！",
+      "reapply": "重新应用",
+      "applyError": "错误",
+      "retry": "重试"
     },
     "completion": {
       "title": "设置完成！",

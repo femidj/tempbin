@@ -209,7 +209,24 @@
         "step2": "搵「物件生命週期」部分。",
         "step3": "加一條規則，令物件喺 1 日後過期（或者你鍾意嘅時長）。",
         "step4": "咁就確保就算用家閂咗個頁面，檔案都會喺伺服器度刪除。"
-      }
+      },
+      "toggleLabel": "物件生命週期規則",
+      "enabled": "已啟用",
+      "disabled": "已停用",
+      "ruleName": "規則名稱",
+      "ruleNamePlaceholder": "例如：刪除暫存檔",
+      "ruleScope": "規則範圍：套用喺有以下前綴嘅物件（選填）",
+      "ruleScopePlaceholder": "例如：logs/",
+      "lifecycleAction": "生命週期動作：至少揀一個生命週期動作。",
+      "deleteObjects": "刪除上載咗嘅物件喺：",
+      "abortMultipart": "中止未完成嘅分段上載喺：",
+      "days": "日",
+      "applyPolicy": "套用生命週期原則",
+      "applying": "套用緊...",
+      "policyApplied": "原則已套用！",
+      "reapply": "重新套用",
+      "applyError": "錯誤",
+      "retry": "重試"
     },
     "completion": {
       "title": "搞掂晒！",
