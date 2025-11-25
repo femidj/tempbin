@@ -1,243 +1,257 @@
 {
+  "_comment": "TODO: Review all translations for user-friendliness and accuracy",
   "app": {
-    "title": "TempBin - 临时文件分享",
-    "description": "使用自动过期链接分享临时文件"
+    "title": "TempBin - 臨時檔案分享",
+    "description": "使用自動過期連結安全分享檔案"
   },
   "header": {
     "logo": "tempbin",
-    "github": "在 GitHub 上访问 kazeochan（在新标签页打开）",
-    "settings": "设置",
-    "openSettings": "打开设置",
-    "language": "语言",
-    "lightMode": "切换到亮色模式",
-    "darkMode": "切换到深色模式"
+    "github": "在 GitHub 上查看 kazeochan（另開新分頁）",
+    "settings": "設定",
+    "openSettings": "開啟設定",
+    "language": "語言",
+    "lightMode": "切換為淺色模式",
+    "darkMode": "切換為深色模式"
   },
   "hero": {
-    "title": "临时分享文件",
-    "subtitle": "上传文件并获得会在 {{minutes}} 分钟后自动过期的分享链接",
-    "subtitle_plural": "上传文件并获得会在 {{minutes}} 分钟后自动过期的分享链接"
+    "title": "臨時分享檔案",
+    "subtitle": "上傳檔案後，我們會產生 {{minutes}} 分鐘後自動失效的分享連結",
+    "subtitle_plural": "上傳檔案後，我們會產生 {{minutes}} 分鐘後自動失效的分享連結"
   },
   "expiration": {
-    "label": "文件将在以下时间后过期：",
-    "minutes": "{{count}} 分钟",
-    "minutes_plural": "{{count}} 分钟",
-    "min1": "1 分钟",
-    "min5": "5 分钟",
-    "min10": "10 分钟"
+    "label": "檔案有效期限：",
+    "minutes": "{{count}} 分鐘",
+    "minutes_plural": "{{count}} 分鐘",
+    "min1": "1 分鐘",
+    "min5": "5 分鐘",
+    "min10": "10 分鐘"
   },
   "hashFilename": {
-    "label": "哈希文件名",
-    "hint": "匿名化文件名以提高隐私性",
-    "enabled": "文件名将被哈希处理",
-    "disabled": "将使用原始文件名"
+    "label": "隱藏檔名",
+    "hint": "為檔名加密，保護您的隱私",
+    "enabled": "檔名將會被加密",
+    "disabled": "使用原始檔名"
   },
   "upload": {
-    "title": "将文件拖放到此处",
-    "subtitle": "或点击浏览",
-    "info": "文件会在 {{minutes}} 分钟后自动过期",
-    "info_plural": "文件会在 {{minutes}} 分钟后自动过期",
-    "uploading": "正在上传...",
-    "ariaLabel": "上传文件区域。点击选择文件或将文件拖放到此处"
+    "title": "將檔案拖曳到這裡",
+    "subtitle": "或點擊選擇檔案",
+    "info": "檔案將在 {{minutes}} 分鐘後自動過期",
+    "info_plural": "檔案將在 {{minutes}} 分鐘後自動過期",
+    "uploading": "上傳中...",
+    "ariaLabel": "上傳檔案區域。點擊選擇檔案或將檔案拖曳到這裡"
   },
   "fileList": {
-    "title": "文件",
-    "deleteSelected": "删除 ({{count}})",
-    "deleteSelectedAria": "删除 {{count}} 个已选文件",
-    "copyAllLinks": "复制所有链接",
-    "copyAllLinksAria": "复制所有文件链接到剪贴板",
-    "selectAllAria": "选择所有文件",
-    "selectFileAria": "选择 {{name}}",
-    "name": "名称",
+    "title": "檔案",
+    "deleteSelected": "刪除 ({{count}})",
+    "deleteSelectedAria": "刪除已選取的 {{count}} 個檔案",
+    "copyAllLinks": "複製所有連結",
+    "copyAllLinksAria": "將所有檔案連結複製到剪貼簿",
+    "selectAllAria": "選取所有檔案",
+    "selectFileAria": "選取 {{name}}",
+    "name": "檔名",
     "size": "大小",
-    "expires": "过期时间",
+    "expires": "到期時間",
     "actions": "操作",
-    "expired": "已过期",
+    "expired": "已過期",
     "copied": "✓",
-    "copiedAll": "已复制！",
-    "deleteConfirm": "删除 {{count}} 个已选文件？",
-    "copyLinkTitle": "复制链接",
-    "copyLinkAria": "复制 {{name}} 的链接",
-    "openFileTitle": "打开文件",
-    "openFileAria": "打开 {{name}}",
-    "deleteFileTitle": "删除文件",
-    "deleteFileAria": "删除 {{name}}"
+    "copiedAll": "已複製！",
+    "deleteConfirm": "確定要刪除這 {{count}} 個檔案嗎？",
+    "copyLinkTitle": "複製連結",
+    "copyLinkAria": "複製 {{name}} 的連結",
+    "openFileTitle": "開啟檔案",
+    "openFileAria": "開啟 {{name}}",
+    "deleteFileTitle": "刪除檔案",
+    "deleteFileAria": "刪除 {{name}}"
   },
   "fileCard": {
-    "delete": "删除文件",
-    "copyLink": "复制链接",
-    "copied": "已复制！",
-    "open": "打开"
+    "delete": "刪除檔案",
+    "copyLink": "複製連結",
+    "copied": "已複製！",
+    "open": "開啟"
   },
   "empty": {
-    "title": "尚未上传文件",
-    "subtitle": "上传您的第一个文件以开始使用"
+    "title": "還沒有檔案",
+    "subtitle": "上傳您的第一個檔案開始使用吧"
   },
   "storage": {
-    "usage": "存储使用量"
+    "usage": "儲存空間使用量"
   },
   "settings": {
-    "title": "设置",
-    "closeAria": "关闭设置",
+    "title": "設定",
+    "closeAria": "關閉設定",
     "r2Title": "Cloudflare R2",
-    "infoTitle": "配置您的 Cloudflare R2 存储桶",
-    "infoDescription": "您需要从 Cloudflare 控制台获取 R2 凭证。所有数据都存储在您的浏览器本地。",
-    "accountId": "账户 ID",
-    "accountIdPlaceholder": "您的 Cloudflare 账户 ID",
-    "bucketName": "存储桶名称",
+    "infoTitle": "設定您的 Cloudflare R2 儲存空間",
+    "infoDescription": "您需要從 Cloudflare 控制台取得 R2 憑證。別擔心，所有資料都只會儲存在您的瀏覽器中。",
+    "accountId": "帳戶 ID",
+    "accountIdPlaceholder": "您的 Cloudflare 帳戶 ID",
+    "bucketName": "儲存桶名稱",
     "bucketNamePlaceholder": "my-bucket",
-    "accessKeyId": "访问密钥 ID",
-    "accessKeyIdPlaceholder": "您的 R2 访问密钥 ID",
-    "secretAccessKey": "秘密访问密钥",
-    "secretAccessKeyPlaceholder": "您的 R2 秘密访问密钥",
-    "publicUrl": "公开 URL（可选）",
+    "accessKeyId": "存取金鑰 ID",
+    "accessKeyIdPlaceholder": "您的 R2 存取金鑰 ID",
+    "secretAccessKey": "私密存取金鑰",
+    "secretAccessKeyPlaceholder": "您的 R2 私密存取金鑰",
+    "publicUrl": "公開網址（選填）",
     "publicUrlPlaceholder": "https://your-domain.com",
-    "publicUrlHint": "用于公开文件访问的自定义域名",
-    "storageLimit": "存储限制",
-    "storageLimitHint": "设置您的每月存储限制（免费套餐为 10 GB）",
-    "appearance": "外观",
-    "themeMode": "主题模式",
-    "themeModeHint": "在亮色和深色主题之间选择",
-    "light": "亮色",
+    "publicUrlHint": "用於公開存取檔案的自訂網域",
+    "storageLimit": "儲存空間限制",
+    "storageLimitHint": "設定您的每月儲存空間限制（免費方案為 10 GB）",
+    "appearance": "外觀",
+    "themeMode": "主題模式",
+    "themeModeHint": "選擇淺色或深色主題",
+    "light": "淺色",
     "dark": "深色",
-    "lightMode": "亮色模式",
+    "lightMode": "淺色模式",
     "darkMode": "深色模式",
-    "highContrast": "高对比度",
-    "highContrastHint": "提高对比度以获得更好的可见性",
-    "highContrastOn": "启用高对比度",
-    "highContrastOff": "禁用高对比度",
-    "language": "语言",
-    "languageHint": "选择您的首选语言",
+    "highContrast": "高對比度",
+    "highContrastHint": "提高對比度，讓畫面更清楚",
+    "highContrastOn": "啟用高對比度",
+    "highContrastOff": "停用高對比度",
+    "language": "語言",
+    "languageHint": "選擇您偏好的語言",
     "cancel": "取消",
-    "save": "保存设置",
-    "saving": "正在保存...",
-    "requiredFields": "请填写所有必填字段",
-    "saveSuccess": "设置已成功保存！",
-    "saveError": "保存设置失败",
-    "clearData": "清除所有数据",
-    "clearDataConfirm": "您确定要清除所有数据吗？此操作无法撤销。",
-    "clearDataSuccess": "所有数据已成功清除"
+    "save": "儲存設定",
+    "saving": "儲存中...",
+    "requiredFields": "請填寫所有必填欄位",
+    "saveSuccess": "設定已儲存！",
+    "saveError": "儲存設定失敗",
+    "clearData": "清除所有資料",
+    "clearDataConfirm": "確定要清除所有資料嗎？此操作無法復原。",
+    "clearDataSuccess": "所有資料已清除"
   },
   "validation": {
-    "required": "此字段为必填项",
-    "invalidAccountId": "无效的账户 ID（必须是 32 位十六进制字符）",
-    "bucketNameLength": "存储桶名称必须在 3 到 63 个字符之间",
-    "bucketNameChars": "仅允许小写字母、数字和连字符",
-    "bucketNameHyphen": "存储桶名称不能以连字符开头或结尾",
-    "invalidAccessKeyId": "无效的访问密钥 ID（必须是 32 位十六进制字符）",
-    "invalidSecretAccessKey": "无效的秘密访问密钥（必须是 64 位十六进制字符）",
-    "invalidUrl": "无效的 URL 格式",
-    "invalidUrlProtocol": "URL 必须以 http:// 或 https:// 开头"
+    "required": "這是必填欄位",
+    "invalidAccountId": "帳戶 ID 格式不正確（需要 32 位十六進位字元）",
+    "bucketNameLength": "儲存桶名稱長度必須在 3 到 63 個字元之間",
+    "bucketNameChars": "只能使用小寫字母、數字和連字號",
+    "bucketNameHyphen": "儲存桶名稱不能以連字號開頭或結尾",
+    "invalidAccessKeyId": "存取金鑰 ID 格式不正確（需要 32 位十六進位字元）",
+    "invalidSecretAccessKey": "私密存取金鑰格式不正確（需要 64 位十六進位字元）",
+    "invalidUrl": "網址格式不正確",
+    "invalidUrlProtocol": "網址必須以 http:// 或 https:// 開頭"
   },
   "wizard": {
     "welcome": {
-      "title": "欢迎使用 TempBin",
-      "subtitle": "让我们设置您的 Cloudflare R2 存储。",
-      "start": "开始"
+      "title": "歡迎使用 TempBin",
+      "subtitle": "讓我們來設定您的 Cloudflare R2 儲存空間。",
+      "start": "開始設定"
     },
     "step1": {
-      "title": "账户与存储桶",
-      "description": "输入您的 Cloudflare 账户 ID 和您想要使用的 R2 存储桶名称。",
+      "title": "帳戶與儲存桶",
+      "description": "請輸入您的 Cloudflare 帳戶 ID 和想使用的 R2 儲存桶名稱。",
       "instructions": {
-        "title": "如何找到这些信息？",
-        "step1": "登录您的 Cloudflare 控制台。",
-        "step2": "从侧边栏导航到 R2。",
-        "step3": "您的账户 ID 显示在 R2 概览页面的右侧。",
-        "step4": "创建一个新存储桶或使用现有存储桶并复制其名称。"
+        "title": "如何找到這些資訊？",
+        "step1": "登入您的 Cloudflare 控制台。",
+        "step2": "從側邊欄進入 R2 頁面。",
+        "step3": "您的帳戶 ID 會顯示在 R2 總覽頁面的右側。",
+        "step4": "建立新的儲存桶或使用現有的，然後複製它的名稱。"
       }
     },
     "step2": {
-      "title": "凭证",
-      "description": "输入您的 R2 访问密钥 ID 和秘密访问密钥。",
+      "title": "憑證設定",
+      "description": "請輸入您的 R2 存取金鑰 ID 和私密存取金鑰。",
       "instructions": {
-        "title": "如何生成密钥？",
-        "step1": "在 R2 控制台中，点击右侧的“管理 R2 API 令牌”。",
-        "step2": "点击“创建 API 令牌”。",
-        "step3": "选择“对象读写”权限。",
-        "step4": "创建令牌并复制访问密钥 ID 和秘密访问密钥。"
+        "title": "如何產生金鑰？",
+        "step1": "在 R2 控制台中，點擊右側的「管理 R2 API 權杖」。",
+        "step2": "點擊「建立 API 權杖」。",
+        "step3": "選擇「物件讀寫」權限。",
+        "step4": "建立權杖後，複製存取金鑰 ID 和私密存取金鑰。"
       }
     },
     "step3": {
-      "title": "公开访问",
-      "description": "可选配置用于公开文件访问的自定义域名。",
+      "title": "公開存取設定",
+      "description": "您可以選擇設定自訂網域，讓檔案能被公開存取。",
       "instructions": {
-        "title": "设置公开访问",
-        "step1": "前往 R2 仪表板中的存储桶设置。",
-        "step2": "在“公开访问”下，您可以连接自定义域名或允许通过 R2.dev 子域名进行公开访问。",
-        "step3": "在此处输入完整 URL（例如 https://files.example.com）。"
+        "title": "如何設定公開存取",
+        "step1": "前往 R2 控制台中的儲存桶設定。",
+        "step2": "在「公開存取」區塊，您可以連接自訂網域或允許透過 R2.dev 子網域公開存取。",
+        "step3": "在這裡輸入完整網址（例如：https://files.example.com）。"
       }
     },
     "step4": {
-      "title": "Storage Limit",
-      "description": "Set a storage limit to help manage your R2 usage and costs.",
+      "title": "儲存空間限制",
+      "description": "設定儲存空間上限，幫助您管理 R2 使用量和費用。",
       "instructions": {
-        "title": "About Storage Limits",
-        "step1": "Cloudflare R2 offers a generous free tier (10 GB/month).",
-        "step2": "Set a limit here to get warned before you exceed it.",
-        "step3": "This is a client-side check only and does not enforce limits on Cloudflare."
+        "title": "關於儲存空間限制",
+        "step1": "Cloudflare R2 提供優惠的免費方案（每月 10 GB）。",
+        "step2": "在這裡設定上限，我們會在快超過時提醒您。",
+        "step3": "這只是瀏覽器端的檢查提醒，不會在 Cloudflare 上強制限制。"
       }
     },
     "step5": {
-      "title": "CORS 设置",
-      "description": "配置跨源资源共享 (CORS) 以允许从本网站上传。",
+      "title": "CORS 設定",
+      "description": "設定跨來源資源共用 (CORS)，讓您能從網站上傳檔案。",
       "instructions": {
-        "title": "设置 CORS",
-        "step1": "前往 R2 仪表板中的存储桶设置。",
-        "step2": "找到 CORS 策略部分。",
-        "step3": "复制下方的 JSON 配置。",
-        "step4": "将其粘贴到 CORS 策略编辑器中并保存。"
+        "title": "如何設定 CORS",
+        "step1": "前往 R2 控制台中的儲存桶設定。",
+        "step2": "找到 CORS 政策區塊。",
+        "step3": "複製下方的 JSON 設定。",
+        "step4": "貼到 CORS 政策編輯器中並儲存。"
       },
-      "jsonLabel": "CORS 配置 JSON",
-      "manualLabel": "手动配置 (JSON)",
-      "autoConfigure": "自动配置",
-      "configuring": "正在配置...",
-      "checkConfig": "检查配置",
-      "autoSuccess": "CORS 配置已成功应用！",
-      "autoError": "应用 CORS 配置失败",
-      "checkSuccess": "发现 CORS 配置！",
-      "checkNotFound": "未找到 CORS 配置。",
-      "checkError": "检查 CORS 配置时出错",
-      "copy": "复制",
-      "pasteHint": "将其粘贴到您的 R2 存储桶的 CORS 策略设置中。"
+      "jsonLabel": "CORS 設定 JSON",
+      "manualLabel": "手動設定 (JSON)",
+      "autoConfigure": "自動設定",
+      "configuring": "設定中...",
+      "checkConfig": "檢查設定",
+      "autoSuccess": "CORS 設定已套用！",
+      "autoError": "套用 CORS 設定失敗",
+      "checkSuccess": "已找到 CORS 設定！",
+      "checkNotFound": "找不到 CORS 設定。",
+      "checkError": "檢查 CORS 設定時發生錯誤",
+      "copy": "複製",
+      "pasteHint": "將這段設定貼到您 R2 儲存桶的 CORS 政策設定中。"
+    },
+    "step6": {
+      "title": "自動刪除設定",
+      "description": "設定自動刪除規則，讓檔案在 24 小時後自動清除。",
+      "instructions": {
+        "title": "如何設定自動刪除",
+        "step1": "前往 R2 控制台中的儲存桶設定。",
+        "step2": "找到「物件生命週期」區塊。",
+        "step3": "新增一條規則，讓物件在 1 天後過期（或您想要的時間）。",
+        "step4": "這樣即使您關閉網頁，檔案也會自動從伺服器刪除。"
+      }
     },
     "completion": {
-      "title": "设置完成！",
-      "subtitle": "您的 R2 存储已配置并准备就绪。",
-      "finish": "开始分享"
+      "title": "設定完成！",
+      "subtitle": "您的 R2 儲存空間已經設定好，可以開始使用了。",
+      "finish": "開始分享"
     },
     "next": "下一步",
-    "back": "返回",
-    "skip": "跳过"
+    "back": "上一步",
+    "skip": "略過"
   },
   "paste": {
-    "title": "确认上传",
-    "fileName": "名称",
+    "title": "確認上傳",
+    "fileName": "檔名",
     "fileSize": "大小",
-    "fileType": "类型",
+    "fileType": "類型",
     "cancel": "取消",
-    "upload": "上传"
+    "upload": "上傳"
   },
   "limit": {
-    "title": "存储限制已超出",
-    "message": "上传这些文件将超出您的存储限制。",
-    "currentUsage": "当前使用量",
-    "uploadSize": "上传大小",
-    "newTotal": "新总量",
-    "limit": "限制",
-    "dontShowAgain": "今天不再显示",
+    "title": "儲存空間即將超過限制",
+    "message": "上傳這些檔案會超過您設定的儲存空間限制。",
+    "currentUsage": "目前使用量",
+    "uploadSize": "本次上傳",
+    "newTotal": "上傳後總量",
+    "limit": "設定上限",
+    "dontShowAgain": "今天不要再顯示",
     "cancel": "取消",
-    "continue": "继续上传"
+    "continue": "繼續上傳"
   },
   "notifications": {
-    "uploadSuccess": "文件上传成功！",
-    "uploadMultiSuccess": "已成功上传 {{count}} 个文件！",
-    "uploadError": "上传文件失败。请检查您的 R2 设置。",
-    "deleteSuccess": "文件删除成功！",
-    "deleteError": "删除文件失败。",
-    "deleteMultiSuccess": "已成功删除 {{count}} 个文件！",
-    "deleteMultiError": "删除文件失败。"
+    "uploadSuccess": "檔案上傳成功！",
+    "uploadMultiSuccess": "已成功上傳 {{count}} 個檔案！",
+    "uploadError": "上傳失敗，請檢查您的 R2 設定。",
+    "deleteSuccess": "檔案已刪除！",
+    "deleteError": "刪除檔案失敗。",
+    "deleteMultiSuccess": "已成功刪除 {{count}} 個檔案！",
+    "deleteMultiError": "刪除檔案失敗。",
+    "duplicateFile": "已略過重複的檔案。",
+    "fileTooLarge": "檔案太大了（上限 {{size}}）。"
   },
   "accessibility": {
-    "skipToMain": "跳至主要内容",
-    "mainContent": "文件分享应用程序"
+    "skipToMain": "跳到主要內容",
+    "mainContent": "檔案分享應用程式"
   }
 }

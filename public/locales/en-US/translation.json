@@ -1,4 +1,5 @@
 {
+  "_comment": "TODO: Review all translations for user-friendliness and accuracy",
   "app": {
     "title": "TempBin - Temporary File Sharing with Auto-Expiring Links",
     "description": "Share files temporarily with auto-expiring links. Upload files and get shareable URLs that automatically delete after 1-10 minutes."
@@ -14,11 +15,11 @@
   },
   "hero": {
     "title": "Share Files Temporarily",
-    "subtitle": "Upload files and get shareable links that automatically expire in {{minutes}} minute",
-    "subtitle_plural": "Upload files and get shareable links that automatically expire in {{minutes}} minutes"
+    "subtitle": "Upload your files and we'll create a shareable link that expires in {{minutes}} minute",
+    "subtitle_plural": "Upload your files and we'll create a shareable link that expires in {{minutes}} minutes"
   },
   "expiration": {
-    "label": "Files expire in:",
+    "label": "Files expire after:",
     "minutes": "{{count}} minute",
     "minutes_plural": "{{count}} minutes",
     "min1": "1 min",
@@ -26,16 +27,16 @@
     "min10": "10 min"
   },
   "hashFilename": {
-    "label": "Hash File Names",
-    "hint": "Anonymize file names for better privacy",
-    "enabled": "File names will be hashed",
-    "disabled": "Original file names will be used"
+    "label": "Hide Filenames",
+    "hint": "Encrypt filenames to protect your privacy",
+    "enabled": "Filenames will be encrypted",
+    "disabled": "Use original filenames"
   },
   "upload": {
-    "title": "Drop your file here",
-    "subtitle": "or click to browse",
-    "info": "Files expire automatically after {{minutes}} minute",
-    "info_plural": "Files expire automatically after {{minutes}} minutes",
+    "title": "Drag your files here",
+    "subtitle": "or click to select",
+    "info": "Files will expire after {{minutes}} minute",
+    "info_plural": "Files will expire after {{minutes}} minutes",
     "uploading": "Uploading...",
     "ariaLabel": "Upload file area. Click to select a file or drag and drop a file here"
   },
@@ -93,7 +94,7 @@
     "publicUrlPlaceholder": "https://your-domain.com",
     "publicUrlHint": "Custom domain for public file access",
     "storageLimit": "Storage Limit",
-    "storageLimitHint": "Set your monthly storage limit (Free Tier is 10 GB)",
+    "storageLimitHint": "Set your monthly storage limit (Free plan: 10 GB)",
     "appearance": "Appearance",
     "themeMode": "Theme Mode",
     "themeModeHint": "Choose between light and dark theme",
@@ -131,7 +132,7 @@
   "wizard": {
     "welcome": {
       "title": "Welcome to TempBin",
-      "subtitle": "Let's get you set up with your Cloudflare R2 storage.",
+      "subtitle": "Let's set up your Cloudflare R2 storage.",
       "start": "Get Started"
     },
     "step1": {
@@ -168,19 +169,19 @@
     },
     "step4": {
       "title": "Storage Limit",
-      "description": "Set a storage limit to help manage your R2 usage and costs.",
+      "description": "Set a storage limit to help you manage your R2 usage and costs.",
       "instructions": {
         "title": "About Storage Limits",
-        "step1": "Cloudflare R2 offers a generous free tier (10 GB/month).",
-        "step2": "Set a limit here to get warned before you exceed it.",
-        "step3": "This is a client-side check only and does not enforce limits on Cloudflare."
+        "step1": "Cloudflare R2 offers a generous free plan (10 GB/month).",
+        "step2": "Set a limit here and we'll warn you before you exceed it.",
+        "step3": "This is only a browser-side check and does not enforce limits on Cloudflare."
       }
     },
     "step5": {
       "title": "CORS Setup",
       "description": "Configure Cross-Origin Resource Sharing (CORS) to allow uploads from this website.",
       "instructions": {
-        "title": "Setting up CORS",
+        "title": "How to set up CORS",
         "step1": "Go to your bucket settings in the R2 dashboard.",
         "step2": "Locate the CORS Policy section.",
         "step3": "Copy the JSON configuration below.",
@@ -198,6 +199,20 @@
       "checkError": "Error checking CORS configuration",
       "copy": "Copy",
       "pasteHint": "Paste this into your R2 bucket's CORS policy settings."
+    },
+    "step6": {
+      "title": "Auto-Delete Setup",
+      "description": "Set up auto-delete rules so files are automatically removed after 24 hours.",
+      "instructions": {
+        "title": "How to set up auto-delete",
+        "step1": "Go to your bucket settings in the R2 dashboard.",
+        "step2": "Find the 'Object Lifecycle' section.",
+        "step3": "Add a rule to expire objects after 1 day (or your preferred duration).",
+        "step4": "This ensures files are deleted from the server even if you close the page."
+      },
+      "jsonLabel": "Lifecycle Configuration JSON",
+      "copy": "Copy",
+      "pasteHint": "Use this to configure auto-deletion for orphaned files."
     },
     "completion": {
       "title": "All Set!",
@@ -217,25 +232,26 @@
     "upload": "Upload"
   },
   "limit": {
-    "title": "Storage Limit Exceeded",
+    "title": "Storage Limit About to Be Exceeded",
     "message": "Uploading these files will exceed your storage limit.",
     "currentUsage": "Current Usage",
-    "uploadSize": "Upload Size",
-    "newTotal": "New Total",
-    "limit": "Limit",
-    "dontShowAgain": "Don't show again for today",
+    "uploadSize": "This Upload",
+    "newTotal": "Total After Upload",
+    "limit": "Your Limit",
+    "dontShowAgain": "Don't show again today",
     "cancel": "Cancel",
     "continue": "Continue Upload"
   },
   "notifications": {
-    "uploadSuccess": "File uploaded successfully!",
-    "uploadMultiSuccess": "{{count}} file(s) uploaded successfully!",
-    "uploadError": "Failed to upload file. Please check your R2 settings.",
-    "deleteSuccess": "File deleted successfully!",
+    "uploadSuccess": "File uploaded!",
+    "uploadMultiSuccess": "{{count}} files uploaded successfully!",
+    "uploadError": "Upload failed. Please check your R2 settings.",
+    "deleteSuccess": "File deleted!",
     "deleteError": "Failed to delete file.",
-    "deleteMultiSuccess": "{{count}} file(s) deleted successfully!",
+    "deleteMultiSuccess": "{{count}} files deleted successfully!",
     "deleteMultiError": "Failed to delete files.",
-    "duplicateFile": "Duplicate file(s) skipped."
+    "duplicateFile": "Skipped duplicate file(s).",
+    "fileTooLarge": "File is too large (max {{size}})."
   },
   "accessibility": {
     "skipToMain": "Skip to main content",

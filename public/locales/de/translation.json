@@ -1,11 +1,12 @@
 {
+  "_comment": "TODO: Review all translations for user-friendliness and accuracy",
   "app": {
     "title": "TempBin - Temporäre Dateifreigabe",
-    "description": "Dateien temporär mit automatisch ablaufenden Links teilen"
+    "description": "Teilen Sie Dateien sicher mit Links, die automatisch ablaufen"
   },
   "header": {
     "logo": "tempbin",
-    "github": "Besuchen Sie kazeochan auf GitHub (öffnet in neuem Tab)",
+    "github": "Besuche kazeochan auf GitHub (öffnet in neuem Tab)",
     "settings": "Einstellungen",
     "openSettings": "Einstellungen öffnen",
     "language": "Sprache",
@@ -14,11 +15,11 @@
   },
   "hero": {
     "title": "Dateien Temporär Teilen",
-    "subtitle": "Laden Sie Dateien hoch und erhalten Sie teilbare Links, die automatisch in {{minutes}} Minute ablaufen",
-    "subtitle_plural": "Laden Sie Dateien hoch und erhalten Sie teilbare Links, die automatisch in {{minutes}} Minuten ablaufen"
+    "subtitle": "Lade deine Dateien hoch und wir erstellen einen teilbaren Link, der in {{minutes}} Minute abläuft",
+    "subtitle_plural": "Lade deine Dateien hoch und wir erstellen einen teilbaren Link, der in {{minutes}} Minuten abläuft"
   },
   "expiration": {
-    "label": "Dateien verfallen in:",
+    "label": "Dateien verfallen nach:",
     "minutes": "{{count}} Minute",
     "minutes_plural": "{{count}} Minuten",
     "min1": "1 Min",
@@ -26,18 +27,18 @@
     "min10": "10 Min"
   },
   "hashFilename": {
-    "label": "Dateinamen hashen",
-    "hint": "Dateinamen anonymisieren für besseren Datenschutz",
-    "enabled": "Dateinamen werden gehasht",
-    "disabled": "Original-Dateinamen werden verwendet"
+    "label": "Dateinamen verbergen",
+    "hint": "Schütze deine Privatsphäre durch verschlüsselte Dateinamen",
+    "enabled": "Dateinamen werden verschlüsselt",
+    "disabled": "Original-Dateinamen verwenden"
   },
   "upload": {
-    "title": "Datei hier ablegen",
-    "subtitle": "oder klicken zum Durchsuchen",
-    "info": "Dateien laufen automatisch nach {{minutes}} Minute ab",
-    "info_plural": "Dateien laufen automatisch nach {{minutes}} Minuten ab",
+    "title": "Ziehe deine Dateien hierher",
+    "subtitle": "oder klicke zum Auswählen",
+    "info": "Dateien verfallen nach {{minutes}} Minute",
+    "info_plural": "Dateien verfallen nach {{minutes}} Minuten",
     "uploading": "Wird hochgeladen...",
-    "ariaLabel": "Datei-Upload-Bereich. Klicken Sie, um eine Datei auszuwählen, oder ziehen Sie eine Datei hierher"
+    "ariaLabel": "Datei-Upload-Bereich. Klicke, um eine Datei auszuwählen, oder ziehe eine Datei hierher"
   },
   "fileList": {
     "title": "Dateien",
@@ -69,8 +70,8 @@
     "open": "Öffnen"
   },
   "empty": {
-    "title": "Noch keine Dateien hochgeladen",
-    "subtitle": "Laden Sie Ihre erste Datei hoch, um zu beginnen"
+    "title": "Noch keine Dateien",
+    "subtitle": "Lade deine erste Datei hoch, um zu starten"
   },
   "storage": {
     "usage": "Speichernutzung"
@@ -79,8 +80,8 @@
     "title": "Einstellungen",
     "closeAria": "Einstellungen schließen",
     "r2Title": "Cloudflare R2",
-    "infoTitle": "Konfigurieren Sie Ihren Cloudflare R2 Bucket",
-    "infoDescription": "Sie benötigen Ihre R2-Anmeldedaten aus dem Cloudflare-Dashboard. Alle Daten werden lokal in Ihrem Browser gespeichert.",
+    "infoTitle": "Richten Sie Ihren Cloudflare R2-Speicher ein",
+    "infoDescription": "Sie benötigen Ihre R2-Zugangsdaten aus dem Cloudflare-Dashboard. Keine Sorge, alle Daten werden nur in Ihrem Browser gespeichert.",
     "accountId": "Konto-ID",
     "accountIdPlaceholder": "Ihre Cloudflare-Konto-ID",
     "bucketName": "Bucket-Name",
@@ -93,16 +94,16 @@
     "publicUrlPlaceholder": "https://ihre-domain.com",
     "publicUrlHint": "Benutzerdefinierte Domain für öffentlichen Dateizugriff",
     "storageLimit": "Speicherlimit",
-    "storageLimitHint": "Setzen Sie Ihr monatliches Speicherlimit (Free Tier ist 10 GB)",
+    "storageLimitHint": "Legen Sie Ihr monatliches Speicherlimit fest (Kostenloser Plan: 10 GB)",
     "appearance": "Erscheinungsbild",
     "themeMode": "Themenmodus",
-    "themeModeHint": "Zwischen hellem und dunklem Thema wählen",
+    "themeModeHint": "Wählen Sie zwischen hellem und dunklem Design",
     "light": "Hell",
     "dark": "Dunkel",
     "lightMode": "Heller Modus",
     "darkMode": "Dunkler Modus",
     "highContrast": "Hoher Kontrast",
-    "highContrastHint": "Kontrast für bessere Sichtbarkeit erhöhen",
+    "highContrastHint": "Erhöhen Sie den Kontrast für bessere Sichtbarkeit",
     "highContrastOn": "Hohen Kontrast aktivieren",
     "highContrastOff": "Hohen Kontrast deaktivieren",
     "language": "Sprache",
@@ -111,15 +112,15 @@
     "save": "Einstellungen Speichern",
     "saving": "Wird gespeichert...",
     "requiredFields": "Bitte füllen Sie alle Pflichtfelder aus",
-    "saveSuccess": "Einstellungen erfolgreich gespeichert!",
-    "saveError": "Fehler beim Speichern der Einstellungen",
+    "saveSuccess": "Einstellungen gespeichert!",
+    "saveError": "Speichern fehlgeschlagen",
     "clearData": "Alle Daten löschen",
     "clearDataConfirm": "Sind Sie sicher, dass Sie alle Daten löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
-    "clearDataSuccess": "Alle Daten erfolgreich gelöscht"
+    "clearDataSuccess": "Alle Daten gelöscht"
   },
   "validation": {
-    "required": "Dieses Feld ist erforderlich",
-    "invalidAccountId": "Ungültige Konto-ID (muss 32 Hex-Zeichen lang sein)",
+    "required": "Dieses Feld wird benötigt",
+    "invalidAccountId": "Konto-ID-Format ist falsch (benötigt 32 Hex-Zeichen)",
     "bucketNameLength": "Bucket-Name muss zwischen 3 und 63 Zeichen lang sein",
     "bucketNameChars": "Nur Kleinbuchstaben, Zahlen und Bindestriche erlaubt",
     "bucketNameHyphen": "Bucket-Name darf nicht mit einem Bindestrich beginnen oder enden",
@@ -132,7 +133,7 @@
     "welcome": {
       "title": "Willkommen bei TempBin",
       "subtitle": "Lassen Sie uns Ihren Cloudflare R2-Speicher einrichten.",
-      "start": "Loslegen"
+      "start": "Los geht's"
     },
     "step1": {
       "title": "Konto & Bucket",
@@ -168,21 +169,21 @@
     },
     "step4": {
       "title": "Speicherlimit",
-      "description": "Setzen Sie ein Speicherlimit, um Ihre R2-Nutzung und -Kosten zu verwalten.",
+      "description": "Legen Sie ein Speicherlimit fest, um Ihre R2-Nutzung und Kosten zu verwalten.",
       "instructions": {
         "title": "Über Speicherlimits",
-        "step1": "Cloudflare R2 bietet ein großzügiges kostenloses Kontingent (10 GB/Monat).",
-        "step2": "Setzen Sie hier ein Limit, um gewarnt zu werden, bevor Sie es überschreiten.",
-        "step3": "Dies ist nur eine clientseitige Prüfung und erzwingt keine Limits auf Cloudflare."
+        "step1": "Cloudflare R2 bietet einen großzügigen kostenlosen Plan (10 GB/Monat).",
+        "step2": "Setzen Sie hier ein Limit und wir warnen Sie, bevor Sie es überschreiten.",
+        "step3": "Dies ist nur eine Prüfung im Browser und erzwingt keine Limits bei Cloudflare."
       }
     },
     "step5": {
       "title": "CORS-Einrichtung",
-      "description": "Konfigurieren Sie Cross-Origin Resource Sharing (CORS), um Uploads von dieser Website zu erlauben.",
+      "description": "Richten Sie CORS ein, damit Sie Dateien von dieser Website hochladen können.",
       "instructions": {
-        "title": "CORS einrichten",
+        "title": "So richten Sie CORS ein",
         "step1": "Gehen Sie zu Ihren Bucket-Einstellungen im R2-Dashboard.",
-        "step2": "Suchen Sie den Abschnitt CORS-Richtlinie.",
+        "step2": "Finden Sie den Abschnitt CORS-Richtlinie.",
         "step3": "Kopieren Sie die untenstehende JSON-Konfiguration.",
         "step4": "Fügen Sie sie in den CORS-Richtlinien-Editor ein und speichern Sie."
       },
@@ -191,13 +192,27 @@
       "autoConfigure": "Automatisch Konfigurieren",
       "configuring": "Wird konfiguriert...",
       "checkConfig": "Konfiguration Prüfen",
-      "autoSuccess": "CORS-Konfiguration erfolgreich angewendet!",
+      "autoSuccess": "CORS-Konfiguration angewendet!",
       "autoError": "Fehler beim Anwenden der CORS-Konfiguration",
       "checkSuccess": "CORS-Konfiguration gefunden!",
       "checkNotFound": "Keine CORS-Konfiguration gefunden.",
       "checkError": "Fehler beim Prüfen der CORS-Konfiguration",
       "copy": "Kopieren",
       "pasteHint": "Fügen Sie dies in die CORS-Richtlinieneinstellungen Ihres R2-Buckets ein."
+    },
+    "step6": {
+      "title": "Auto-Lösch-Einstellung",
+      "description": "Richten Sie automatisches Löschen ein, damit Dateien nach 24 Stunden automatisch entfernt werden.",
+      "instructions": {
+        "title": "So richten Sie Auto-Löschen ein",
+        "step1": "Gehen Sie zu Ihren Bucket-Einstellungen im R2-Dashboard.",
+        "step2": "Finden Sie den Abschnitt 'Objekt-Lebenszyklus'.",
+        "step3": "Fügen Sie eine Regel hinzu, die Objekte nach 1 Tag löscht.",
+        "step4": "So werden Dateien auch vom Server gelöscht, wenn Sie die Seite schließen."
+      },
+      "jsonLabel": "Lebenszyklus-Konfigurations-JSON",
+      "copy": "Kopieren",
+      "pasteHint": "Verwenden Sie dies, um die automatische Löschung verwaister Dateien zu konfigurieren."
     },
     "completion": {
       "title": "Alles bereit!",
@@ -217,24 +232,26 @@
     "upload": "Hochladen"
   },
   "limit": {
-    "title": "Speicherlimit überschritten",
-    "message": "Das Hochladen dieser Dateien würde Ihr Speicherlimit überschreiten.",
+    "title": "Speicherlimit fast überschritten",
+    "message": "Wenn Sie diese Dateien hochladen, überschreiten Sie Ihr Speicherlimit.",
     "currentUsage": "Aktuelle Nutzung",
-    "uploadSize": "Upload-Größe",
-    "newTotal": "Neue Summe",
-    "limit": "Limit",
+    "uploadSize": "Dieser Upload",
+    "newTotal": "Gesamt danach",
+    "limit": "Ihr Limit",
     "dontShowAgain": "Heute nicht mehr anzeigen",
     "cancel": "Abbrechen",
     "continue": "Upload Fortsetzen"
   },
   "notifications": {
-    "uploadSuccess": "Datei erfolgreich hochgeladen!",
-    "uploadMultiSuccess": "{{count}} Datei(en) erfolgreich hochgeladen!",
-    "uploadError": "Fehler beim Hochladen der Datei. Bitte überprüfen Sie Ihre R2-Einstellungen.",
-    "deleteSuccess": "Datei erfolgreich gelöscht!",
-    "deleteError": "Fehler beim Löschen der Datei.",
-    "deleteMultiSuccess": "{{count}} Datei(en) erfolgreich gelöscht!",
-    "deleteMultiError": "Fehler beim Löschen der Dateien."
+    "uploadSuccess": "Datei hochgeladen!",
+    "uploadMultiSuccess": "{{count}} Dateien erfolgreich hochgeladen!",
+    "uploadError": "Upload fehlgeschlagen. Bitte überprüfen Sie Ihre R2-Einstellungen.",
+    "deleteSuccess": "Datei gelöscht!",
+    "deleteError": "Löschen fehlgeschlagen.",
+    "deleteMultiSuccess": "{{count}} Dateien erfolgreich gelöscht!",
+    "deleteMultiError": "Löschen fehlgeschlagen.",
+    "duplicateFile": "Doppelte Datei(en) übersprungen.",
+    "fileTooLarge": "Die Datei ist zu groß (max {{size}})."
   },
   "accessibility": {
     "skipToMain": "Zum Hauptinhalt springen",

@@ -1,7 +1,8 @@
 {
+  "_comment": "TODO: Review all translations for user-friendliness and accuracy",
   "app": {
-    "title": "TempBin - Temporary File Sharing with Auto-Expiring Links",
-    "description": "Share files temporarily with auto-expiring links. Upload files and get shareable URLs that automatically delete after 1-10 minutes."
+    "title": "TempBin - Temporary File Sharing",
+    "description": "Share files securely with links that expire automatically"
   },
   "header": {
     "logo": "tempbin",
@@ -14,11 +15,11 @@
   },
   "hero": {
     "title": "Share Files Temporarily",
-    "subtitle": "Upload files and get shareable links that automatically expire in {{minutes}} minute",
-    "subtitle_plural": "Upload files and get shareable links that automatically expire in {{minutes}} minutes"
+    "subtitle": "Upload your files and we'll create a shareable link that expires in {{minutes}} minute",
+    "subtitle_plural": "Upload your files and we'll create a shareable link that expires in {{minutes}} minutes"
   },
   "expiration": {
-    "label": "Files expire in:",
+    "label": "Files expire after:",
     "minutes": "{{count}} minute",
     "minutes_plural": "{{count}} minutes",
     "min1": "1 min",
@@ -26,16 +27,16 @@
     "min10": "10 min"
   },
   "hashFilename": {
-    "label": "Hash File Names",
-    "hint": "Anonymize file names for better privacy",
-    "enabled": "File names will be hashed",
-    "disabled": "Original file names will be used"
+    "label": "Hide Filenames",
+    "hint": "Encrypt filenames to protect your privacy",
+    "enabled": "Filenames will be encrypted",
+    "disabled": "Use original filenames"
   },
   "upload": {
-    "title": "Drop your file here",
-    "subtitle": "or click to browse",
-    "info": "Files expire automatically after {{minutes}} minute",
-    "info_plural": "Files expire automatically after {{minutes}} minutes",
+    "title": "Drag your files here",
+    "subtitle": "or click to select",
+    "info": "Files will expire after {{minutes}} minute",
+    "info_plural": "Files will expire after {{minutes}} minutes",
     "uploading": "Uploading...",
     "ariaLabel": "Upload file area. Click to select a file or drag and drop a file here"
   },
@@ -69,7 +70,7 @@
     "open": "Open"
   },
   "empty": {
-    "title": "No files uploaded yet",
+    "title": "No files yet",
     "subtitle": "Upload your first file to get started"
   },
   "storage": {
@@ -79,8 +80,8 @@
     "title": "Settings",
     "closeAria": "Close settings",
     "r2Title": "Cloudflare R2",
-    "infoTitle": "Configure your Cloudflare R2 bucket",
-    "infoDescription": "You'll need your R2 credentials from the Cloudflare dashboard. All data is stored locally in your browser.",
+    "infoTitle": "Set up your Cloudflare R2 storage",
+    "infoDescription": "You'll need your R2 credentials from the Cloudflare dashboard. Don't worry, all data is stored only in your browser.",
     "accountId": "Account ID",
     "accountIdPlaceholder": "Your Cloudflare account ID",
     "bucketName": "Bucket Name",
@@ -93,10 +94,10 @@
     "publicUrlPlaceholder": "https://your-domain.com",
     "publicUrlHint": "Custom domain for public file access",
     "storageLimit": "Storage Limit",
-    "storageLimitHint": "Set your monthly storage limit (Free Tier is 10 GB)",
+    "storageLimitHint": "Set your monthly storage limit (Free plan: 10 GB)",
     "appearance": "Appearance",
     "themeMode": "Theme Mode",
-    "themeModeHint": "Choose between light and dark theme",
+    "themeModeHint": "Choose light or dark theme",
     "light": "Light",
     "dark": "Dark",
     "lightMode": "Light mode",
@@ -111,27 +112,27 @@
     "save": "Save Settings",
     "saving": "Saving...",
     "requiredFields": "Please fill in all required fields",
-    "saveSuccess": "Settings saved successfully!",
+    "saveSuccess": "Settings saved!",
     "saveError": "Failed to save settings",
     "clearData": "Clear All Data",
     "clearDataConfirm": "Are you sure you want to clear all data? This action cannot be undone.",
-    "clearDataSuccess": "All data cleared successfully"
+    "clearDataSuccess": "All data cleared"
   },
   "validation": {
     "required": "This field is required",
-    "invalidAccountId": "Invalid Account ID (must be 32 hex characters)",
+    "invalidAccountId": "Account ID format is incorrect (needs 32 hex characters)",
     "bucketNameLength": "Bucket name must be between 3 and 63 characters",
     "bucketNameChars": "Only lowercase letters, numbers, and hyphens allowed",
     "bucketNameHyphen": "Bucket name cannot start or end with a hyphen",
-    "invalidAccessKeyId": "Invalid Access Key ID (must be 32 hex characters)",
-    "invalidSecretAccessKey": "Invalid Secret Access Key (must be 64 hex characters)",
-    "invalidUrl": "Invalid URL format",
+    "invalidAccessKeyId": "Access Key ID format is incorrect (needs 32 hex characters)",
+    "invalidSecretAccessKey": "Secret Access Key format is incorrect (needs 64 hex characters)",
+    "invalidUrl": "URL format is incorrect",
     "invalidUrlProtocol": "URL must start with http:// or https://"
   },
   "wizard": {
     "welcome": {
       "title": "Welcome to TempBin",
-      "subtitle": "Let's get you set up with your Cloudflare R2 storage.",
+      "subtitle": "Let's set up your Cloudflare R2 storage.",
       "start": "Get Started"
     },
     "step1": {
@@ -168,21 +169,21 @@
     },
     "step4": {
       "title": "Storage Limit",
-      "description": "Set a storage limit to help manage your R2 usage and costs.",
+      "description": "Set a storage limit to help you manage your R2 usage and costs.",
       "instructions": {
         "title": "About Storage Limits",
-        "step1": "Cloudflare R2 offers a generous free tier (10 GB/month).",
-        "step2": "Set a limit here to get warned before you exceed it.",
-        "step3": "This is a client-side check only and does not enforce limits on Cloudflare."
+        "step1": "Cloudflare R2 offers a generous free plan (10 GB/month).",
+        "step2": "Set a limit here and we'll warn you before you exceed it.",
+        "step3": "This is just a browser-side check and won't enforce limits on Cloudflare."
       }
     },
     "step5": {
       "title": "CORS Setup",
-      "description": "Configure Cross-Origin Resource Sharing (CORS) to allow uploads from this website.",
+      "description": "Configure Cross-Origin Resource Sharing (CORS) so you can upload files from this website.",
       "instructions": {
-        "title": "Setting up CORS",
+        "title": "How to set up CORS",
         "step1": "Go to your bucket settings in the R2 dashboard.",
-        "step2": "Locate the CORS Policy section.",
+        "step2": "Find the CORS Policy section.",
         "step3": "Copy the JSON configuration below.",
         "step4": "Paste it into the CORS Policy editor and save."
       },
@@ -191,13 +192,24 @@
       "autoConfigure": "Configure Automatically",
       "configuring": "Configuring...",
       "checkConfig": "Check Configuration",
-      "autoSuccess": "CORS configuration applied successfully!",
+      "autoSuccess": "CORS configuration applied!",
       "autoError": "Failed to apply CORS configuration",
       "checkSuccess": "CORS configuration found!",
       "checkNotFound": "No CORS configuration found.",
       "checkError": "Error checking CORS configuration",
       "copy": "Copy",
       "pasteHint": "Paste this into your R2 bucket's CORS policy settings."
+    },
+    "step6": {
+      "title": "Auto-Delete Setup",
+      "description": "Set up auto-delete rules so files are automatically removed after 24 hours.",
+      "instructions": {
+        "title": "How to set up auto-delete",
+        "step1": "Go to your bucket settings in the R2 dashboard.",
+        "step2": "Find the 'Object Lifecycle' section.",
+        "step3": "Add a rule to expire objects after 1 day (or your preferred duration).",
+        "step4": "This way, files will be deleted from the server even if you close the page."
+      }
     },
     "completion": {
       "title": "All Set!",
@@ -217,25 +229,26 @@
     "upload": "Upload"
   },
   "limit": {
-    "title": "Storage Limit Exceeded",
+    "title": "Storage Limit About to Be Exceeded",
     "message": "Uploading these files will exceed your storage limit.",
     "currentUsage": "Current Usage",
-    "uploadSize": "Upload Size",
-    "newTotal": "New Total",
-    "limit": "Limit",
-    "dontShowAgain": "Don't show again for today",
+    "uploadSize": "This Upload",
+    "newTotal": "Total After Upload",
+    "limit": "Your Limit",
+    "dontShowAgain": "Don't show again today",
     "cancel": "Cancel",
     "continue": "Continue Upload"
   },
   "notifications": {
-    "uploadSuccess": "File uploaded successfully!",
-    "uploadMultiSuccess": "{{count}} file(s) uploaded successfully!",
-    "uploadError": "Failed to upload file. Please check your R2 settings.",
-    "deleteSuccess": "File deleted successfully!",
+    "uploadSuccess": "File uploaded!",
+    "uploadMultiSuccess": "{{count}} files uploaded successfully!",
+    "uploadError": "Upload failed. Please check your R2 settings.",
+    "deleteSuccess": "File deleted!",
     "deleteError": "Failed to delete file.",
-    "deleteMultiSuccess": "{{count}} file(s) deleted successfully!",
+    "deleteMultiSuccess": "{{count}} files deleted successfully!",
     "deleteMultiError": "Failed to delete files.",
-    "duplicateFile": "Duplicate file(s) skipped."
+    "duplicateFile": "Skipped duplicate file(s).",
+    "fileTooLarge": "File is too large (max {{size}})."
   },
   "accessibility": {
     "skipToMain": "Skip to main content",

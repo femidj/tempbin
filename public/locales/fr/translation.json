@@ -1,7 +1,8 @@
 {
+  "_comment": "TODO: Review all translations for user-friendliness and accuracy",
   "app": {
     "title": "TempBin - Partage de Fichiers Temporaires",
-    "description": "Partagez des fichiers temporairement avec des liens à expiration automatique"
+    "description": "Partagez des fichiers en toute sécurité avec des liens à expiration automatique"
   },
   "header": {
     "logo": "tempbin",
@@ -14,11 +15,11 @@
   },
   "hero": {
     "title": "Partager des Fichiers Temporairement",
-    "subtitle": "Téléchargez des fichiers et obtenez des liens partageables qui expirent automatiquement dans {{minutes}} minute",
-    "subtitle_plural": "Téléchargez des fichiers et obtenez des liens partageables qui expirent automatiquement dans {{minutes}} minutes"
+    "subtitle": "Téléchargez vos fichiers et nous créerons un lien partageable qui expire dans {{minutes}} minute",
+    "subtitle_plural": "Téléchargez vos fichiers et nous créerons un lien partageable qui expire dans {{minutes}} minutes"
   },
   "expiration": {
-    "label": "Les fichiers expirent dans :",
+    "label": "Les fichiers expirent après :",
     "minutes": "{{count}} minute",
     "minutes_plural": "{{count}} minutes",
     "min1": "1 min",
@@ -26,16 +27,16 @@
     "min10": "10 min"
   },
   "hashFilename": {
-    "label": "Hacher les Noms de Fichiers",
-    "hint": "Anonymiser les noms de fichiers pour plus de confidentialité",
-    "enabled": "Les noms de fichiers seront hachés",
-    "disabled": "Les noms de fichiers d'origine seront utilisés"
+    "label": "Masquer les Noms de Fichiers",
+    "hint": "Chiffrez les noms pour protéger votre vie privée",
+    "enabled": "Les noms seront chiffrés",
+    "disabled": "Utiliser les noms d'origine"
   },
   "upload": {
-    "title": "Déposez votre fichier ici",
-    "subtitle": "ou cliquez pour parcourir",
-    "info": "Les fichiers expirent automatiquement après {{minutes}} minute",
-    "info_plural": "Les fichiers expirent automatiquement après {{minutes}} minutes",
+    "title": "Déposez vos fichiers ici",
+    "subtitle": "ou cliquez pour sélectionner",
+    "info": "Les fichiers expirent après {{minutes}} minute",
+    "info_plural": "Les fichiers expirent après {{minutes}} minutes",
     "uploading": "Téléchargement...",
     "ariaLabel": "Zone de téléchargement de fichiers. Cliquez pour sélectionner un fichier ou faites glisser et déposez un fichier ici"
   },
@@ -69,7 +70,7 @@
     "open": "Ouvrir"
   },
   "empty": {
-    "title": "Aucun fichier téléchargé pour le moment",
+    "title": "Aucun fichier pour le moment",
     "subtitle": "Téléchargez votre premier fichier pour commencer"
   },
   "storage": {
@@ -79,8 +80,8 @@
     "title": "Paramètres",
     "closeAria": "Fermer les paramètres",
     "r2Title": "Cloudflare R2",
-    "infoTitle": "Configurez votre bucket Cloudflare R2",
-    "infoDescription": "Vous aurez besoin de vos identifiants R2 depuis le tableau de bord Cloudflare. Toutes les données sont stockées localement dans votre navigateur.",
+    "infoTitle": "Configurez votre stockage Cloudflare R2",
+    "infoDescription": "Vous aurez besoin de vos identifiants R2 depuis le tableau de bord Cloudflare. Ne vous inquiétez pas, toutes les données sont stockées uniquement dans votre navigateur.",
     "accountId": "ID de Compte",
     "accountIdPlaceholder": "Votre ID de compte Cloudflare",
     "bucketName": "Nom du Bucket",
@@ -93,7 +94,7 @@
     "publicUrlPlaceholder": "https://votre-domaine.com",
     "publicUrlHint": "Domaine personnalisé pour l'accès public aux fichiers",
     "storageLimit": "Limite de Stockage",
-    "storageLimitHint": "Définissez votre limite de stockage mensuelle (Niveau Gratuit est de 10 Go)",
+    "storageLimitHint": "Définissez votre limite de stockage mensuelle (Plan gratuit : 10 Go)",
     "appearance": "Apparence",
     "themeMode": "Mode de Thème",
     "themeModeHint": "Choisir entre thème clair et sombre",
@@ -111,21 +112,21 @@
     "save": "Enregistrer les Paramètres",
     "saving": "Enregistrement...",
     "requiredFields": "Veuillez remplir tous les champs requis",
-    "saveSuccess": "Paramètres enregistrés avec succès !",
+    "saveSuccess": "Paramètres enregistrés !",
     "saveError": "Échec de l'enregistrement des paramètres",
     "clearData": "Effacer toutes les données",
     "clearDataConfirm": "Êtes-vous sûr de vouloir effacer toutes les données ? Cette action est irréversible.",
-    "clearDataSuccess": "Toutes les données ont été effacées avec succès"
+    "clearDataSuccess": "Toutes les données ont été effacées"
   },
   "validation": {
-    "required": "Ce champ est requis",
-    "invalidAccountId": "ID de compte invalide (doit comporter 32 caractères hexadécimaux)",
+    "required": "Ce champ est nécessaire",
+    "invalidAccountId": "Le format de l'ID de compte est incorrect (nécessite 32 caractères hexadécimaux)",
     "bucketNameLength": "Le nom du bucket doit comporter entre 3 et 63 caractères",
     "bucketNameChars": "Seuls les lettres minuscules, les chiffres et les traits d'union sont autorisés",
     "bucketNameHyphen": "Le nom du bucket ne peut pas commencer ou se terminer par un trait d'union",
-    "invalidAccessKeyId": "ID de clé d'accès invalide (doit comporter 32 caractères hexadécimaux)",
-    "invalidSecretAccessKey": "Clé d'accès secrète invalide (doit comporter 64 caractères hexadécimaux)",
-    "invalidUrl": "Format d'URL invalide",
+    "invalidAccessKeyId": "Le format de l'ID de clé d'accès est incorrect (nécessite 32 caractères hexadécimaux)",
+    "invalidSecretAccessKey": "Le format de la clé secrète est incorrect (nécessite 64 caractères hexadécimaux)",
+    "invalidUrl": "Le format de l'URL est incorrect",
     "invalidUrlProtocol": "L'URL doit commencer par http:// ou https://"
   },
   "wizard": {
@@ -168,19 +169,19 @@
     },
     "step4": {
       "title": "Limite de Stockage",
-      "description": "Définissez une limite de stockage pour gérer votre utilisation et vos coûts R2.",
+      "description": "Définissez une limite de stockage pour vous aider à gérer votre utilisation et vos coûts R2.",
       "instructions": {
         "title": "À propos des Limites de Stockage",
-        "step1": "Cloudflare R2 offre un niveau gratuit généreux (10 Go/mois).",
-        "step2": "Définissez une limite ici pour être averti avant de la dépasser.",
-        "step3": "Il s'agit uniquement d'une vérification côté client et n'impose pas de limites sur Cloudflare."
+        "step1": "Cloudflare R2 offre un plan gratuit généreux (10 Go/mois).",
+        "step2": "Définissez une limite ici et nous vous avertirons avant de la dépasser.",
+        "step3": "Il s'agit uniquement d'une vérification dans votre navigateur et n'impose pas de limites sur Cloudflare."
       }
     },
     "step5": {
       "title": "Configuration CORS",
-      "description": "Configurez le partage de ressources inter-origines (CORS) pour autoriser les téléchargements depuis ce site web.",
+      "description": "Configurez CORS pour pouvoir télécharger des fichiers depuis ce site web.",
       "instructions": {
-        "title": "Configuration de CORS",
+        "title": "Comment configurer CORS",
         "step1": "Allez dans les paramètres de votre bucket dans le tableau de bord R2.",
         "step2": "Localisez la section Politique CORS.",
         "step3": "Copiez la configuration JSON ci-dessous.",
@@ -191,13 +192,24 @@
       "autoConfigure": "Configurer Automatiquement",
       "configuring": "Configuration...",
       "checkConfig": "Vérifier la Configuration",
-      "autoSuccess": "Configuration CORS appliquée avec succès !",
+      "autoSuccess": "Configuration CORS appliquée !",
       "autoError": "Échec de l'application de la configuration CORS",
       "checkSuccess": "Configuration CORS trouvée !",
       "checkNotFound": "Aucune configuration CORS trouvée.",
       "checkError": "Erreur lors de la vérification de la configuration CORS",
       "copy": "Copier",
       "pasteHint": "Collez ceci dans les paramètres de politique CORS de votre bucket R2."
+    },
+    "step6": {
+      "title": "Configuration de Suppression Automatique",
+      "description": "Configurez la suppression automatique pour que les fichiers soient supprimés automatiquement après 24 heures.",
+      "instructions": {
+        "title": "Comment configurer la suppression automatique",
+        "step1": "Accédez aux paramètres de votre bucket dans le tableau de bord R2.",
+        "step2": "Localisez la section 'Cycle de Vie des Objets'.",
+        "step3": "Ajoutez une règle pour faire expirer les objets après 1 jour (ou votre durée préférée).",
+        "step4": "Ainsi les fichiers seront supprimés du serveur même si vous fermez la page."
+      }
     },
     "completion": {
       "title": "Tout est prêt !",
@@ -217,24 +229,26 @@
     "upload": "Télécharger"
   },
   "limit": {
-    "title": "Limite de Stockage Dépassée",
-    "message": "Le téléchargement de ces fichiers dépassera votre limite de stockage.",
+    "title": "Limite de Stockage Bientôt Dépassée",
+    "message": "Si vous téléchargez ces fichiers, vous dépasserez votre limite de stockage.",
     "currentUsage": "Utilisation Actuelle",
-    "uploadSize": "Taille du Téléchargement",
-    "newTotal": "Nouveau Total",
-    "limit": "Limite",
+    "uploadSize": "Ce Téléchargement",
+    "newTotal": "Total Après",
+    "limit": "Votre Limite",
     "dontShowAgain": "Ne plus afficher aujourd'hui",
     "cancel": "Annuler",
     "continue": "Continuer le Téléchargement"
   },
   "notifications": {
-    "uploadSuccess": "Fichier téléchargé avec succès !",
-    "uploadMultiSuccess": "{{count}} fichier(s) téléchargé(s) avec succès !",
-    "uploadError": "Échec du téléchargement du fichier. Veuillez vérifier vos paramètres R2.",
-    "deleteSuccess": "Fichier supprimé avec succès !",
-    "deleteError": "Échec de la suppression du fichier.",
-    "deleteMultiSuccess": "{{count}} fichier(s) supprimé(s) avec succès !",
-    "deleteMultiError": "Échec de la suppression des fichiers."
+    "uploadSuccess": "Fichier téléchargé !",
+    "uploadMultiSuccess": "{{count}} fichiers téléchargés avec succès !",
+    "uploadError": "Échec du téléchargement. Veuillez vérifier vos paramètres R2.",
+    "deleteSuccess": "Fichier supprimé !",
+    "deleteError": "Échec de la suppression.",
+    "deleteMultiSuccess": "{{count}} fichiers supprimés avec succès !",
+    "deleteMultiError": "Échec de la suppression.",
+    "duplicateFile": "Fichier(s) en double ignoré(s).",
+    "fileTooLarge": "Le fichier est trop volumineux (max {{size}})."
   },
   "accessibility": {
     "skipToMain": "Passer au contenu principal",

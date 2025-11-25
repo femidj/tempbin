@@ -1,7 +1,8 @@
 {
+  "_comment": "TODO: Review all translations for user-friendliness and accuracy",
   "app": {
     "title": "TempBin - 臨時檔案分享",
-    "description": "用自動過期嘅連結嚟分享臨時檔案"
+    "description": "用自動過期嘅連結安全分享檔案"
   },
   "header": {
     "logo": "tempbin",
@@ -14,8 +15,8 @@
   },
   "hero": {
     "title": "臨時分享檔案",
-    "subtitle": "上傳檔案，攞個會喺 {{minutes}} 分鐘後自動過期嘅分享連結",
-    "subtitle_plural": "上傳檔案，攞個會喺 {{minutes}} 分鐘後自動過期嘅分享連結"
+    "subtitle": "上傳檔案，我們會幫你建立個 {{minutes}} 分鐘後過期嘅分享連結",
+    "subtitle_plural": "上傳檔案，我們會幫你建立個 {{minutes}} 分鐘後過期嘅分享連結"
   },
   "expiration": {
     "label": "檔案會喺咁長時間後過期：",
@@ -26,16 +27,16 @@
     "min10": "10 分鐘"
   },
   "hashFilename": {
-    "label": "加密檔案名",
-    "hint": "將檔案名匿名化，保障私隱",
-    "enabled": "檔案名會被加密處理",
-    "disabled": "會用返原本嘅檔案名"
+    "label": "隱藏檔名",
+    "hint": "加密檔名保護你嘅私隱",
+    "enabled": "檔名會被加密",
+    "disabled": "用返原本嘅檔名"
   },
   "upload": {
-    "title": "拖檔案入嚟呢度",
-    "subtitle": "或者撳嚟揀檔案",
-    "info": "檔案會喺 {{minutes}} 分鐘後自動過期",
-    "info_plural": "檔案會喺 {{minutes}} 分鐘後自動過期",
+    "title": "拖檔案入喺呢度",
+    "subtitle": "或者按喺揀檔案",
+    "info": "檔案會喺 {{minutes}} 分鐘後過期",
+    "info_plural": "檔案會喺 {{minutes}} 分鐘後過期",
     "uploading": "上緊傳...",
     "ariaLabel": "上傳檔案區域。撳嚟揀檔案或者將檔案拖入嚟"
   },
@@ -80,7 +81,7 @@
     "closeAria": "閂設定",
     "r2Title": "Cloudflare R2",
     "infoTitle": "設定你嘅 Cloudflare R2 儲存桶",
-    "infoDescription": "你需要喺 Cloudflare 控制台攞 R2 憑證。所有資料都儲存喺你瀏覽器入面。",
+    "infoDescription": "你需要喺 Cloudflare 控制台攞 R2 憑證。所有資料都淨係儲存喺你瀏覽器入面。",
     "accountId": "帳戶 ID",
     "accountIdPlaceholder": "你嘅 Cloudflare 帳戶 ID",
     "bucketName": "儲存桶名",
@@ -172,8 +173,8 @@
       "instructions": {
         "title": "關於儲存空間限制",
         "step1": "Cloudflare R2 提供慷慨嘅免費版（每月 10 GB）。",
-        "step2": "喺呢度設定限制，超過之前會有警告。",
-        "step3": "呢個只係客戶端檢查，唔會喺 Cloudflare 上強制執行限制。"
+        "step2": "喺呢度設定限制，我哋會喺超過之前警告你。",
+        "step3": "呢個只係瀏覽器檢查，唔會喺 Cloudflare 上強制執行限制。"
       }
     },
     "step5": {
@@ -199,6 +200,17 @@
       "copy": "抄",
       "pasteHint": "貼呢個入去你 R2 儲存桶嘅 CORS 原則設定。"
     },
+    "step6": {
+      "title": "生命週期原則",
+      "description": "設定生命週期規則，喺 24 小時後自動刪除檔案。",
+      "instructions": {
+        "title": "設定生命週期規則",
+        "step1": "去 R2 控制台入面嘅儲存桶設定。",
+        "step2": "搵「物件生命週期」部分。",
+        "step3": "加一條規則，令物件喺 1 日後過期（或者你鍾意嘅時長）。",
+        "step4": "咁就確保就算用家閂咗個頁面，檔案都會喺伺服器度刪除。"
+      }
+    },
     "completion": {
       "title": "搞掂晒！",
       "subtitle": "你嘅 R2 儲存空間已經設定好，可以用喇。",
@@ -217,11 +229,11 @@
     "upload": "上傳"
   },
   "limit": {
-    "title": "儲存空間限制超咗",
+    "title": "儲存空間限制快超咗",
     "message": "上傳呢啲檔案會超過你嘅儲存空間限制。",
     "currentUsage": "而家用緊",
-    "uploadSize": "上傳大細",
-    "newTotal": "新嘅總數",
+    "uploadSize": "今次上傳",
+    "newTotal": "上傳後總數",
     "limit": "限制",
     "dontShowAgain": "今日唔好再顯示",
     "cancel": "取消",
@@ -234,7 +246,9 @@
     "deleteSuccess": "檔案刪咗！",
     "deleteError": "刪除檔案失敗。",
     "deleteMultiSuccess": "已經刪咗 {{count}} 個檔案！",
-    "deleteMultiError": "刪除檔案失敗。"
+    "deleteMultiError": "刪除檔案失敗。",
+    "duplicateFile": "已經跳過重複檔案。",
+    "fileTooLarge": "檔案太大（最大 {{size}}）。"
   },
   "accessibility": {
     "skipToMain": "跳去主要內容",

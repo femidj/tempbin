@@ -1,7 +1,8 @@
 {
+  "_comment": "TODO: Review all translations for user-friendliness and accuracy",
   "app": {
     "title": "TempBin - 临时文件分享",
-    "description": "使用自动过期链接分享临时文件"
+    "description": "使用自动过期链接安全分享文件"
   },
   "header": {
     "logo": "tempbin",
@@ -14,8 +15,8 @@
   },
   "hero": {
     "title": "临时分享文件",
-    "subtitle": "上传文件并获得会在 {{minutes}} 分钟后自动过期的分享链接",
-    "subtitle_plural": "上传文件并获得会在 {{minutes}} 分钟后自动过期的分享链接"
+    "subtitle": "上传文件，我们会创建一个 {{minutes}} 分钟后过期的分享链接",
+    "subtitle_plural": "上传文件，我们会创建一个 {{minutes}} 分钟后过期的分享链接"
   },
   "expiration": {
     "label": "文件将在以下时间后过期：",
@@ -26,16 +27,16 @@
     "min10": "10 分钟"
   },
   "hashFilename": {
-    "label": "哈希文件名",
-    "hint": "匿名化文件名以提高隐私性",
-    "enabled": "文件名将被哈希处理",
-    "disabled": "将使用原始文件名"
+    "label": "隐藏文件名",
+    "hint": "加密文件名保护您的隐私",
+    "enabled": "文件名将被加密",
+    "disabled": "使用原始文件名"
   },
   "upload": {
-    "title": "将文件拖放到此处",
-    "subtitle": "或点击浏览",
-    "info": "文件会在 {{minutes}} 分钟后自动过期",
-    "info_plural": "文件会在 {{minutes}} 分钟后自动过期",
+    "title": "拖动文件到这里",
+    "subtitle": "或点击选择",
+    "info": "文件将在 {{minutes}} 分钟后过期",
+    "info_plural": "文件将在 {{minutes}} 分钟后过期",
     "uploading": "正在上传...",
     "ariaLabel": "上传文件区域。点击选择文件或将文件拖放到此处"
   },
@@ -80,7 +81,7 @@
     "closeAria": "关闭设置",
     "r2Title": "Cloudflare R2",
     "infoTitle": "配置您的 Cloudflare R2 存储桶",
-    "infoDescription": "您需要从 Cloudflare 控制台获取 R2 凭证。所有数据都存储在您的浏览器本地。",
+    "infoDescription": "您需要从 Cloudflare 控制台获取 R2 凭证。所有数据都只存储在您的浏览器中。",
     "accountId": "账户 ID",
     "accountIdPlaceholder": "您的 Cloudflare 账户 ID",
     "bucketName": "存储桶名称",
@@ -167,13 +168,13 @@
       }
     },
     "step4": {
-      "title": "Storage Limit",
-      "description": "Set a storage limit to help manage your R2 usage and costs.",
+      "title": "存储限制",
+      "description": "设置存储限制以帮助管理您的 R2 使用情况和成本。",
       "instructions": {
-        "title": "About Storage Limits",
-        "step1": "Cloudflare R2 offers a generous free tier (10 GB/month).",
-        "step2": "Set a limit here to get warned before you exceed it.",
-        "step3": "This is a client-side check only and does not enforce limits on Cloudflare."
+        "title": "关于存储限制",
+        "step1": "Cloudflare R2 提供慷慨的免费套餐（每月 10 GB）。",
+        "step2": "在此设置限制，我们会在超出之前提醒您。",
+        "step3": "这只是浏览器端的检查，不会在 Cloudflare 上强制执行限制。"
       }
     },
     "step5": {
@@ -199,6 +200,17 @@
       "copy": "复制",
       "pasteHint": "将其粘贴到您的 R2 存储桶的 CORS 策略设置中。"
     },
+    "step6": {
+      "title": "生命周期策略",
+      "description": "配置生命周期规则以在 24 小时后自动删除文件。",
+      "instructions": {
+        "title": "设置生命周期规则",
+        "step1": "前往 R2 仪表板中的存储桶设置。",
+        "step2": "找到"对象生命周期"部分。",
+        "step3": "添加一条规则，使对象在 1 天后过期（或您喜欢的持续时间）。",
+        "step4": "这确保即使用户关闭页面，文件也会从服务器中删除。"
+      }
+    },
     "completion": {
       "title": "设置完成！",
       "subtitle": "您的 R2 存储已配置并准备就绪。",
@@ -217,11 +229,11 @@
     "upload": "上传"
   },
   "limit": {
-    "title": "存储限制已超出",
+    "title": "存储限制即将超出",
     "message": "上传这些文件将超出您的存储限制。",
     "currentUsage": "当前使用量",
-    "uploadSize": "上传大小",
-    "newTotal": "新总量",
+    "uploadSize": "本次上传",
+    "newTotal": "上传后总量",
     "limit": "限制",
     "dontShowAgain": "今天不再显示",
     "cancel": "取消",
@@ -234,7 +246,9 @@
     "deleteSuccess": "文件删除成功！",
     "deleteError": "删除文件失败。",
     "deleteMultiSuccess": "已成功删除 {{count}} 个文件！",
-    "deleteMultiError": "删除文件失败。"
+    "deleteMultiError": "删除文件失败。",
+    "duplicateFile": "已跳过重复文件。",
+    "fileTooLarge": "文件太大（最大 {{size}}）。"
   },
   "accessibility": {
     "skipToMain": "跳至主要内容",

@@ -1,7 +1,8 @@
 {
+  "_comment": "TODO: Review all translations for user-friendliness and accuracy",
   "app": {
     "title": "TempBin - 一時的なファイル共有",
-    "description": "自動期限切れリンクで一時的にファイルを共有"
+    "description": "自動期限切れリンクで安全にファイルを共有"
   },
   "header": {
     "logo": "tempbin",
@@ -14,8 +15,8 @@
   },
   "hero": {
     "title": "一時的にファイルを共有",
-    "subtitle": "ファイルをアップロードして、{{minutes}}分後に自動的に期限切れになる共有リンクを取得",
-    "subtitle_plural": "ファイルをアップロードして、{{minutes}}分後に自動的に期限切れになる共有リンクを取得"
+    "subtitle": "ファイルをアップロードしていただくと、{{minutes}}分後に期限切れになる共有リンクを作成します",
+    "subtitle_plural": "ファイルをアップロードしていただくと、{{minutes}}分後に期限切れになる共有リンクを作成します"
   },
   "expiration": {
     "label": "ファイルの有効期限：",
@@ -26,16 +27,16 @@
     "min10": "10 分"
   },
   "hashFilename": {
-    "label": "ファイル名をハッシュ化",
-    "hint": "プライバシー向上のためファイル名を匿名化",
-    "enabled": "ファイル名がハッシュ化されます",
-    "disabled": "元のファイル名が使用されます"
+    "label": "ファイル名を隠す",
+    "hint": "ファイル名を暗号化してプライバシーを保護",
+    "enabled": "ファイル名が暗号化されます",
+    "disabled": "元のファイル名を使用"
   },
   "upload": {
-    "title": "ファイルをここにドロップ",
-    "subtitle": "またはクリックして参照",
-    "info": "ファイルは{{minutes}}分後に自動的に期限切れになります",
-    "info_plural": "ファイルは{{minutes}}分後に自動的に期限切れになります",
+    "title": "ファイルをここにドラッグ",
+    "subtitle": "またはクリックして選択",
+    "info": "ファイルは{{minutes}}分後に期限切れになります",
+    "info_plural": "ファイルは{{minutes}}分後に期限切れになります",
     "uploading": "アップロード中...",
     "ariaLabel": "ファイルアップロードエリア。クリックしてファイルを選択するか、ここにファイルをドラッグアンドドロップしてください"
   },
@@ -69,7 +70,7 @@
     "open": "開く"
   },
   "empty": {
-    "title": "まだファイルがアップロードされていません",
+    "title": "まだファイルがありません",
     "subtitle": "最初のファイルをアップロードして始めましょう"
   },
   "storage": {
@@ -79,8 +80,8 @@
     "title": "設定",
     "closeAria": "設定を閉じる",
     "r2Title": "Cloudflare R2",
-    "infoTitle": "Cloudflare R2 バケットを設定",
-    "infoDescription": "Cloudflareダッシュボードから R2 認証情報が必要です。すべてのデータはブラウザにローカルに保存されます。",
+    "infoTitle": "Cloudflare R2 ストレージを設定",
+    "infoDescription": "Cloudflareダッシュボードから R2 認証情報が必要です。ご安心ください、すべてのデータはお使いのブラウザにのみ保存されます。",
     "accountId": "アカウントID",
     "accountIdPlaceholder": "CloudflareアカウントID",
     "bucketName": "バケット名",
@@ -93,7 +94,7 @@
     "publicUrlPlaceholder": "https://your-domain.com",
     "publicUrlHint": "公開ファイルアクセス用のカスタムドメイン",
     "storageLimit": "ストレージ制限",
-    "storageLimitHint": "月間ストレージ制限を設定（無料プランは10 GB）",
+    "storageLimitHint": "月間ストレージ上限を設定（無料プラン：10 GB）",
     "appearance": "外観",
     "themeMode": "テーマモード",
     "themeModeHint": "ライトテーマとダークテーマから選択",
@@ -111,15 +112,15 @@
     "save": "設定を保存",
     "saving": "保存中...",
     "requiredFields": "すべての必須フィールドを入力してください",
-    "saveSuccess": "設定が正常に保存されました！",
+    "saveSuccess": "設定を保存しました！",
     "saveError": "設定の保存に失敗しました",
     "clearData": "すべてのデータを消去",
     "clearDataConfirm": "すべてのデータを消去してもよろしいですか？この操作は取り消せません。",
-    "clearDataSuccess": "すべてのデータが正常に消去されました"
+    "clearDataSuccess": "すべてのデータを消去しました"
   },
   "validation": {
     "required": "このフィールドは必須です",
-    "invalidAccountId": "無効なアカウントID（32文字の16進数である必要があります）",
+    "invalidAccountId": "アカウントIDの形式が正しくありません（32文字の16進数が必要です）",
     "bucketNameLength": "バケット名は3〜63文字である必要があります",
     "bucketNameChars": "小文字、数字、ハイフンのみ使用可能です",
     "bucketNameHyphen": "バケット名はハイフンで開始または終了できません",
@@ -199,6 +200,20 @@
       "copy": "コピー",
       "pasteHint": "これをR2バケットのCORSポリシー設定に貼り付けてください。"
     },
+    "step6": {
+      "title": "ライフサイクルポリシー",
+      "description": "1日以上経過したファイルを自動的に削除するセーフティネットを設定します。",
+      "instructions": {
+        "title": "ライフサイクルポリシーの設定",
+        "step1": "R2ダッシュボードでバケット設定に移動します。",
+        "step2": "オブジェクトライフサイクルポリシーセクションを見つけます。",
+        "step3": "オブジェクトを1日後に期限切れにするルールを追加します。",
+        "step4": "または、サポートされている場合は以下のJSONを使用してください。"
+      },
+      "jsonLabel": "ライフサイクル設定JSON",
+      "copy": "コピー",
+      "pasteHint": "孤立したファイルの自動削除を設定するために使用します。"
+    },
     "completion": {
       "title": "準備完了！",
       "subtitle": "R2ストレージの設定が完了し、使用準備が整いました。",
@@ -234,7 +249,9 @@
     "deleteSuccess": "ファイルが正常に削除されました！",
     "deleteError": "ファイルの削除に失敗しました。",
     "deleteMultiSuccess": "{{count}}個のファイルが正常に削除されました！",
-    "deleteMultiError": "ファイルの削除に失敗しました。"
+    "deleteMultiError": "ファイルの削除に失敗しました。",
+    "duplicateFile": "重複したファイルはスキップされました。",
+    "fileTooLarge": "ファイルが大きすぎます（最大 {{size}}）。"
   },
   "accessibility": {
     "skipToMain": "メインコンテンツへスキップ",

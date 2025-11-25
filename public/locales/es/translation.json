@@ -1,7 +1,8 @@
 {
+  "_comment": "TODO: Review all translations for user-friendliness and accuracy",
   "app": {
     "title": "TempBin - Compartir Archivos Temporales",
-    "description": "Comparte archivos temporalmente con enlaces que expiran automáticamente"
+    "description": "Comparta archivos de forma segura con enlaces que expiran automáticamente"
   },
   "header": {
     "logo": "tempbin",
@@ -13,12 +14,12 @@
     "darkMode": "Cambiar a modo oscuro"
   },
   "hero": {
-    "title": "Compartir Archivos Temporalmente",
-    "subtitle": "Sube archivos y obtén enlaces para compartir que expiran automáticamente en {{minutes}} minuto",
-    "subtitle_plural": "Sube archivos y obtén enlaces para compartir que expiran automáticamente en {{minutes}} minutos"
+    "title": "Comparta Archivos Temporalmente",
+    "subtitle": "Suba sus archivos y crearemos un enlace para compartir que expira en {{minutes}} minuto",
+    "subtitle_plural": "Suba sus archivos y crearemos un enlace para compartir que expira en {{minutes}} minutos"
   },
   "expiration": {
-    "label": "Los archivos expiran en:",
+    "label": "Los archivos expiran después de:",
     "minutes": "{{count}} minuto",
     "minutes_plural": "{{count}} minutos",
     "min1": "1 min",
@@ -26,18 +27,18 @@
     "min10": "10 min"
   },
   "hashFilename": {
-    "label": "Cifrar Nombres de Archivos",
-    "hint": "Anonimizar nombres de archivos para mejor privacidad",
-    "enabled": "Los nombres de archivos serán cifrados",
-    "disabled": "Se usarán los nombres originales"
+    "label": "Ocultar Nombres de Archivos",
+    "hint": "Cifre los nombres para proteger su privacidad",
+    "enabled": "Los nombres serán cifrados",
+    "disabled": "Usar nombres originales"
   },
   "upload": {
-    "title": "Suelta tu archivo aquí",
-    "subtitle": "o haz clic para explorar",
-    "info": "Los archivos expiran automáticamente después de {{minutes}} minuto",
-    "info_plural": "Los archivos expiran automáticamente después de {{minutes}} minutos",
+    "title": "Arrastre sus archivos aquí",
+    "subtitle": "o haga clic para seleccionar",
+    "info": "Los archivos expiran después de {{minutes}} minuto",
+    "info_plural": "Los archivos expiran después de {{minutes}} minutos",
     "uploading": "Subiendo...",
-    "ariaLabel": "Área de carga de archivos. Haz clic para seleccionar un archivo o arrastra y suelta un archivo aquí"
+    "ariaLabel": "Área de carga de archivos. Haga clic para seleccionar un archivo o arrastre y suelte un archivo aquí"
   },
   "fileList": {
     "title": "Archivos",
@@ -69,8 +70,8 @@
     "open": "Abrir"
   },
   "empty": {
-    "title": "Aún no hay archivos subidos",
-    "subtitle": "Sube tu primer archivo para comenzar"
+    "title": "Aún no hay archivos",
+    "subtitle": "Suba su primer archivo para comenzar"
   },
   "storage": {
     "usage": "Uso de Almacenamiento"
@@ -79,24 +80,24 @@
     "title": "Configuración",
     "closeAria": "Cerrar configuración",
     "r2Title": "Cloudflare R2",
-    "infoTitle": "Configura tu bucket de Cloudflare R2",
-    "infoDescription": "Necesitarás tus credenciales de R2 del panel de Cloudflare. Todos los datos se almacenan localmente en tu navegador.",
+    "infoTitle": "Configure su almacenamiento Cloudflare R2",
+    "infoDescription": "Necesitará sus credenciales de R2 del panel de Cloudflare. No se preocupe, todos los datos se guardan solo en su navegador.",
     "accountId": "ID de Cuenta",
-    "accountIdPlaceholder": "Tu ID de cuenta de Cloudflare",
+    "accountIdPlaceholder": "Su ID de cuenta de Cloudflare",
     "bucketName": "Nombre del Bucket",
     "bucketNamePlaceholder": "mi-bucket",
     "accessKeyId": "ID de Clave de Acceso",
-    "accessKeyIdPlaceholder": "Tu ID de clave de acceso R2",
+    "accessKeyIdPlaceholder": "Su ID de clave de acceso R2",
     "secretAccessKey": "Clave de Acceso Secreta",
-    "secretAccessKeyPlaceholder": "Tu clave de acceso secreta R2",
+    "secretAccessKeyPlaceholder": "Su clave de acceso secreta R2",
     "publicUrl": "URL Pública (Opcional)",
-    "publicUrlPlaceholder": "https://tu-dominio.com",
+    "publicUrlPlaceholder": "https://su-dominio.com",
     "publicUrlHint": "Dominio personalizado para acceso público a archivos",
     "storageLimit": "Límite de Almacenamiento",
-    "storageLimitHint": "Establezca su límite de almacenamiento mensual (Nivel Gratuito es 10 GB)",
+    "storageLimitHint": "Establezca su límite de almacenamiento mensual (Plan gratuito: 10 GB)",
     "appearance": "Apariencia",
     "themeMode": "Modo de Tema",
-    "themeModeHint": "Elige entre tema claro y oscuro",
+    "themeModeHint": "Elija entre tema claro y oscuro",
     "light": "Claro",
     "dark": "Oscuro",
     "lightMode": "Modo claro",
@@ -106,33 +107,33 @@
     "highContrastOn": "Activar Alto Contraste",
     "highContrastOff": "Desactivar Alto Contraste",
     "language": "Idioma",
-    "languageHint": "Elige tu idioma preferido",
+    "languageHint": "Elija su idioma preferido",
     "cancel": "Cancelar",
     "save": "Guardar Configuración",
     "saving": "Guardando...",
-    "requiredFields": "Por favor completa todos los campos requeridos",
-    "saveSuccess": "¡Configuración guardada exitosamente!",
+    "requiredFields": "Por favor complete todos los campos requeridos",
+    "saveSuccess": "¡Configuración guardada!",
     "saveError": "Error al guardar la configuración",
     "clearData": "Borrar todos los datos",
-    "clearDataConfirm": "¿Estás seguro de que quieres borrar todos los datos? Esta acción no se puede deshacer.",
-    "clearDataSuccess": "Todos los datos borrados exitosamente"
+    "clearDataConfirm": "¿Está seguro de que desea borrar todos los datos? Esta acción no se puede deshacer.",
+    "clearDataSuccess": "Todos los datos borrados"
   },
   "validation": {
-    "required": "Este campo es obligatorio",
-    "invalidAccountId": "ID de cuenta inválido (debe tener 32 caracteres hexadecimales)",
+    "required": "Este campo es necesario",
+    "invalidAccountId": "El formato del ID de cuenta es incorrecto (necesita 32 caracteres hexadecimales)",
     "bucketNameLength": "El nombre del bucket debe tener entre 3 y 63 caracteres",
     "bucketNameChars": "Solo se permiten letras minúsculas, números y guiones",
     "bucketNameHyphen": "El nombre del bucket no puede comenzar ni terminar con un guion",
-    "invalidAccessKeyId": "ID de clave de acceso inválido (debe tener 32 caracteres hexadecimales)",
-    "invalidSecretAccessKey": "Clave de acceso secreta inválida (debe tener 64 caracteres hexadecimales)",
-    "invalidUrl": "Formato de URL inválido",
+    "invalidAccessKeyId": "El formato del ID de clave de acceso es incorrecto (necesita 32 caracteres hexadecimales)",
+    "invalidSecretAccessKey": "El formato de la clave secreta es incorrecto (necesita 64 caracteres hexadecimales)",
+    "invalidUrl": "El formato de la URL es incorrecto",
     "invalidUrlProtocol": "La URL debe comenzar con http:// o https://"
   },
   "wizard": {
     "welcome": {
       "title": "Bienvenido a TempBin",
       "subtitle": "Configuremos su almacenamiento Cloudflare R2.",
-      "start": "Comenzar"
+      "start": "Empezar"
     },
     "step1": {
       "title": "Cuenta y Bucket",
@@ -168,19 +169,19 @@
     },
     "step4": {
       "title": "Límite de Almacenamiento",
-      "description": "Establezca un límite de almacenamiento para ayudar a gestionar el uso y costos de R2.",
+      "description": "Establezca un límite de almacenamiento para ayudarle a gestionar el uso y costos de R2.",
       "instructions": {
         "title": "Acerca de los Límites de Almacenamiento",
-        "step1": "Cloudflare R2 ofrece un generoso nivel gratuito (10 GB/mes).",
-        "step2": "Establezca un límite aquí para recibir advertencias antes de excederlo.",
-        "step3": "Esta es solo una verificación del lado del cliente y no impone límites en Cloudflare."
+        "step1": "Cloudflare R2 ofrece un generoso plan gratuito (10 GB/mes).",
+        "step2": "Establezca un límite aquí y le avisaremos antes de que lo exceda.",
+        "step3": "Esta es solo una verificación en su navegador y no impone límites en Cloudflare."
       }
     },
     "step5": {
       "title": "Configuración de CORS",
-      "description": "Configure el Intercambio de Recursos de Origen Cruzado (CORS) para permitir subidas desde este sitio web.",
+      "description": "Configura CORS para que puedas subir archivos desde este sitio web.",
       "instructions": {
-        "title": "Configurando CORS",
+        "title": "Cómo configurar CORS",
         "step1": "Vaya a la configuración de su bucket en el panel de R2.",
         "step2": "Localice la sección de Política CORS.",
         "step3": "Copie la configuración JSON a continuación.",
@@ -191,13 +192,24 @@
       "autoConfigure": "Configurar Automáticamente",
       "configuring": "Configurando...",
       "checkConfig": "Verificar Configuración",
-      "autoSuccess": "¡Configuración CORS aplicada exitosamente!",
+      "autoSuccess": "¡Configuración CORS aplicada!",
       "autoError": "Error al aplicar la configuración CORS",
       "checkSuccess": "¡Configuración CORS encontrada!",
       "checkNotFound": "No se encontró configuración CORS.",
       "checkError": "Error al verificar la configuración CORS",
       "copy": "Copiar",
-      "pasteHint": "Pega esto en la configuración de la política CORS de tu bucket R2."
+      "pasteHint": "Pegue esto en la configuración de la política CORS de su bucket R2."
+    },
+    "step6": {
+      "title": "Configuración de Auto-Eliminación",
+      "description": "Configure reglas de auto-eliminación para que los archivos se eliminen automáticamente después de 24 horas.",
+      "instructions": {
+        "title": "Cómo configurar auto-eliminación",
+        "step1": "Vaya a la configuración de su bucket en el panel de R2.",
+        "step2": "Busque la sección 'Ciclo de Vida de Objetos'.",
+        "step3": "Agregue una regla para que los objetos expiren después de 1 día (o su duración preferida).",
+        "step4": "Así los archivos se eliminarán del servidor incluso si cierra la página."
+      }
     },
     "completion": {
       "title": "¡Todo listo!",
@@ -217,12 +229,12 @@
     "upload": "Subir"
   },
   "limit": {
-    "title": "Límite de Almacenamiento Excedido",
-    "message": "Subir estos archivos excederá su límite de almacenamiento.",
+    "title": "Límite de Almacenamiento Casi Excedido",
+    "message": "Si sube estos archivos, excederá su límite de almacenamiento.",
     "currentUsage": "Uso Actual",
-    "uploadSize": "Tamaño de Carga",
-    "newTotal": "Nuevo Total",
-    "limit": "Límite",
+    "uploadSize": "Esta Carga",
+    "newTotal": "Total Después",
+    "limit": "Su Límite",
     "dontShowAgain": "No mostrar de nuevo hoy",
     "cancel": "Cancelar",
     "continue": "Continuar Carga"
@@ -230,11 +242,13 @@
   "notifications": {
     "uploadSuccess": "¡Archivo subido exitosamente!",
     "uploadMultiSuccess": "¡{{count}} archivo(s) subido(s) exitosamente!",
-    "uploadError": "Error al subir el archivo. Por favor verifica tu configuración de R2.",
+    "uploadError": "Error al subir el archivo. Por favor verifique su configuración de R2.",
     "deleteSuccess": "¡Archivo eliminado exitosamente!",
     "deleteError": "Error al eliminar el archivo.",
     "deleteMultiSuccess": "¡{{count}} archivo(s) eliminado(s) exitosamente!",
-    "deleteMultiError": "Error al eliminar archivos."
+    "deleteMultiError": "Error al eliminar archivos.",
+    "duplicateFile": "Archivo(s) duplicado(s) omitido(s).",
+    "fileTooLarge": "El archivo es demasiado grande (máx {{size}})."
   },
   "accessibility": {
     "skipToMain": "Saltar al contenido principal",
